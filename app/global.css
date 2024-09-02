@@ -248,6 +248,39 @@
   }
 }
 
+/* global.css */
+
+.staggered-element {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animate-loaded .staggered-element {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-loaded .staggered-element:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.animate-loaded .staggered-element:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.animate-loaded .staggered-element:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.animate-loaded .staggered-element:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+.orange {
+  color: #D9730D;
+}
+
 /* Adjust body padding for fixed navbar */
 body {
   padding-top: 16rem; /* Adjust to match the height of your fixed navbar */
