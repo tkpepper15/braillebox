@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Layout and container */
+.fixed-nav {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.h-16 {
+  height: 4rem;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.pt-16 {
+  padding-top: 4rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.max-w-4xl {
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+/* Typography */
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #fff;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #fff;
+}
+
+/* Grid and layout */
+.grid {
+  display: grid;
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.sm\:grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.lg\:grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.rounded-md {
+  border-radius: 0.375rem;
+}
+
+/* Links and buttons */
+.custom-link {
+  display: inline-block;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border: 2px solid #9ad962;
+}
+
+.custom-link:hover {
+  background-color: #9ad962;
+}
+
+.bg-black {
+  background-color: #000;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.transition {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover\:bg-green-500:hover {
+  background-color: #38a169;
+}
+
+.hover\:text-green-500:hover {
+  color: #38a169;
+}
+
+/* Custom hover effect */
+.custom-hover {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.custom-hover:hover {
+  transform: translateX(1px);
+  background-color: rgba(157, 217, 101, 0.2);
+}
+
+@media (prefers-reduced-motion) {
+  .custom-hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .card {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+}
+
+/* Adjust body padding for fixed navbar */
+body {
+  padding-top: 14rem; /* Adjust to match the height of your fixed navbar */
+  background: black;
+}
