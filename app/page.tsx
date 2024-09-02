@@ -29,12 +29,26 @@ const Home: React.FC = () => {
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
         <Navbar />
         <main className="flex flex-col items-center justify-start pt-16 px-6 lg:px-0 text-white">
-          <section className="text-center max-w-4xl mx-auto mb-8">
-            <h1 className="mb-4 text-4xl font-bold">Let&apos;s Reduce Emissions</h1>
+          <section className="mt-24 text-center max-w-4xl mx-auto mb-8">
+            <h1 className="mb-4 text-4xl font-bold">Let&apos;s Empower Low-Vision Individuals</h1>
             <p className="text-lg">
-              We aim to shut down abandoned wells that spew metric tons of methane—which is 28X as potent as carbon dioxide—each year.
+            This $77 device allows individuals with visual impairments to access physical text, books, and scenes effortlessly.
             </p>
           </section>
+          <div className="flex items-center">
+          <img
+            src="/braillebox_topdown.png"
+            alt="BrailleBox_TopDown"
+            className="h-40 w-auto mb-4"
+          />
+          </div>
+          <div className="flex items-center">
+          <img
+            src="/braille.png"
+            alt="BrailleBox"
+            className="h-10 w-auto mb-4"
+          />
+          </div>
           <a
             href="https://www.instagram.com/youth_climate_initiative/"
             className="custom-link flex items-center justify-start"
