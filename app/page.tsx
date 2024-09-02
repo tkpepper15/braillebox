@@ -29,7 +29,7 @@ const Home: React.FC = () => {
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
         <Navbar />
         <main className="flex flex-col items-center justify-start pt-16 px-6 lg:px-0 text-white">
-          <section className="mt-24 text-center max-w-4xl mx-auto mb-8">
+          <section className="mt-40 text-center max-w-4xl mx-auto mb-8">
             <h1 className="mb-4 text-4xl font-bold">Let&apos;s Empower Low-Vision Individuals</h1>
             <p className="text-lg">
             This $77 device allows individuals with visual impairments to access physical text, books, and scenes effortlessly.
@@ -50,14 +50,15 @@ const Home: React.FC = () => {
           />
           </div>
           <a
-            href="https://www.instagram.com/youth_climate_initiative/"
+            href="https://richard-shan.github.io/conrad/#video"
             className="custom-link flex items-center justify-start"
             target="_blank"
             rel="noopener noreferrer"
             style={{ justifyContent: 'flex-start' }} // Align contents to the left
           >
-            <h2 className="mb-2 text-2xl font-semibold">Keep Up</h2>
-            <p className="text-sm">Stay up to date with our mission through our social media.</p>
+            <h2 className="mb-2 text-2xl font-semibold">See BrailleBox in Action</h2>
+            <p className="text-sm">
+            Extract Text → Map Text to Braille → Display Braille</p>
           </a>
         </main>
       </div>

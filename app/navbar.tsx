@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="w-full fixed top-0 left-0 z-10 bg-black bg-opacity-50 backdrop-blur-lg shadow-lg h-16 flex justify-between items-center px-6">
+    <header className="navbar">
       <div className="flex items-center">
         {/* Only show the logo on desktop and not in mobile menu */}
         <a href="/" className={`flex items-center ${isOpen ? 'hidden' : 'block'}`}>
@@ -25,14 +25,13 @@ const Navbar: React.FC = () => {
         <nav className="hidden md:flex items-center space-x-6">
           <a href="/learn" className="custom-link1">Learn</a>
           <a href="/contact" className="custom-link1">Contact</a>
-          <a href="/join" className="custom-link1">Join</a>
           <a
-            href="https://donorbox.org/youth-climate-initiative-yci-plugs-allen-30-an-orphan-oil-well-in-montana?t=updates#info"
+            href="https://richard-shan.github.io/conrad/"
             target="_blank"
             rel="noopener noreferrer"
             className="custom-link1"
           >
-            <span>Donate</span>
+            <span>Docs</span>
           </a>
         </nav>
         
@@ -55,16 +54,15 @@ const Navbar: React.FC = () => {
       {/* Mobile Menu */}
       <div className={`custom-menu ${isOpen ? 'show' : 'hidden'} md:hidden`}>
         <nav className="space-y-4">
-          <a href="/learn" className="custom-link">Learn</a>
-          <a href="/contact" className="custom-link">Contact</a>
-          <a href="/join" className="custom-link">Join</a>
+          <a href="/learn" className="custom-link2">Learn</a>
+          <a href="/contact" className="custom-link2">Contact</a>
           <a
-            href="https://donorbox.org/youth-climate-initiative-yci-plugs-allen-30-an-orphan-oil-well-in-montana?t=updates#info"
+            href="https://richard-shan.github.io/conrad/"
             target="_blank"
             rel="noopener noreferrer"
-            className="custom-link"
+            className="custom-link2"
           >
-            <span>Donate</span>
+            <span>Docs</span>
           </a>
         </nav>
       </div>

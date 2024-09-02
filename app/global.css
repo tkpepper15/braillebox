@@ -10,6 +10,24 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color:  #191919;
+  backdrop-filter: blur(10px); /* backdrop-blur-lg */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
+  height: 4rem; /* h-16 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1.5rem; /* px-6 */
+  padding-right: 1.5rem; /* px-6 */
+}
+
+
 .h-16 {
   height: 4rem;
 }
@@ -155,6 +173,17 @@
 .custom-link1:hover {
   color: #D9730D;
 }
+
+.custom-link2 {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.custom-link2:hover {
+  color: #D9730D;
+}
+
 .bg-black {
   background-color: #000;
 }
@@ -221,6 +250,6 @@
 
 /* Adjust body padding for fixed navbar */
 body {
-  padding-top: 14rem; /* Adjust to match the height of your fixed navbar */
-  background: black;
+  padding-top: 16rem; /* Adjust to match the height of your fixed navbar */
+  background: #191919;
 }
