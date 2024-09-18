@@ -33,7 +33,7 @@ const Home: React.FC = () => {
       {/* Overlay content */}
       <div className={`absolute inset-0 flex flex-col items-center justify-center z-10 ${isLoaded ? 'animate-loaded' : ''}`}>
         <Navbar />
-        <main className="flex flex-col items-center justify-start pt-16 px-6 lg:px-0 text-white">
+        <main className="flex flex-col items-center justify-start pt-24 px-6 lg:px-0 text-white">
           <section className="mt-40 text-center max-w-4xl mx-auto mb-8">
             <h1 className="mb-4 text-4xl font-bold staggered-element">Let&apos;s Empower Low-Vision Individuals</h1>
             <p className="text-lg staggered-element">
@@ -44,7 +44,7 @@ const Home: React.FC = () => {
             <img
               src="/braillebox_topdown.png"
               alt="BrailleBox_TopDown"
-              className="h-60 w-auto mb-4"
+              className="h-auto w-full max-w-xl mb-4" // Maintain aspect ratio and set max width
             />
           </div>
           <div className="flex items-center staggered-element">
