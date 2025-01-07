@@ -32,7 +32,7 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative bg-black text-white min-h-screen">
+    <div className="relative text-white min-h-screen">
       {/* Navbar */}
       <Navbar />
 
@@ -43,7 +43,7 @@ const Home: React.FC = () => {
             <span className="orange">Brailliant</span>ly Empowering Low-Vision Individuals
           </h1>
           <p className="text-lg mt-6 staggered-element">
-            We create AI-powered, <span className="underline">affordable braille displays</span> for the visually impaired.
+            We built an AI-powered, <span className="underline">affordable braille display</span> for the visually impaired.
           </p>
         </section>
 
@@ -56,8 +56,8 @@ const Home: React.FC = () => {
           />
         </div>
 
-        <div className="flex justify-center mt-4 staggered-element">
-        <a
+        <div className="flex justify-center mt-8 staggered-element">
+          <a
             href="https://richard-shan.github.io/conrad/#video"
             className="custom-link mt-8 px-8 py-4 inline-block text-lg font-semibold rounded-md staggered-element custom-hover"
             target="_blank"
@@ -69,16 +69,24 @@ const Home: React.FC = () => {
         </div>
 
         {/* How It Works Section */}
-        <section className="mt-20 text-left max-w-4xl mx-auto staggered-element">
+        <section className="mt-20 text-center max-w-4xl mx-auto staggered-element">
           <h2 className="text-3xl font-semibold mb-4">How Brailliant Works</h2>
           <p className="text-lg">
-          <span className="bold">Extract</span> Text → <span className="bold">Map</span> Text to Braille → <span className="bold">Display</span> on our <span className="underline">Solenoid-Powered Device</span>.
+            <span className="bold">Extract</span> Text → <span className="bold">Map</span> Text to Braille → <span className="bold">Display</span> on our <span className="underline">Solenoid-Powered Device</span>.
+          </p>
+        </section>
+
+        {/* Statistics Section */}
+        <section className="mt-20 text-center max-w-4xl mx-auto staggered-element">
+          <h2 className="text-3xl font-semibold mb-4">Performance without a Cost</h2>
+          <p className="text-lg">
+            Nimble compute package with state of the art capabilities.
           </p>
         </section>
       </main>
 
       {/* Footer */}
-      <footer className="mt-20 py-6 text-center text-sm bg-black text-gray-500">
+      <footer className="mt-20 py-6 text-center text-sm text-gray-500">
         © {new Date().getFullYear()} Brailliant
       </footer>
     </div>
