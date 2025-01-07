@@ -275,6 +275,5 @@
 
 /* Adjust body padding for fixed navbar */
 body {
-  padding-top: 16rem; /* Adjust to match the height of your fixed navbar */
   background: #000;
 }
