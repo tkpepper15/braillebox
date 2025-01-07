@@ -38,9 +38,9 @@ const Home: React.FC = () => {
         <Navbar />
         <main className="flex flex-col items-center justify-start pt-24 px-6 lg:px-0 text-white">
           <section className="mt-40 text-center max-w-4xl mx-auto mb-8">
-            <h1 className="mb-4 text-4xl font-bold staggered-element">Let&apos;s Empower Low-Vision Individuals</h1>
+            <h1 className="mb-4 text-4xl font-bold staggered-element"><a className="orange">Brailliant</a>ly Empowering Low-Vision Individuals</h1>
             <p className="text-lg staggered-element">
-              This <a className="orange">$77</a> device allows visually impaired individuals to look at the world effortlessly.
+              An AI powered low-cost display built for the visually impaired, not Big Health.
             </p>
           </section>
           <div className="flex items-center staggered-element">
@@ -48,13 +48,6 @@ const Home: React.FC = () => {
               src="/braillebox_topdown.png"
               alt="BrailleBox_TopDown"
               className="h-auto w-full max-w-xl mb-4" // Maintain aspect ratio and set max width
-            />
-          </div>
-          <div className="flex items-center staggered-element">
-            <img
-              src="/braille.png"
-              alt="BrailleBox"
-              className="h-10 w-auto mb-4"
             />
           </div>
           <a
@@ -67,7 +60,7 @@ const Home: React.FC = () => {
             <h2 className="mb-2 text-2xl font-semibold">See Brailliant in Action</h2>
             
             <p className="text-sm">
-              Extract Text → Map Text to Braille → Display Braille
+              Extract Text → Map Text to Braille → Display on Solenoid
             </p>
           </a>
         </main>
