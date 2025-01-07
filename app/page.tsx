@@ -43,7 +43,7 @@ const Home: React.FC = () => {
             <span className="orange">Brailliant</span>ly Empowering Low-Vision Individuals
           </h1>
           <p className="text-lg mt-6 staggered-element">
-            We've built an AI-powered, <span className="underline">affordable braille display</span> for the visually impaired.
+            We&apos;ve built an AI-powered, <span className="underline">affordable braille display</span> for the visually impaired.
           </p>
         </section>
 
