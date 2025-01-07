@@ -273,6 +273,15 @@
   color: #D9730D;
 }
 
+.bold {
+  font-weight: 1000;
+}
+
+.underline {
+  text-decoration: underline;
+  text-decoration-color: #D9730D;
+}
+
 /* Adjust body padding for fixed navbar */
 body {
   background: #000;

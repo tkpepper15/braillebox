@@ -43,7 +43,7 @@ const Home: React.FC = () => {
             <span className="orange">Brailliant</span>ly Empowering Low-Vision Individuals
           </h1>
           <p className="text-lg mt-6 staggered-element">
-            We create AI-powered, affordable Braille displays for the visually impaired.
+            We create AI-powered, <span className="underline">affordable braille displays</span> for the visually impaired.
           </p>
         </section>
 
@@ -70,9 +70,9 @@ const Home: React.FC = () => {
 
         {/* How It Works Section */}
         <section className="mt-20 text-left max-w-4xl mx-auto staggered-element">
-          <h2 className="text-3xl font-semibold mb-4">How It Works</h2>
+          <h2 className="text-3xl font-semibold mb-4">How Brailliant Works</h2>
           <p className="text-lg">
-            Extract text → Map text to Braille → Display on our innovative solenoid-powered device.
+          <span className="bold">Extract</span> Text → <span className="bold">Map</span> Text to Braille → <span className="bold">Display</span> on our <span className="underline">Solenoid-Powered Device</span>.
           </p>
         </section>
       </main>
