@@ -3,6 +3,9 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './navbar';  // Ensure the path is correct
 import './global.css';  // Ensure the path is correct
+import { keyframes } from '@emotion/react';
+import styled from "@emotion/styled";
+import { FaArrowDown } from "react-icons/fa";
 
 const Home: React.FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
@@ -61,7 +64,8 @@ const Home: React.FC = () => {
             rel="noopener noreferrer"
             style={{ justifyContent: 'flex-start' }} // Align contents to the left
           >
-            <h2 className="mb-2 text-2xl font-semibold">See BrailleBox in Action</h2>
+            <h2 className="mb-2 text-2xl font-semibold">See Brailliant in Action</h2>
+            
             <p className="text-sm">
               Extract Text → Map Text to Braille → Display Braille
             </p>
@@ -71,5 +75,22 @@ const Home: React.FC = () => {
     </div>
   );
 };
+
+const bounce = keyframes`
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+`;
+
+const BouncingArrow = styled(FaArrowDown)`
+  animation: ${bounce} 2s infinite;
+`;
+
 
 export default Home;
