@@ -39,7 +39,7 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <main className={`flex flex-col justify-center pt-12 px-6 lg:px-12 ${isLoaded ? 'animate-loaded' : ''}`}>
         <section className="mt-16 text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl lg:text-6xl font-bold staggered-element leading-tight">
+          <h1 className="text-4xl lg:text-4xl font-bold staggered-element leading-tight">
             <span className="orange">Brailliant</span>ly Empowering Low-Vision Individuals
           </h1>
           <p className="text-lg mt-6 staggered-element">
