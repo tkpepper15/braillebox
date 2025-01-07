@@ -52,7 +52,7 @@ const Home: React.FC = () => {
           </div>
           <a
             href="https://richard-shan.github.io/conrad/#video"
-            className="custom-link flex items-center justify-start staggered-element"
+            className="custom-link flex items-center justify-start staggered-element custom-hover"
             target="_blank"
             rel="noopener noreferrer"
             style={{ justifyContent: 'flex-start' }} // Align contents to the left

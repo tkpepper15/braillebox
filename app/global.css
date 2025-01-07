@@ -16,7 +16,7 @@
   top: 0;
   left: 0;
   z-index: 10;
-  background-color:  #191919;
+  background-color:  #000;
   backdrop-filter: blur(10px); /* backdrop-blur-lg */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
   height: 4rem; /* h-16 */
@@ -158,12 +158,12 @@
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
   text-decoration: none;
-  transition: background-color 0.3s ease;
   border: 2px solid #D9730D;
 }
 
 .custom-link:hover {
   background-color: #D9730D;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .custom-link1 {
@@ -206,14 +206,6 @@
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover\:bg-green-500:hover {
-  background-color: #D9730D;
-}
-
-.hover\:text-green-500:hover {
-  color: #D9730D;
 }
 
 /* Custom hover effect */
@@ -284,5 +276,5 @@
 /* Adjust body padding for fixed navbar */
 body {
   padding-top: 16rem; /* Adjust to match the height of your fixed navbar */
-  background: #191919;
+  background: #000;
 }
