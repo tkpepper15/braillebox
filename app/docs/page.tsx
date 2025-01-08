@@ -22,21 +22,6 @@ const DocsPage: FC<DocsPageProps> = () => {
               <h1 className="text-4xl font-bold text-white mb-4">
                 The Making of Brailliant
               </h1>
-              
-
-            </div>
-
-            {/* Warning section */}
-            <div className="bg-red-900/30 border border-red-500 rounded-lg p-6 my-8">
-              <p className="font-bold">
-                WARNING: The project video and slide (poster) are out of date and provide
-                incorrect information about licensing. The current EULA is{" "}
-                <a href="../LICENSE.txt" className="text-blue-400 hover:text-blue-300">
-                  here
-                </a>. By installing, accessing, or using the Product, you acknowledge 
-                that you have read this Agreement, understand it, and agree to be bound 
-                by its terms and conditions.
-              </p>
             </div>
 
             {/* Overview section */}
