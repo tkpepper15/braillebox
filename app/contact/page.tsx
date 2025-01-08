@@ -18,8 +18,8 @@ const Contact: React.FC = () => {
           <h2 className="text-3xl font-semibold mb-4">Reach Out</h2>
           <p className="text-lg">
           Sumedh: kotrannavar25s@ncssm.edu<br></br>
-          Richard shan26r@ncssm.edu<br></br>
-          Tejjas kaul25t@ncssm.edu
+          Richard: shan26r@ncssm.edu<br></br>
+          Tejjas: kaul25t@ncssm.edu
           </p>
         </section>
 
