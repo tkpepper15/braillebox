@@ -58,7 +58,7 @@ const Home: React.FC = () => {
 
         <div className="flex justify-center mt-8 staggered-element">
           <a
-            href="https://richard-shan.github.io/conrad/#video"
+            href=""
             className="custom-link mt-8 px-8 py-4 inline-block text-lg font-semibold rounded-md staggered-element custom-hover"
             target="_blank"
             style={{ maxWidth: '18rem', textAlign: 'center' }}

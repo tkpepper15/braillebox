@@ -1,9 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
@@ -21,16 +24,11 @@ const Navbar: React.FC = () => {
 
       {/* Desktop Navigation */}
       <nav className="desktop-nav">
+        <a href="/docs" className="nav-link">
+          Docs
+        </a>
         <a href="/contact" className="nav-link">
           Contact
-        </a>
-        <a
-          href="https://richard-shan.github.io/conrad/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="nav-link"
-        >
-          Docs
         </a>
       </nav>
 
@@ -71,16 +69,11 @@ const Navbar: React.FC = () => {
         className={`mobile-menu ${isOpen ? "block" : "hidden"} md:hidden`}
       >
         <nav className="mobile-nav">
+        <a href="/docs" className="nav-link">
+            Docs
+          </a>
           <a href="/contact" className="nav-link">
             Contact
-          </a>
-          <a
-            href="https://richard-shan.github.io/conrad/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-link"
-          >
-            Docs
           </a>
         </nav>
       </div>
