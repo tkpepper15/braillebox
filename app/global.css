@@ -22,7 +22,7 @@ body {
   align-items: center;
   width: 90%;
   max-width: 80rem;
-  padding: 1rem 1.5rem;
+  padding: .5rem 1rem;
   background-color: #161413;
   backdrop-filter: blur(8px);
   border: 1px solid #292524;

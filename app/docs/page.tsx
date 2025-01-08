@@ -14,7 +14,7 @@ const DocsPage: FC<DocsPageProps> = () => {
     <div className="min-h-screen bg-stone-950 text-gray-200">
       <Navbar />
       <div className="container mx-auto mt-12 px-4 sm:px-6 lg:px-8 py-16">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           {/* Main content container */}
           <div className="space-y-8">
             {/* Title section */}
@@ -22,11 +22,14 @@ const DocsPage: FC<DocsPageProps> = () => {
               <h1 className="text-4xl font-bold text-white mb-4">
                 The Making of Brailliant
               </h1>
+              <p className="text-lg leading-relaxed">
+                A Technical Walk-Through with Richard Shan
+              </p>
             </div>
 
             {/* Overview section */}
             <section className="space-y-6">
-              <h2 className="text-4xl font-bold text-white">Setting the Stage</h2>
+              <h2 className="text-3xl font-bold text-white">Preface</h2>
               <p className="text-lg leading-relaxed">
                 The goal is to create a 3x2 solenoid array that can display braille characters by
                 pushing solenoids up and down to create dots. This solenoid array will be
@@ -42,7 +45,7 @@ const DocsPage: FC<DocsPageProps> = () => {
 
             {/* Brainstorming Process section */}
             <section className="space-y-6">
-              <h2 className="text-4xl font-bold text-white">Brainstorming Process</h2>
+              <h2 className="text-3xl font-bold text-white">Brainstorming Process</h2>
               <h3 className="text-2xl font-semibold text-white mt-8">Initial Thoughts</h3>
               <p className="text-lg leading-relaxed">
                 My idea was to design a text to braille converter, which a blind person
@@ -140,11 +143,11 @@ const DocsPage: FC<DocsPageProps> = () => {
 
             {/* Bill of Materials section */}
             <section className="space-y-6">
-              <h2 className="text-4xl font-bold text-white">Bill of Materials</h2>
+              <h2 className="text-3xl font-bold text-white">Bill of Materials</h2>
               <div className="text-center">
                 <iframe
                   src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQlIJdCFYQU6-XJm1FrXhk5twaGxpRf5jiNvo1Z9Wf0MkVefTB23N4_w5QmfgFJcqXeWUzttINugkhU/pubhtml?widget=true&chrome=false&headers=false"
-                  className="w-full max-w-4xl mx-auto rounded-lg shadow-lg"
+                  className="w-full max-w-3xl mx-auto rounded-lg shadow-lg"
                   height={300}
                   frameBorder={0}
                   scrolling="no"
@@ -154,7 +157,7 @@ const DocsPage: FC<DocsPageProps> = () => {
 
             {/* Components section */}
             <section className="space-y-6">
-              <h2 className="text-4xl font-bold text-white">The Build</h2>
+              <h2 className="text-3xl font-bold text-white">The Build</h2>
               
               {/* Brailliant CAD subsection */}
               <section className="space-y-6">
@@ -340,7 +343,7 @@ time.sleep(1)`
 
             {/* GPT4o and Base64 Processing section */}
             <section className="space-y-6">
-              <h2 className="text-4xl font-bold text-white">GPT4o and Base64 Processing</h2>
+              <h2 className="text-3xl font-bold text-white">GPT4o and Base64 Processing</h2>
               <p className="text-lg leading-relaxed">
                 At this point, I wanted to try to use as little computational power as
                 possible, and thus decided to switch to processing my image in base64.
@@ -407,7 +410,7 @@ time.sleep(1)`
 
             {/* Camera Feed OCR section */}
             <section className="space-y-6">
-              <h2 className="text-4xl font-bold text-white">Camera Feed OCR</h2>
+              <h2 className="text-3xl font-bold text-white">Camera Feed OCR</h2>
               <p className="text-lg leading-relaxed">
                 I had previously setup infrastructure to wirelessly transmit a command to
                 capture an image from a Raspberry Pi to the ESP32CAM, along with sending the
@@ -452,7 +455,7 @@ time.sleep(1)`
 
             {/* ESP32CAM Wireless Transmission section */}
             <section className="space-y-6">
-              <h2 className="text-4xl font-bold text-white">ESP32CAM Wireless Transmission</h2>
+              <h2 className="text-3xl font-bold text-white">ESP32CAM Wireless Transmission</h2>
               <p className="text-lg leading-relaxed">
                 WebSocket connections are initiated through HTTP protocol, using an upgrade
                 request from HTTP to WebSocket. This begins with a client sending a standard
@@ -476,7 +479,7 @@ time.sleep(1)`
 
             {/* PyTesseract section - consolidated */}
             <section className="space-y-6">
-              <h2 className="text-4xl font-bold text-white">PyTesseract</h2>
+              <h2 className="text-3xl font-bold text-white">PyTesseract</h2>
               <p className="text-lg leading-relaxed">
                 First, I created a directory to store this project.
               </p>
@@ -496,7 +499,7 @@ mkdir ocr`}
 
             {/* Text to Braille Mapping section */}
             <section className="space-y-6">
-              <h2 className="text-4xl font-bold text-white">Text to Braille Mapping</h2>
+              <h2 className="text-3xl font-bold text-white">Text to Braille Mapping</h2>
               <p className="text-lg leading-relaxed">
                 The Raspberry Pi sends a byte-encoded text string to the ATTiny1614. From
                 there, the ATTiny1614 is responsible for interpreting and converting the
@@ -543,7 +546,7 @@ BrailleMap braille_dictionary[] = {
 
             {/* Assembly section */}
             <section className="space-y-6">
-              <h2 className="text-4xl font-bold text-white">Assembly</h2>
+              <h2 className="text-3xl font-bold text-white">Assembly</h2>
               <p className="text-lg leading-relaxed">
                 I first outlined the general setup of my final project. I secured each
                 MOSFET to a corresponding battery pack and solenoid, and color-coded each
@@ -605,7 +608,7 @@ BrailleMap braille_dictionary[] = {
 
             {/* Evaluation section */}
             <section className="space-y-6">
-              <h2 className="text-4xl font-bold text-white">Evaluation</h2>
+              <h2 className="text-3xl font-bold text-white">Evaluation</h2>
               <p className="text-lg leading-relaxed">
                 My project is considered successful if it can:
               </p>
@@ -627,7 +630,7 @@ BrailleMap braille_dictionary[] = {
 
             {/* Implications section */}
             <section className="space-y-6">
-              <h2 className="text-4xl font-bold text-white">Implications</h2>
+              <h2 className="text-3xl font-bold text-white">Implications</h2>
               <p className="text-lg leading-relaxed">
                 There is existing technologies on the market that can convert text to
                 braille in real time, but those are often expensive and not readily
@@ -638,7 +641,7 @@ BrailleMap braille_dictionary[] = {
 
             {/* Lessons Learned section */}
             <section className="space-y-6">
-              <h2 className="text-4xl font-bold text-white">Lessons Learned</h2>
+              <h2 className="text-3xl font-bold text-white">Lessons Learned</h2>
               <ul className="list-disc space-y-2 pl-6 text-lg">
                 <li>
                   Some parts of a project will take longer while others will take shorter
@@ -657,7 +660,7 @@ BrailleMap braille_dictionary[] = {
 
             {/* Final Product section */}
             <section className="space-y-6">
-              <h2 className="text-4xl font-bold text-white">Final Product</h2>
+              <h2 className="text-3xl font-bold text-white">Final Product</h2>
               <div className="bg-red-900/30 border border-red-500 rounded-lg p-6 my-8">
                 <p className="font-bold">
                   WARNING: The project video and slide (poster) are out of date and provide
@@ -673,7 +676,7 @@ BrailleMap braille_dictionary[] = {
 
             {/* File Downloads section */}
             <section className="space-y-6">
-              <h2 className="text-4xl font-bold text-white">File Downloads</h2>
+              <h2 className="text-3xl font-bold text-white">File Downloads</h2>
               <p className="text-lg leading-relaxed">
                 My files can be downloaded{" "}
                 <a href="../../files/final/final.zip" className="text-blue-400 hover:text-blue-300">
