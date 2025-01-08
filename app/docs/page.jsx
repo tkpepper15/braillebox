@@ -89,7 +89,7 @@ const DocsPage = () => {
   </center>
   <br />
   ### Significant Changes Although a large part of my project remains the same,
-  I've changed some aspects of my project. Namely, I've decided to use a
+  I&apos;ve changed some aspects of my project. Namely, I&apos;ve decided to use a
   Raspberry Pi as a central controller and connect it to 5 separate ATTiny412
   chips, which will each be responsible for controlling 6 electromagnets to
   represent 1 braille character. Each ATTiny412 and 6 electromagnet setup will
@@ -130,7 +130,7 @@ const DocsPage = () => {
   <p>
     I decided to first model my design in Fusion360, as I had prior experience
     working with Fusion and was pretty comfortable using it. When I started out
-    with Autodesk Fusion, Kevin Kennedy's{" "}
+    with Autodesk Fusion, Kevin Kennedy&apos;s{" "}
     <a href="https://www.youtube.com/playlist?list=PLrZ2zKOtC_-C4rWfapgngoe9o2-ng8ZBr">
       <strong>Fusion tutorials</strong>
     </a>{" "}
@@ -192,10 +192,10 @@ const DocsPage = () => {
     As I had made my initial design early on, it did not reflect the changes I
     had made to my final project, most notably scaling down the amount of
     solenoids from 5 arrays of 3x2 to one 3x2 array. Additionally, when I made
-    the original design, I didn't think much about how I would power the
-    solenoid array and thus didn't include any spots for batteries. I also
+    the original design, I didn&apos;t think much about how I would power the
+    solenoid array and thus didn&apos;t include any spots for batteries. I also
     wanted to make the holes for the solenoids on a separate press-fit cover on
-    top of the main box. Finally, the original design doesn't include any
+    top of the main box. Finally, the original design doesn&apos;t include any
     internal parts to hold the solenoids in place.
   </p>
   <p>For my new design, I want to make the following key changes:</p>
@@ -399,7 +399,7 @@ const DocsPage = () => {
   </center>
   <p>
     After printing that initial iteration, the screen fit and there was enough
-    space inside to fit the Raspberry Pi. However, some of my cables didn't fit
+    space inside to fit the Raspberry Pi. However, some of my cables didn&apos;t fit
     as they had long "necks" that had to remain straight. As such, I would have
     to significantly bend the HDMI and USB cords for the Raspberry Pi.
   </p>
@@ -417,13 +417,13 @@ const DocsPage = () => {
   <h3 id="electronics">Electronics</h3>
   <p>
     Electronics were by far the worst part of this project, at least for me. The
-    main issue was that I didn't understand transistors very well, and I ran
+    main issue was that I didn&apos;t understand transistors very well, and I ran
     into a bunch of problems with them. The two main problems I ran into were
     transistors not being able to handle the power and transistors having
     inconsistent pinouts and being backwards or jumbled around.
   </p>
   <p>
-    In this section, I'll go through a few of the boards that didn't work then
+    In this section, I&apos;ll go through a few of the boards that didn&apos;t work then
     show my final board.
   </p>
   <p>
@@ -440,9 +440,9 @@ const DocsPage = () => {
     hidden under the left-hand side white female pin headers (they did not, in
     fact, function as pull down resistors) and a power indicator LED.
     Unfortunately, I forgot the capacitor, but that would not have affected this
-    board's outcome of failure. When creating this board, I also ran into major
+    board&apos;s outcome of failure. When creating this board, I also ran into major
     issues with the ATTiny1614, which stuck me for a couple hours. Apparently,
-    some of the ATTiny1614 chips in our lab just didn't work, so I needed to get
+    some of the ATTiny1614 chips in our lab just didn&apos;t work, so I needed to get
     the ATTiny1614s out of a specific drawer because those chips had a small dot
     indentation on one side. Only the chips with the dot indentation seemed to
     work well, in my experience. Upon testing, the transistor got really hot and
@@ -491,7 +491,7 @@ const DocsPage = () => {
   </center>
   <p>
     I then decided to switch to a through hole MOSFET. This board also failed,
-    which I'm pretty confused about but will explain in the next paragraph.
+    which I&apos;m pretty confused about but will explain in the next paragraph.
   </p>
   <center>
     <img src="../../pics/final/pcb/mosfet.jpg" width={500} />
@@ -505,7 +505,7 @@ const DocsPage = () => {
     GPIO on my ATTiny1614 board that would toggle the solenoid on and off, and
     the GND to ground. The architecture of the drive module (which worked) was
     really similar to some of my MOSFET attempts, so I am still a little unsure
-    why this board worked when my own didn't. The only major discrepancy that I
+    why this board worked when my own didn&apos;t. The only major discrepancy that I
     noticed was that this board had 2 transistors.
   </p>
   <center>
@@ -780,7 +780,7 @@ const DocsPage = () => {
       {"  "}
       <span className="hljs-built_in">Serial</span>.
       <span className="hljs-built_in">print</span>(
-      <span className="hljs-string">"Camera Ready! Use 'http://"</span>);{"\n"}
+      <span className="hljs-string">"Camera Ready! Use &apos;http://"</span>);{"\n"}
       {"  "}
       <span className="hljs-built_in">Serial</span>.
       <span className="hljs-built_in">print</span>(
@@ -789,7 +789,7 @@ const DocsPage = () => {
       {"  "}
       <span className="hljs-built_in">Serial</span>.
       <span className="hljs-built_in">println</span>(
-      <span className="hljs-string">"' to connect"</span>);{"\n"}
+      <span className="hljs-string">"&apos; to connect"</span>);{"\n"}
       {"}"}
       {"\n"}
       {"\n"}
@@ -908,7 +908,7 @@ const DocsPage = () => {
   </p>
   <p>
     However, I realized that I could fetch the image without needing a WebSocket
-    handler by connecting to the ESP32CAM's capture image handler directly. The
+    handler by connecting to the ESP32CAM&apos;s capture image handler directly. The
     capture handler from the default CameraWebServer example project sets up a
     port that allows a direct download to what is currently on the camera feed.
   </p>
@@ -957,7 +957,7 @@ const DocsPage = () => {
       {"\n"}
       {"    "}fb = esp_camera_fb_get();{"             "}
       <span className="hljs-comment">
-        // or it won't be visible in the frame. A better way to do this is
+        // or it won&apos;t be visible in the frame. A better way to do this is
         needed.
       </span>
       {"\n"}
@@ -1483,11 +1483,11 @@ const DocsPage = () => {
   <pre>
     <code>
       <span className="hljs-keyword">Error: </span>[Errno13] Permission denied:
-      '/virtual'{"\n"}
+      &apos;/virtual&apos;{"\n"}
     </code>
   </pre>
   <p>
-    For some reason, this command didn't have the permissions to create a new
+    For some reason, this command didn&apos;t have the permissions to create a new
     virtual environment, which was strange considering that the project
     directory was not protected in any way. Regardless, I attached the sudo
     prefix and successfully created the virtual environment.
@@ -1533,7 +1533,7 @@ const DocsPage = () => {
       <span className="hljs-keyword">as</span> np{"\n"}
       <span className="hljs-keyword">import</span> pytesseract{"\n"}
       {"\n"}url ={" "}
-      <span className="hljs-string">'http://10.12.28.193/capture'</span>
+      <span className="hljs-string">&apos;http://10.12.28.193/capture&apos;</span>
       {"\n"}
       {"\n"}img_resp = urllib.request.urlopen(url){"\n"}imgnp =
       np.array(bytearray(img_resp.read()), dtype=np.uint8){"\n"}frame =
@@ -1541,7 +1541,7 @@ const DocsPage = () => {
       {"\n"}
       <span className="hljs-keyword">text</span> =
       pytesseract.image_to_string(frame, config=
-      <span className="hljs-string">'--psm 7'</span>){"\n"}
+      <span className="hljs-string">&apos;--psm 7&apos;</span>){"\n"}
       {"\n"}print(<span className="hljs-string">"Extracted Text:"</span>,{" "}
       <span className="hljs-keyword">text</span>){"\n"}
       <span className="hljs-built_in">time</span>.sleep(
@@ -1647,7 +1647,7 @@ const DocsPage = () => {
   <p>
     The ESP32CAM is pointed towards a paper with the words "Hello World!". In
     the right side of the picture, the Raspberry Pi which is running the code is
-    visible along with the display. Upon running the program on the Pi's
+    visible along with the display. Upon running the program on the Pi&apos;s
     terminal, the ESP32CAM takes a picture and transmits it to the Pi, which
     then uses tesseract to perform OCR on it and prints out the extracted text.
   </p>
@@ -1662,7 +1662,7 @@ const DocsPage = () => {
     possible, and thus decided to switch to processing my image in base64.
     Although switching to base64 ultimately failed to scale down the computing
     enough to run on a microcontroller, it still led me in an interesting
-    direction: that I could use GPT4o's new multimodal capabilities as an OCR
+    direction: that I could use GPT4o&apos;s new multimodal capabilities as an OCR
     engine to extract text from the base64 image. GPT4o in general is much more
     accurate in OCR than pytesseract, hence the switch.
   </p>
@@ -1933,7 +1933,7 @@ const DocsPage = () => {
   <p>
     With some modifications to{" "}
     <a href="https://platform.openai.com/docs/guides/vision">
-      <strong>OpenAI's sample code</strong>
+      <strong>OpenAI&apos;s sample code</strong>
     </a>{" "}
     and the help of GPT-4o itself, I created the following script that would
     grab the base64 data from the custom handler and parse it into the model.
@@ -2069,7 +2069,7 @@ const DocsPage = () => {
   </center>
   <p>
     As is seen in the output, the prompt worked and the 4o model detected "Hello
-    World!" as the text extract and stored it in 'content'. To just output the
+    World!" as the text extract and stored it in &apos;content&apos;. To just output the
     content, which is the actual result I want, I can modify the code a little.
   </p>
   <pre>
@@ -2077,10 +2077,10 @@ const DocsPage = () => {
       response = requests.post("https://api.openai.com/v1/chat/completions",
       headers=headers, json=payload){"\n"}
       {"\n"}content_string = response.json()[
-      <span className="hljs-string">'choices'</span>][
+      <span className="hljs-string">&apos;choices&apos;</span>][
       <span className="hljs-symbol">0</span>][
-      <span className="hljs-string">'message'</span>][
-      <span className="hljs-symbol">'content'</span>]{"\n"}print(content_string)
+      <span className="hljs-string">&apos;message&apos;</span>][
+      <span className="hljs-symbol">&apos;content&apos;</span>]{"\n"}print(content_string)
       {"\n"}
     </code>
   </pre>
@@ -2105,7 +2105,7 @@ const DocsPage = () => {
       {"\n"}
       {"\n"}
       <span className="hljs-comment"># Configure the serial port</span>
-      {"\n"}ser = Serial(<span className="hljs-string">'/dev/serial0'</span>,{" "}
+      {"\n"}ser = Serial(<span className="hljs-string">&apos;/dev/serial0&apos;</span>,{" "}
       <span className="hljs-number">9600</span>, timeout ={" "}
       <span className="hljs-number">1</span>){"\n"}
       {"\n"}
@@ -2264,10 +2264,10 @@ const DocsPage = () => {
       {"\n"}
       {"    "}
       <span className="hljs-keyword">return</span> response.json()[
-      <span className="hljs-string">'choices'</span>][
+      <span className="hljs-string">&apos;choices&apos;</span>][
       <span className="hljs-number">0</span>][
-      <span className="hljs-string">'message'</span>][
-      <span className="hljs-string">'content'</span>]{"\n"}
+      <span className="hljs-string">&apos;message&apos;</span>][
+      <span className="hljs-string">&apos;content&apos;</span>]{"\n"}
       {"\n"}
       <span className="hljs-keyword">try</span>:{"\n"}
       {"    "}message = ocr(){"\n"}
@@ -2303,7 +2303,7 @@ const DocsPage = () => {
     corresponding letter braille array.
   </p>
   <p>
-    Upon the script's setup, each relevant pin is configured to be OUTPUT, and a
+    Upon the script&apos;s setup, each relevant pin is configured to be OUTPUT, and a
     serial connection with the Raspberry Pi is initialized.{" "}
   </p>
   <p>
@@ -2311,7 +2311,7 @@ const DocsPage = () => {
     Serial. Upon receiving the text, it is converted into an array of
     characters. The parse_input_string() method then does the heavy lifting and
     fetches the correct braille dot arrays. The method then iterates through
-    each letter and represents that character's corresponding braille for one
+    each letter and represents that character&apos;s corresponding braille for one
     second on the physical solenoid array.
   </p>
   <p>
@@ -2635,34 +2635,34 @@ const DocsPage = () => {
       {"\n"}BrailleMap braille_dictionary[] = {"{"}
       {"\n"}
       {"    "}
-      {"{"}'a', a{"}"}, {"{"}'b', b{"}"}, {"{"}'c', c{"}"}, {"{"}'d', d{"}"},{" "}
-      {"{"}'e', e{"}"},{"\n"}
+      {"{"}&apos;a&apos;, a{"}"}, {"{"}&apos;b&apos;, b{"}"}, {"{"}&apos;c&apos;, c{"}"}, {"{"}&apos;d&apos;, d{"}"},{" "}
+      {"{"}&apos;e&apos;, e{"}"},{"\n"}
       {"    "}
-      {"{"}'f', f{"}"}, {"{"}'g', g{"}"}, {"{"}'h', h{"}"}, {"{"}'i', i{"}"},{" "}
-      {"{"}'j', j{"}"},{"\n"}
+      {"{"}&apos;f&apos;, f{"}"}, {"{"}&apos;g&apos;, g{"}"}, {"{"}&apos;h&apos;, h{"}"}, {"{"}&apos;i&apos;, i{"}"},{" "}
+      {"{"}&apos;j&apos;, j{"}"},{"\n"}
       {"    "}
-      {"{"}'k', k{"}"}, {"{"}'l', l{"}"}, {"{"}'m', m{"}"}, {"{"}'n', n{"}"},{" "}
-      {"{"}'o', o{"}"},{"\n"}
+      {"{"}&apos;k&apos;, k{"}"}, {"{"}&apos;l&apos;, l{"}"}, {"{"}&apos;m&apos;, m{"}"}, {"{"}&apos;n&apos;, n{"}"},{" "}
+      {"{"}&apos;o&apos;, o{"}"},{"\n"}
       {"    "}
-      {"{"}'p', p{"}"}, {"{"}'q', q{"}"}, {"{"}'r', r{"}"}, {"{"}'s', s{"}"},{" "}
-      {"{"}'t', t{"}"},{"\n"}
+      {"{"}&apos;p&apos;, p{"}"}, {"{"}&apos;q&apos;, q{"}"}, {"{"}&apos;r&apos;, r{"}"}, {"{"}&apos;s&apos;, s{"}"},{" "}
+      {"{"}&apos;t&apos;, t{"}"},{"\n"}
       {"    "}
-      {"{"}'u', u{"}"}, {"{"}'v', v{"}"}, {"{"}'w', w{"}"}, {"{"}'x', x{"}"},{" "}
-      {"{"}'y', y{"}"}, {"{"}'z', z{"}"}, {"{"}' ', space{"}"},{"\n"}
+      {"{"}&apos;u&apos;, u{"}"}, {"{"}&apos;v&apos;, v{"}"}, {"{"}&apos;w&apos;, w{"}"}, {"{"}&apos;x&apos;, x{"}"},{" "}
+      {"{"}&apos;y&apos;, y{"}"}, {"{"}&apos;z&apos;, z{"}"}, {"{"}&apos; &apos;, space{"}"},{"\n"}
       {"    "}
-      {"{"}'#', number_sign{"}"},{"\n"}
+      {"{"}&apos;#&apos;, number_sign{"}"},{"\n"}
       {"    "}
-      {"{"}'<span className="hljs-number">1</span>', num_1{"}"}, {"{"}'
-      <span className="hljs-number">2</span>', num_2{"}"}, {"{"}'
-      <span className="hljs-number">3</span>', num_3{"}"}, {"{"}'
-      <span className="hljs-number">4</span>', num_4{"}"}, {"{"}'
-      <span className="hljs-number">5</span>', num_5{"}"},{"\n"}
+      {"{"}&apos;<span className="hljs-number">1</span>&apos;, num_1{"}"}, {"{"}&apos;
+      <span className="hljs-number">2</span>&apos;, num_2{"}"}, {"{"}&apos;
+      <span className="hljs-number">3</span>&apos;, num_3{"}"}, {"{"}&apos;
+      <span className="hljs-number">4</span>&apos;, num_4{"}"}, {"{"}&apos;
+      <span className="hljs-number">5</span>&apos;, num_5{"}"},{"\n"}
       {"    "}
-      {"{"}'<span className="hljs-number">6</span>', num_6{"}"}, {"{"}'
-      <span className="hljs-number">7</span>', num_7{"}"}, {"{"}'
-      <span className="hljs-number">8</span>', num_8{"}"}, {"{"}'
-      <span className="hljs-number">9</span>', num_9{"}"}, {"{"}'
-      <span className="hljs-number">0</span>', num_0{"}"}
+      {"{"}&apos;<span className="hljs-number">6</span>&apos;, num_6{"}"}, {"{"}&apos;
+      <span className="hljs-number">7</span>&apos;, num_7{"}"}, {"{"}&apos;
+      <span className="hljs-number">8</span>&apos;, num_8{"}"}, {"{"}&apos;
+      <span className="hljs-number">9</span>&apos;, num_9{"}"}, {"{"}&apos;
+      <span className="hljs-number">0</span>&apos;, num_0{"}"}
       {"\n"}
       {"}"};{"\n"}
       {"\n"}void setup() {"{"}
@@ -2798,7 +2798,7 @@ const DocsPage = () => {
   <p>
     I first outlined the general setup of my final project. I secured each
     MOSFET to a corresponding battery pack and solenoid, and color-coded each
-    MOSFET's trigger and GND wires. I organized them in such a way that toggling
+    MOSFET&apos;s trigger and GND wires. I organized them in such a way that toggling
     solenoid 1, 2, 3, 4, 5, then 6 would control each solenoid in a line.
   </p>
   <center>
@@ -2849,12 +2849,12 @@ const DocsPage = () => {
     screen to the top, then connect the wires. I used 4 M3 screws in the
     screw-holes that I designed to secure the Raspberry Pi screen to the top of
     the case. I then used hot glue to secure the Pi in place on the bottom of
-    the case. The following image shows the case's top on the left, with the
+    the case. The following image shows the case&apos;s top on the left, with the
     screwed-in screen connected to the Pi via the microHDMI port for data and
     the power cable. The Pi itself is shown on the right, with its power cable
     coming out of the left side box hole, and the ESP32CAM cable coming out of
     the bottom hole. The wires on the right side case hole are used for
-    connecting the Pi's TX/RX, VCC, and GND with the BrailleBox's ATTiny1614
+    connecting the Pi&apos;s TX/RX, VCC, and GND with the BrailleBox&apos;s ATTiny1614
     PCB.
   </p>
   <center>
@@ -2948,7 +2948,7 @@ const DocsPage = () => {
   <pre>
     <code className="lang-js">
       <span className="hljs-keyword">var</span> foo ={" "}
-      <span className="hljs-string">'bar'</span>;{"\n"}
+      <span className="hljs-string">&apos;bar&apos;</span>;{"\n"}
       {"\n"}
       <span className="hljs-function">
         <span className="hljs-keyword">function</span>{" "}
@@ -2959,13 +2959,13 @@ const DocsPage = () => {
       {"\n"}
       {"   "}
       <span className="hljs-keyword">return</span> foo +{" "}
-      <span className="hljs-string">':'</span> + s;{"\n"}
+      <span className="hljs-string">&apos;:&apos;</span> + s;{"\n"}
       {"}"}
       {"\n"}
     </code>
   </pre>
   <p>
-    Or inline code like <code>var foo = 'bar';</code>.
+    Or inline code like <code>var foo = &apos;bar&apos;;</code>.
   </p>
   <p>Or an image of bears</p>
   <p>
