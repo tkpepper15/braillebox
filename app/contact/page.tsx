@@ -3,7 +3,6 @@
 import { FC } from 'react';
 import Navbar from 'app/navbar';
 import Footer from 'app/footer';
-import { HiMail } from 'react-icons/hi';
 
 interface ContactPageProps {}
 
@@ -18,7 +17,7 @@ const ContactPage: FC<ContactPageProps> = () => {
           <div className="text-center mb-20">
             <h1 className="text-4xl font-bold text-white mb-4">Get in Touch</h1>
             <p className="text-lg text-gray-400 mb-12">
-              We&Apos;re always interested in hearing about new ways to improve and integrate Brailliant.
+              We&apos;re always interested in hearing about new ways to improve and integrate Brailliant.
             </p>
             <div>
               <img
@@ -36,13 +35,12 @@ const ContactPage: FC<ContactPageProps> = () => {
             <div className="bg-stone-900 p-8 rounded-lg transition-all duration-300 hover:bg-stone-800">
               <div className="text-center space-y-3">
                 <h3 className="text-xl font-semibold text-white">Sumedh</h3>
-                <p className="text-sm text-[#d4843e] font-medium">Marketing Lead</p>
+                <p className="text-sm text-[#d4843e] font-medium">Market Research & Business Lead</p>
                 <a 
                   href="mailto:kotrannavar25s@ncssm.edu"
-                  className="inline-flex items-center justify-center space-x-2 px-4 py-2.5 bg-stone-800 hover:bg-[#d4843e] rounded-md transition-all duration-300 group w-full"
+                  className="block w-full px-4 py-2.5 bg-stone-800 hover:bg-[#d4843e] rounded-md transition-all duration-300 text-sm text-gray-400 hover:text-white"
                 >
-                  <HiMail className="text-lg text-gray-400 group-hover:text-white transition-colors" />
-                  <span className="text-sm text-gray-400 group-hover:text-white transition-colors">kotrannavar25s@ncssm.edu</span>
+                  kotrannavar25s@ncssm.edu
                 </a>
               </div>
             </div>
@@ -54,10 +52,9 @@ const ContactPage: FC<ContactPageProps> = () => {
                 <p className="text-sm text-[#d4843e] font-medium">Creator & Development Lead</p>
                 <a 
                   href="mailto:shan26r@ncssm.edu"
-                  className="inline-flex items-center justify-center space-x-2 px-4 py-2.5 bg-stone-800 hover:bg-[#d4843e] rounded-md transition-all duration-300 group w-full"
+                  className="block w-full px-4 py-2.5 bg-stone-800 hover:bg-[#d4843e] rounded-md transition-all duration-300 text-sm text-gray-400 hover:text-white"
                 >
-                  <HiMail className="text-lg text-gray-400 group-hover:text-white transition-colors" />
-                  <span className="text-sm text-gray-400 group-hover:text-white transition-colors">shan26r@ncssm.edu</span>
+                  shan26r@ncssm.edu
                 </a>
               </div>
             </div>
@@ -66,13 +63,12 @@ const ContactPage: FC<ContactPageProps> = () => {
             <div className="bg-stone-900 p-8 rounded-lg transition-all duration-300 hover:bg-stone-800">
               <div className="text-center space-y-3">
                 <h3 className="text-xl font-semibold text-white">Tejjas</h3>
-                <p className="text-sm text-[#d4843e] font-medium">Design Lead</p>
+                <p className="text-sm text-[#d4843e] font-medium">UI/UX & Design Lead</p>
                 <a 
                   href="mailto:kaul25t@ncssm.edu"
-                  className="inline-flex items-center justify-center space-x-2 px-4 py-2.5 bg-stone-800 hover:bg-[#d4843e] rounded-md transition-all duration-300 group w-full"
+                  className="block w-full px-4 py-2.5 bg-stone-800 hover:bg-[#d4843e] rounded-md transition-all duration-300 text-sm text-gray-400 hover:text-white"
                 >
-                  <HiMail className="text-lg text-gray-400 group-hover:text-white transition-colors" />
-                  <span className="text-sm text-gray-400 group-hover:text-white transition-colors">kaul25t@ncssm.edu</span>
+                  kaul25t@ncssm.edu
                 </a>
               </div>
             </div>
