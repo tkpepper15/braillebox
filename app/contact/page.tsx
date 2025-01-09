@@ -18,7 +18,7 @@ const ContactPage: FC<ContactPageProps> = () => {
           <div className="text-center mb-20">
             <h1 className="text-4xl font-bold text-white mb-4">Get in Touch</h1>
             <p className="text-lg text-gray-400 mb-12">
-              We're always interested in hearing about new ways to improve and integrate Brailliant.
+              We&Apos;re always interested in hearing about new ways to improve and integrate Brailliant.
             </p>
             <div>
               <img
