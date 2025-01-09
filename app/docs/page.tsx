@@ -2,39 +2,50 @@
 
 import { FC } from 'react';
 import Navbar from 'app/navbar';
+import Footer from 'app/footer';
 import '/app/global.css';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-
 interface DocsPageProps {}
 
 const DocsPage: FC<DocsPageProps> = () => {
+  // First, let's define a custom underline style class in the component
+  const orangeUnderlineClass = "border-b-2 border-[#d4843e] pb-0.5"; // Same orange as code blocks
+
   return (
     <div className="min-h-screen bg-stone-950 text-gray-200">
       <Navbar />
       <div className="container mx-auto mt-12 px-4 sm:px-6 lg:px-8 py-16">
-        <div className="max-w-3xl mx-auto">
-          {/* Main content container */}
-          <div className="space-y-8">
+        <div className="max-w-3xl mx-auto prose prose-invert">
+          <div className="space-y-12">
             {/* Title section */}
             <div className="mb-12">
               <h1 className="text-4xl font-bold text-white mb-4">
                 The Making of Brailliant
               </h1>
-              <p className="text-lg leading-relaxed">
+              <p className="text-lg leading-relaxed orange">
                 A Technical Walk-Through with Richard Shan
               </p>
             </div>
 
+            <div className="text-center my-8">
+                <img
+                  src="../../pics/docs_pic.png"
+                  alt="Modified design"
+                  width={700}
+                  className="rounded-lg shadow-lg mx-auto"
+                />
+              </div>
+
             {/* Overview section */}
             <section className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">Preface</h2>
+              <h2 className="text-4xl font-bold orange">Preface</h2>
               <p className="text-lg leading-relaxed">
-                The goal is to create a 3x2 solenoid array that can display braille characters by
+                The goal is to create a <span className={orangeUnderlineClass}>3x2 solenoid array</span> that can display braille characters by
                 pushing solenoids up and down to create dots. This solenoid array will be
-                connected to a Raspberry Pi, which in turn will be connected to an ESP32CAM.
-                The camera will take a picture of a page of text, then perform OCR (optical
+                connected to a <span className={orangeUnderlineClass}>Raspberry Pi</span>, which in turn will be connected to an <span className={orangeUnderlineClass}>ESP32CAM</span>.
+                The camera will take a picture of a page of text, then perform <span className={orangeUnderlineClass}>OCR</span> (optical
                 character recognition) to extract a string of text from the image. That
                 string of text will be converted to braille, which will be displayed on the
                 solenoid array by flashing each character for 1 second at a time. This
@@ -45,8 +56,8 @@ const DocsPage: FC<DocsPageProps> = () => {
 
             {/* Brainstorming Process section */}
             <section className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">Brainstorming Process</h2>
-              <h3 className="text-2xl font-semibold text-white mt-8">Initial Thoughts</h3>
+              <h2 className="text-4xl font-bold orange">Brainstorming Process</h2>
+              <h3 className="text-2xl font-semibold white">Initial Thoughts</h3>
               <p className="text-lg leading-relaxed">
                 My idea was to design a text to braille converter, which a blind person
                 could use by moving the device over a page of text to convert it into
@@ -143,7 +154,7 @@ const DocsPage: FC<DocsPageProps> = () => {
 
             {/* Bill of Materials section */}
             <section className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">Bill of Materials</h2>
+              <h2 className="text-4xl font-bold orange">Bill of Materials</h2>
               <div className="text-center">
                 <iframe
                   src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQlIJdCFYQU6-XJm1FrXhk5twaGxpRf5jiNvo1Z9Wf0MkVefTB23N4_w5QmfgFJcqXeWUzttINugkhU/pubhtml?widget=true&chrome=false&headers=false"
@@ -157,11 +168,11 @@ const DocsPage: FC<DocsPageProps> = () => {
 
             {/* Components section */}
             <section className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">The Build</h2>
+              <h2 className="text-4xl font-bold orange">The Build</h2>
               
               {/* Brailliant CAD subsection */}
               <section className="space-y-6">
-                <h4 className="text-xl font-semibold text-white">Initial Design</h4>
+                <h3 className="text-2xl font-semibold text-white">Initial Design</h3>
                 {/* Continue with content... */}
               </section>
 
@@ -330,48 +341,158 @@ time.sleep(1)`
 
                 <div className="text-center my-8">
                   <img 
-                    src="../../pics/final/pcb/sight1.jpg" 
+                    src="../../pics/final/pcb/mosfet.jpg"
                     width={500}
-                    alt="Initial PCB design"
+                    alt="MOSFET integration"
                     className="rounded-lg shadow-lg mx-auto"
                   />
                 </div>
 
-                {/* Add more electronics process images and descriptions */}
+                <p className="text-lg leading-relaxed">
+                  I first tried using a <span className={orangeUnderlineClass}>TIP120 transistor</span>, but it couldn&apos;t handle the power
+                  requirements of the solenoid. I then switched to an <span className={orangeUnderlineClass}>IRF520 MOSFET</span>, which worked
+                  much better. However, I still had issues with the pinouts being different than
+                  what I expected.
+                </p>
+
+                <div className="text-center my-8">
+                  <img 
+                    src="../../pics/final/pcb/mosfetModule.jpg"
+                    width={500}
+                    alt="MOSFET Module"
+                    className="rounded-lg shadow-lg mx-auto"
+                  />
+                </div>
+
+                <p className="text-lg leading-relaxed">
+                  After fixing the pinout issues, I created a simple test circuit with an <span className={orangeUnderlineClass}>Arduino
+                  Uno</span> to verify that the <span className={orangeUnderlineClass}>MOSFET</span> could properly control the solenoid. The circuit
+                  consisted of:
+                </p>
+
+                <ul className="list-disc space-y-2 pl-6 text-lg">
+                  <li>12V power supply for the solenoid</li>
+                  <li>IRF520 MOSFET</li>
+                  <li>Solenoid connected to drain</li>
+                  <li>Arduino digital pin connected to gate through a 220Ω resistor</li>
+                  <li>Common ground between Arduino and power supply</li>
+                </ul>
+
+                <p className="text-lg leading-relaxed">
+                  Once I confirmed the circuit worked, I designed a PCB that would hold six of
+                  these circuits - one for each solenoid in the braille array. The PCB also
+                  includes:
+                </p>
+
+                <ul className="list-disc space-y-2 pl-6 text-lg">
+                  <li>Power distribution for the 12V supply</li>
+                  <li>ATTiny1614 microcontroller</li>
+                  <li>Programming headers for the ATTiny</li>
+                  <li>Terminal blocks for solenoid connections</li>
+                </ul>
+
+                <div className="text-center my-8">
+                  <img 
+                    src="../../pics/final/pcb/final.jpg"
+                    width={500}
+                    alt="Final PCB assembly"
+                    className="rounded-lg shadow-lg mx-auto"
+                  />
+                </div>
               </section>
             </section>
 
-            {/* GPT4o and Base64 Processing section */}
+            {/* Software Integration section */}
             <section className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">GPT4o and Base64 Processing</h2>
-              <p className="text-lg leading-relaxed">
-                At this point, I wanted to try to use as little computational power as
-                possible, and thus decided to switch to processing my image in base64.
-                Although switching to base64 ultimately failed to scale down the computing
-                enough to run on a microcontroller, it still led me in an interesting
-                direction: that I could use GPT4o&apos;s new multimodal capabilities as an OCR
-                engine to extract text from the base64 image. GPT4o in general is much more
-                accurate in OCR than pytesseract, hence the switch.
-              </p>
+              <h2 className="text-4xl font-bold orange">Software Integration</h2>
+              
+              {/* Camera Feed OCR subsection */}
+              <section className="space-y-6">
+                <h3 className="text-2xl font-semibold text-white">Camera Feed OCR</h3>
+                <p className="text-lg leading-relaxed">
+                  I had previously setup infrastructure to wirelessly transmit a command to
+                  capture an image from a Raspberry Pi to the ESP32CAM, along with sending the
+                  image data back over the network and saving it. I had created a WebSocket
+                  server to accept commands and then send the image data over HTTP back to the
+                  Raspberry Pi.
+                </p>
 
-              <div className="my-8 rounded-lg overflow-hidden bg-gray-900/50">
-                <SyntaxHighlighter 
-                  language="cpp" 
-                  style={{
-                    ...atomDark,
-                    'pre[class*="language-"]': {
-                      ...atomDark['pre[class*="language-"]'],
-                      background: '#2d2d2d'
-                    },
-                    'code[class*="language-"]': {
-                      ...atomDark['code[class*="language-"]'],
-                      color: '#d4843e'  // Duller orange color
-                    }
-                  }}
-                  showLineNumbers
-                  className="text-sm"
-                >
-                  {
+                <p className="text-lg leading-relaxed">
+                  The ESP32CAM is pointed towards a paper with the words &ldquo;Hello World!&rdquo;. In
+                  the right side of the picture, the Raspberry Pi which is running the code is
+                  visible along with the display. Upon running the program on the Pi&apos;s
+                  terminal, the ESP32CAM takes a picture and transmits it to the Pi, which
+                  then uses tesseract to perform OCR on it and prints out the extracted text.
+                </p>
+
+                <div className="text-center my-8">
+                  <video 
+                    width={550} 
+                    height={300} 
+                    controls
+                    className="rounded-lg shadow-lg mx-auto"
+                  >
+                    <source src="../../pics/week15/pi.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </section>
+
+              {/* ESP32CAM Wireless Transmission subsection */}
+              <section className="space-y-6">
+                <h3 className="text-2xl font-semibold text-white">ESP32CAM Wireless Transmission</h3>
+                <p className="text-lg leading-relaxed">
+                  WebSocket connections are initiated through HTTP protocol, using an upgrade
+                  request from HTTP to WebSocket. This begins with a client sending a standard
+                  HTTP request that includes an &ldquo;Upgrade: websocket&rdquo; header and a &ldquo;Connection:
+                  Upgrade&rdquo; header to the server. The server then responds with an HTTP 101
+                  status code, indicating that the protocol will change, thus establishing the
+                  WebSocket connection.
+                </p>
+
+                <div className="my-8 rounded-lg overflow-hidden bg-gray-900">
+                  <SyntaxHighlighter 
+                    language="cpp" 
+                    style={atomDark}
+                    showLineNumbers
+                  >
+                    {`// Add the WebSocket server code here
+// Include the connection handling and data transmission`}
+                  </SyntaxHighlighter>
+                </div>
+              </section>
+
+              {/* GPT4o and Base64 Processing subsection */}
+              <section className="space-y-6">
+                <h3 className="text-2xl font-semibold text-white">GPT4o and Base64 Processing</h3>
+                <p className="text-lg leading-relaxed">
+                  At this point, I wanted to try to use as little computational power as
+                  possible, and thus decided to switch to processing my image in <span className={orangeUnderlineClass}>base64</span>.
+                  Although switching to base64 ultimately failed to scale down the computing
+                  enough to run on a microcontroller, it still led me in an interesting
+                  direction: that I could use <span className={orangeUnderlineClass}>GPT4o&apos;s multimodal capabilities</span> as an OCR
+                  engine to extract text from the base64 image. GPT4o in general is much more
+                  accurate in OCR than pytesseract, hence the switch.
+                </p>
+
+                <div className="my-8 rounded-lg overflow-hidden bg-gray-900/50">
+                  <SyntaxHighlighter 
+                    language="cpp" 
+                    style={{
+                      ...atomDark,
+                      'pre[class*="language-"]': {
+                        ...atomDark['pre[class*="language-"]'],
+                        background: '#2d2d2d'
+                      },
+                      'code[class*="language-"]': {
+                        ...atomDark['code[class*="language-"]'],
+                        color: '#d4843e'  // Duller orange color
+                      }
+                    }}
+                    showLineNumbers
+                    className="text-sm"
+                  >
+                    {
 `static esp_err_t jpg_base64_handler(httpd_req_t *req) {
   camera_fb_t *fb = esp_camera_fb_get();
   if (!fb) {
@@ -394,126 +515,37 @@ time.sleep(1)`
 }
 
                   }`
-                  }
-                </SyntaxHighlighter>
-              </div>
+                    }
+                  </SyntaxHighlighter>
+                </div>
 
-              <div className="text-center my-8">
-                <img 
-                  src="../../pics/week15/4oJson.jpg" 
-                  width={750} 
-                  alt="GPT4o JSON response output"
-                  className="rounded-lg shadow-lg mx-auto" 
-                />
-              </div>
-            </section>
+                <div className="text-center my-8">
+                  <img 
+                    src="../../pics/week15/4oJson.jpg" 
+                    width={750} 
+                    alt="GPT4o JSON response output"
+                    className="rounded-lg shadow-lg mx-auto" 
+                  />
+                </div>
+              </section>
 
-            {/* Camera Feed OCR section */}
-            <section className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">Camera Feed OCR</h2>
-              <p className="text-lg leading-relaxed">
-                I had previously setup infrastructure to wirelessly transmit a command to
-                capture an image from a Raspberry Pi to the ESP32CAM, along with sending the
-                image data back over the network and saving it. I had created a WebSocket
-                server to accept commands and then send the image data over HTTP back to the
-                Raspberry Pi.
-              </p>
+              {/* Text to Braille Mapping subsection */}
+              <section className="space-y-6">
+                <h3 className="text-2xl font-semibold text-white">Text to Braille Mapping</h3>
+                <p className="text-lg leading-relaxed">
+                  The Raspberry Pi sends a byte-encoded text string to the ATTiny1614. From
+                  there, the ATTiny1614 is responsible for interpreting and converting the
+                  received text into braille dot arrays, which it then shows on the 3x2 array.
+                </p>
 
-              <p className="text-lg leading-relaxed">
-                Here is a photo of my Raspberry Pi setup.
-              </p>
-
-              <div className="text-center my-8">
-                <img 
-                  src="../../pics/week15/setup.jpg" 
-                  width={500}
-                  alt="Raspberry Pi setup with ESP32CAM"
-                  className="rounded-lg shadow-lg mx-auto"
-                />
-              </div>
-
-              <p className="text-lg leading-relaxed">
-                The ESP32CAM is pointed towards a paper with the words &ldquo;Hello World!&rdquo;. In
-                the right side of the picture, the Raspberry Pi which is running the code is
-                visible along with the display. Upon running the program on the Pi&apos;s
-                terminal, the ESP32CAM takes a picture and transmits it to the Pi, which
-                then uses tesseract to perform OCR on it and prints out the extracted text.
-              </p>
-
-              <div className="text-center my-8">
-                <video 
-                  width={550} 
-                  height={300} 
-                  controls
-                  className="rounded-lg shadow-lg mx-auto"
-                >
-                  <source src="../../pics/week15/pi.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </section>
-
-            {/* ESP32CAM Wireless Transmission section */}
-            <section className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">ESP32CAM Wireless Transmission</h2>
-              <p className="text-lg leading-relaxed">
-                WebSocket connections are initiated through HTTP protocol, using an upgrade
-                request from HTTP to WebSocket. This begins with a client sending a standard
-                HTTP request that includes an &ldquo;Upgrade: websocket&rdquo; header and a &ldquo;Connection:
-                Upgrade&rdquo; header to the server. The server then responds with an HTTP 101
-                status code, indicating that the protocol will change, thus establishing the
-                WebSocket connection.
-              </p>
-
-              <div className="my-8 rounded-lg overflow-hidden bg-gray-900">
-                <SyntaxHighlighter 
-                  language="cpp" 
-                  style={atomDark}
-                  showLineNumbers
-                >
-                  {`// Add the WebSocket server code here
-// Include the connection handling and data transmission`}
-                </SyntaxHighlighter>
-              </div>
-            </section>
-
-            {/* PyTesseract section - consolidated */}
-            <section className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">PyTesseract</h2>
-              <p className="text-lg leading-relaxed">
-                First, I created a directory to store this project.
-              </p>
-
-              <div className="my-8 rounded-lg overflow-hidden bg-gray-900">
-                <SyntaxHighlighter 
-                  language="bash" 
-                  style={atomDark}
-                >
-                  {`cd Desktop
-mkdir ocr`}
-                </SyntaxHighlighter>
-              </div>
-
-              {/* Add more PyTesseract content */}
-            </section>
-
-            {/* Text to Braille Mapping section */}
-            <section className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">Text to Braille Mapping</h2>
-              <p className="text-lg leading-relaxed">
-                The Raspberry Pi sends a byte-encoded text string to the ATTiny1614. From
-                there, the ATTiny1614 is responsible for interpreting and converting the
-                received text into braille dot arrays, which it then shows on the 3x2 array.
-              </p>
-
-              <div className="my-8 rounded-lg overflow-hidden bg-gray-900">
-                <SyntaxHighlighter 
-                  language="cpp" 
-                  style={atomDark}
-                  showLineNumbers
-                  className="text-sm"
-                >
-                  {
+                <div className="my-8 rounded-lg overflow-hidden bg-gray-900">
+                  <SyntaxHighlighter 
+                    language="cpp" 
+                    style={atomDark}
+                    showLineNumbers
+                    className="text-sm"
+                  >
+                    {
 `/*
  Solenoid arrangement:
 0 1
@@ -539,44 +571,42 @@ BrailleMap braille_dictionary[] = {
 {'f', f}, {'g', g}, {'h', h}, {'i', i}, {'j', j},
 // ... more mappings ...
 };`
-                  }
-                </SyntaxHighlighter>
-              </div>
+                    }
+                  </SyntaxHighlighter>
+                </div>
+              </section>
             </section>
 
             {/* Assembly section */}
             <section className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">Assembly</h2>
+              <h2 className="text-4xl font-bold orange">Assembly</h2>
               <p className="text-lg leading-relaxed">
                 I first outlined the general setup of my final project. I secured each
-                MOSFET to a corresponding battery pack and solenoid, and color-coded each
+                <span className={orangeUnderlineClass}>MOSFET</span> to a corresponding battery pack and solenoid, and color-coded each
                 MOSFET&apos;s trigger and GND wires. I organized them in such a way that toggling
                 solenoid 1, 2, 3, 4, 5, then 6 would control each solenoid in a line.
               </p>
 
-              <div className="text-center my-8">
-                <img 
-                  src="../../pics/final/assembly/internal.jpg" 
-                  width={600} 
-                  alt="Internal assembly of MOSFETs and solenoids"
-                  className="rounded-lg shadow-lg mx-auto" 
-                />
-              </div>
-
-              <div className="my-8 rounded-lg overflow-hidden shadow-lg">
-                <video 
-                  controls
-                  width="100%"
-                  height="auto"
-                  preload="metadata"
-                  className="w-full"
-                >
-                  <source 
-                    src="../../pics/final/assembly/solenoidsWorking.mp4" 
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
+              <div className="gap-6 my-8">
+                <div className="text-center">
+                  <video 
+                    controls
+                    width={700}
+                    preload="none"
+                    poster="../../pics/final/assembly/internal.jpg"
+                    className="rounded-lg shadow-lg mx-auto bg-cover"
+                    style={{
+                      objectFit: 'cover',
+                      backgroundColor: '#1a1a1a'
+                    }}
+                  >
+                    <source 
+                      src="../../pics/final/assembly/solenoidsWorking.mp4" 
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </div>
 
               <p className="text-lg leading-relaxed">
@@ -606,42 +636,15 @@ BrailleMap braille_dictionary[] = {
               </div>
             </section>
 
-            {/* Evaluation section */}
-            <section className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">Evaluation</h2>
-              <p className="text-lg leading-relaxed">
-                My project is considered successful if it can:
-              </p>
-              <ul className="list-none space-y-2 pl-6">
-                <li className="flex items-center text-lg">
-                  <span className="text-green-500 mr-2">☑</span> 
-                  Accurately extract text from a live image feed
-                </li>
-                <li className="flex items-center text-lg">
-                  <span className="text-green-500 mr-2">☑</span> 
-                  Map the text to braille
-                </li>
-                <li className="flex items-center text-lg">
-                  <span className="text-green-500 mr-2">☑</span> 
-                  Display the braille on the solenoid array
-                </li>
-              </ul>
-            </section>
-
             {/* Implications section */}
             <section className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">Implications</h2>
+              <h2 className="text-4xl font-bold orange">Wrap Up</h2>
               <p className="text-lg leading-relaxed">
                 There is existing technologies on the market that can convert text to
                 braille in real time, but those are often expensive and not readily
                 available to the public. My hope with this project is to create a product
                 that can be cheaply produced and reach a wide audience.
               </p>
-            </section>
-
-            {/* Lessons Learned section */}
-            <section className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">Lessons Learned</h2>
               <ul className="list-disc space-y-2 pl-6 text-lg">
                 <li>
                   Some parts of a project will take longer while others will take shorter
@@ -660,7 +663,6 @@ BrailleMap braille_dictionary[] = {
 
             {/* Final Product section */}
             <section className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">Final Product</h2>
               <div className="bg-red-900/30 border border-red-500 rounded-lg p-6 my-8">
                 <p className="font-bold">
                   WARNING: The project video and slide (poster) are out of date and provide
@@ -676,7 +678,7 @@ BrailleMap braille_dictionary[] = {
 
             {/* File Downloads section */}
             <section className="space-y-6">
-              <h2 className="text-3xl font-bold text-white">File Downloads</h2>
+              <h2 className="text-4xl font-bold orange">File Downloads</h2>
               <p className="text-lg leading-relaxed">
                 My files can be downloaded{" "}
                 <a href="../../files/final/final.zip" className="text-blue-400 hover:text-blue-300">
@@ -687,7 +689,9 @@ BrailleMap braille_dictionary[] = {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
+    
   );
 };
 

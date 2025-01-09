@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Navbar from './navbar'; // Ensure the path is correct
+import Footer from './footer'
 import './global.css'; // Ensure the path is correct
 import { keyframes } from '@emotion/react';
 import styled from "@emotion/styled";
@@ -84,11 +85,7 @@ const Home: React.FC = () => {
           </p>
         </section>
       </main>
-
-      {/* Footer */}
-      <footer className="mt-20 py-6 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} Brailliant
-      </footer>
+    <Footer></Footer>
     </div>
   );
 };
