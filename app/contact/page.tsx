@@ -30,21 +30,7 @@ const ContactPage: FC<ContactPageProps> = () => {
           </div>
 
           {/* Contact Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Sumedh Card */}
-            <div className="bg-stone-900 p-8 rounded-lg transition-all duration-300 hover:bg-stone-800">
-              <div className="text-center space-y-3">
-                <h3 className="text-xl font-semibold text-white">Sumedh</h3>
-                <p className="text-sm text-[#d4843e] font-medium">Market Research & Business Lead</p>
-                <a 
-                  href="mailto:kotrannavar25s@ncssm.edu"
-                  className="block w-full px-4 py-2.5 bg-stone-800 hover:bg-[#d4843e] rounded-md transition-all duration-300 text-sm text-gray-400 hover:text-white"
-                >
-                  kotrannavar25s@ncssm.edu
-                </a>
-              </div>
-            </div>
-
+          <div className="grid grid-cols-1 gap-6 max-w-xl mx-auto">
             {/* Richard Card */}
             <div className="bg-stone-900 p-8 rounded-lg transition-all duration-300 hover:bg-stone-800">
               <div className="text-center space-y-3">
@@ -52,9 +38,23 @@ const ContactPage: FC<ContactPageProps> = () => {
                 <p className="text-sm text-[#d4843e] font-medium">Creator & Development Lead</p>
                 <a 
                   href="mailto:shan26r@ncssm.edu"
-                  className="block w-full px-4 py-2.5 bg-stone-800 hover:bg-[#d4843e] rounded-md transition-all duration-300 text-sm text-gray-400 hover:text-white"
+                  className="block w-full px-8 py-3 bg-stone-800 hover:bg-[#d4843e] rounded-md transition-all duration-300 text-sm text-gray-400 hover:text-white"
                 >
                   shan26r@ncssm.edu
+                </a>
+              </div>
+            </div>
+
+            {/* Sumedh Card */}
+            <div className="bg-stone-900 p-8 rounded-lg transition-all duration-300 hover:bg-stone-800">
+              <div className="text-center space-y-3">
+                <h3 className="text-xl font-semibold text-white">Sumedh</h3>
+                <p className="text-sm text-[#d4843e] font-medium">Market Research & Business Lead</p>
+                <a 
+                  href="mailto:kotrannavar25s@ncssm.edu"
+                  className="block w-full px-8 py-3 bg-stone-800 hover:bg-[#d4843e] rounded-md transition-all duration-300 text-sm text-gray-400 hover:text-white"
+                >
+                  kotrannavar25s@ncssm.edu
                 </a>
               </div>
             </div>
@@ -66,7 +66,7 @@ const ContactPage: FC<ContactPageProps> = () => {
                 <p className="text-sm text-[#d4843e] font-medium">UI/UX & Design Lead</p>
                 <a 
                   href="mailto:kaul25t@ncssm.edu"
-                  className="block w-full px-4 py-2.5 bg-stone-800 hover:bg-[#d4843e] rounded-md transition-all duration-300 text-sm text-gray-400 hover:text-white"
+                  className="block w-full px-8 py-3 bg-stone-800 hover:bg-[#d4843e] rounded-md transition-all duration-300 text-sm text-gray-400 hover:text-white"
                 >
                   kaul25t@ncssm.edu
                 </a>

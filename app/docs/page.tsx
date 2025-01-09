@@ -581,8 +581,7 @@ BrailleMap braille_dictionary[] = {
             <section className="space-y-6">
               <h2 className="text-4xl font-bold orange">Assembly</h2>
               <p className="text-lg leading-relaxed">
-                I first outlined the general setup of my final project. I secured each
-                <span className={orangeUnderlineClass}>MOSFET</span> to a corresponding battery pack and solenoid, and color-coded each
+                I first outlined the general setup of my final project. I secured each <span className={orangeUnderlineClass}>MOSFET</span> to a corresponding battery pack and solenoid, and color-coded each
                 MOSFET&apos;s trigger and GND wires. I organized them in such a way that toggling
                 solenoid 1, 2, 3, 4, 5, then 6 would control each solenoid in a line.
               </p>
