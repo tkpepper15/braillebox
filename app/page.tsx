@@ -128,10 +128,7 @@ const Home: React.FC = () => {
                 {/* Market Size Card */}
                 <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-stone-800">
                   <div className="space-y-4">
-                    <div className="flex items-center justify-center">
-                      <FaUsers className="text-[#d4843e] text-5xl" />
-                    </div>
-                    <h3 className="orange text-5xl font-bold">7M+</h3>
+                    <h3 className="text-[#d4843e] text-5xl font-bold">7M+</h3>
                     <p className="text-white text-xl font-semibold">Americans</p>
                     <p className="text-gray-400">are living with low vision or blindness</p>
                   </div>
@@ -140,10 +137,7 @@ const Home: React.FC = () => {
                 {/* Growth Card */}
                 <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-stone-800">
                   <div className="space-y-4">
-                    <div className="flex items-center justify-center">
-                      <FaGraduationCap className="text-[#d4843e] text-5xl" />
-                    </div>
-                    <h3 className="orange text-5xl font-bold">130K</h3>
+                    <h3 className="text-[#d4843e] text-5xl font-bold">130K</h3>
                     <p className="text-white text-xl font-semibold">New Learners</p>
                     <p className="text-gray-400">Americans learning Braille annually</p>
                   </div>
@@ -152,10 +146,7 @@ const Home: React.FC = () => {
                 {/* Market Gap Card */}
                 <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-stone-800">
                   <div className="space-y-4">
-                    <div className="flex items-center justify-center">
-                      <FaMoneyBillWave className="text-[#d4843e] text-5xl" />
-                    </div>
-                    <h3 className="orange text-5xl font-bold">$15K</h3>
+                    <h3 className="text-[#d4843e] text-5xl font-bold">$3.5-15K</h3>
                     <p className="text-white text-xl font-semibold">Price Barrier</p>
                     <p className="text-gray-400">Current Braille displays can cost up to $15,000</p>
                   </div>
@@ -168,7 +159,7 @@ const Home: React.FC = () => {
                   <h3 className="text-2xl font-bold mb-4">Making Braille <span className="orange">Accessible</span></h3>
                   <p className="text-gray-400 text-lg leading-relaxed mb-4">
                     The American Foundation for the Blind found that existing Braille displays range from
-                    $3,500 to $15,000, making them inaccessible to many who need them.
+                    $3,500 to $15,000, making them inaccessible to many who need them. Brailliant is different.
                   </p>
                   <div className="flex justify-center gap-12 mt-8">
                     <div className="text-center">
