@@ -6,7 +6,17 @@ import Footer from './footer'
 import './global.css'; // Ensure the path is correct
 import { keyframes } from '@emotion/react';
 import styled from "@emotion/styled";
-import { FaArrowDown, FaUsers, FaGraduationCap, FaMoneyBillWave, FaCamera, FaMicrochip, FaBraille, FaServer, FaCogs } from "react-icons/fa";
+import { 
+  FaArrowDown,
+  FaBraille,
+  FaCamera,
+  FaCogs,
+  FaGraduationCap,
+  FaMicrochip,
+  FaMoneyBillWave,
+  FaServer,
+  FaUsers
+} from "react-icons/fa";
 
 const Home: React.FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
