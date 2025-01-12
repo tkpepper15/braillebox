@@ -44,7 +44,7 @@ const Home: React.FC = () => {
 
       {/* Hero Section */}
       <main className={`flex flex-col justify-center ${isLoaded ? 'animate-loaded' : ''}`}>
-        <section className="pt-24 pb-8 px-4">
+        <section className="pt-24 pb-8 px-4 bg-stone-950">
           <div className="max-w-6xl mx-auto text-center">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold staggered-element leading-tight mb-8">
               <span className="orange">Brailliant</span>ly Empowering<br />Low-Vision Individuals
@@ -69,13 +69,38 @@ const Home: React.FC = () => {
               rounded-lg hover:bg-[#c27736] transition-all duration-300 shadow-lg 
               transform hover:scale-105 hover:shadow-xl"
             >
-              <span className="text-lg font-medium tracking-wide">Watch Demo</span>
+              <span className="text-lg font-medium tracking-wide">Product Demo</span>
               <BouncingArrow className="h-5 w-5" />
             </button>
           </div>
         </section>
 
-        <section className="py-16 md:py-24 bg-stone-900/50">
+        <section id="project-video" className="py-20 bg-stone-950">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+                See <span className="orange">Brailliant</span> in Action
+              </h2>
+              <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+                Watch our complete project walkthrough and demonstration
+              </p>
+            </div>
+            
+            <div className="w-full max-w-[1200px] mx-auto">
+              <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-2xl">
+                <iframe
+                  src="https://www.youtube.com/embed/St28xhM159o"
+                  title="Brailliant Project Walkthrough"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute top-0 left-0 w-full h-full rounded-lg"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 md:py-24 bg-stone-950">
           <div className="max-w-6xl mx-auto px-4 staggered-element">
             <div className="max-w-6xl mx-auto staggered-element">
               {/* Header */}
@@ -122,11 +147,20 @@ const Home: React.FC = () => {
               <div className="mt-16 text-center bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg hover:bg-stone-800 transition-all duration-300">
                 <div className="max-w-3xl mx-auto">
                   <h3 className="text-2xl font-bold mb-4">Making Braille <span className="orange">Accessible</span></h3>
-                  <p className="text-gray-400 text-lg leading-relaxed">
+                  <p className="text-gray-400 text-lg leading-relaxed mb-4">
                     The American Foundation for the Blind found that existing Braille displays range from
-                    $3,500 to $15,000, making them inaccessible to many who need them. Brailliant aims to
-                    bridge this gap with an affordable solution.
+                    $3,500 to $15,000, making them inaccessible to many who need them.
                   </p>
+                  <div className="flex justify-center gap-12 mt-8">
+                    <div className="text-center">
+                      <p className="text-[#d4843e] text-3xl font-bold">$77</p>
+                      <p className="text-sm text-gray-400 mt-1">Production Cost</p>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-[#d4843e] text-3xl font-bold">$300</p>
+                      <p className="text-sm text-gray-400 mt-1">Retail Price</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -169,7 +203,7 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-16 md:py-24 bg-stone-900/50">
+        <section className="py-16 md:py-24 bg-stone-950">
           <div className="max-w-6xl mx-auto px-4 staggered-element">
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">
@@ -180,7 +214,7 @@ const Home: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
               <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg hover:bg-stone-800 transition-all duration-300">
                 <h3 className="text-xl font-semibold mb-4 orange">Smart Hardware Integration</h3>
                 <ul className="space-y-3 text-gray-400">
@@ -201,34 +235,17 @@ const Home: React.FC = () => {
                 </ul>
               </div>
             </div>
+
+            <div className="mt-8 text-center">
+              <img
+                src="/tech_overview.png"
+                alt="Technical Overview"
+                className="w-full max-w-5xl mx-auto rounded-lg shadow-2xl"
+              />
+            </div>
           </div>
         </section>
       </main>
-
-      <section id="project-video" className="py-20 bg-stone-950">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              See <span className="orange">Brailliant</span> in Action
-            </h2>
-            <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-              Watch our complete project walkthrough and demonstration
-            </p>
-          </div>
-          
-          <div className="w-full max-w-[1200px] mx-auto">
-            <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-2xl">
-              <iframe
-                src="https://www.youtube.com/embed/St28xhM159o"
-                title="Brailliant Project Walkthrough"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute top-0 left-0 w-full h-full rounded-lg"
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>
