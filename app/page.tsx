@@ -75,7 +75,7 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section id="project-video" className="py-20 bg-stone-950">
+        <section id="project-video" className="py-16 bg-stone-950">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">
@@ -100,7 +100,7 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-16 md:py-24 bg-stone-950">
+        <section className="py-16 bg-stone-950">
           <div className="max-w-6xl mx-auto px-4 staggered-element">
             <div className="max-w-6xl mx-auto staggered-element">
               {/* Header */}
@@ -154,7 +154,7 @@ const Home: React.FC = () => {
                   <div className="flex justify-center gap-12 mt-8">
                     <div className="text-center">
                       <p className="text-[#d4843e] text-3xl font-bold">$77</p>
-                      <p className="text-sm text-gray-400 mt-1">Production Cost</p>
+                      <p className="text-sm text-gray-400 mt-1">Build Cost</p>
                     </div>
                     <div className="text-center">
                       <p className="text-[#d4843e] text-3xl font-bold">$300</p>
@@ -167,7 +167,7 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-16 md:py-24 bg-stone-950">
+        <section className="mt-16 bg-stone-950">
           <div className="max-w-6xl mx-auto px-4 staggered-element">
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">
@@ -203,7 +203,7 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-16 md:py-24 bg-stone-950">
+        <section className="py-16 bg-stone-950">
           <div className="max-w-6xl mx-auto px-4 staggered-element">
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">
