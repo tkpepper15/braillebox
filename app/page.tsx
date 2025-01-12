@@ -6,7 +6,7 @@ import Footer from './footer'
 import './global.css'; // Ensure the path is correct
 import { keyframes } from '@emotion/react';
 import styled from "@emotion/styled";
-import { FaArrowDown } from "react-icons/fa";
+import { FaArrowDown, FaUsers, FaGraduationCap, FaMoneyBillWave, FaCamera, FaMicrochip, FaBraille, FaServer, FaCogs } from "react-icons/fa";
 
 const Home: React.FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
@@ -118,7 +118,10 @@ const Home: React.FC = () => {
                 {/* Market Size Card */}
                 <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-stone-800">
                   <div className="space-y-4">
-                    <h3 className="text-[#d4843e] text-5xl font-bold">7M+</h3>
+                    <div className="flex items-center justify-center">
+                      <FaUsers className="text-[#d4843e] text-5xl" />
+                    </div>
+                    <h3 className="orange text-5xl font-bold">7M+</h3>
                     <p className="text-white text-xl font-semibold">Americans</p>
                     <p className="text-gray-400">are living with low vision or blindness</p>
                   </div>
@@ -127,7 +130,10 @@ const Home: React.FC = () => {
                 {/* Growth Card */}
                 <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-stone-800">
                   <div className="space-y-4">
-                    <h3 className="text-[#d4843e] text-5xl font-bold">130K</h3>
+                    <div className="flex items-center justify-center">
+                      <FaGraduationCap className="text-[#d4843e] text-5xl" />
+                    </div>
+                    <h3 className="orange text-5xl font-bold">130K</h3>
                     <p className="text-white text-xl font-semibold">New Learners</p>
                     <p className="text-gray-400">Americans learning Braille annually</p>
                   </div>
@@ -136,7 +142,10 @@ const Home: React.FC = () => {
                 {/* Market Gap Card */}
                 <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-stone-800">
                   <div className="space-y-4">
-                    <h3 className="text-[#d4843e] text-5xl font-bold">$15K</h3>
+                    <div className="flex items-center justify-center">
+                      <FaMoneyBillWave className="text-[#d4843e] text-5xl" />
+                    </div>
+                    <h3 className="orange text-5xl font-bold">$15K</h3>
                     <p className="text-white text-xl font-semibold">Price Barrier</p>
                     <p className="text-gray-400">Current Braille displays can cost up to $15,000</p>
                   </div>
@@ -180,21 +189,30 @@ const Home: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
               <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg hover:bg-stone-800 transition-all duration-300">
-                <h3 className="text-xl font-semibold mb-3 orange">Extract</h3>
+                <div className="flex items-center justify-center mb-6">
+                  <FaCamera className="text-[#d4843e] text-4xl" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3 orange text-center">Extract</h3>
                 <p className="text-gray-400">
                   The ESP32CAM captures text images and uses advanced OCR technology to extract text content with high accuracy
                 </p>
               </div>
 
               <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg hover:bg-stone-800 transition-all duration-300">
-                <h3 className="text-xl font-semibold mb-3 orange">Process</h3>
+                <div className="flex items-center justify-center mb-6">
+                  <FaServer className="text-[#d4843e] text-4xl" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3 orange text-center">Process</h3>
                 <p className="text-gray-400">
                   Text is wirelessly transmitted to the Raspberry Pi, which maps each character to its corresponding braille pattern
                 </p>
               </div>
 
               <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg hover:bg-stone-800 transition-all duration-300">
-                <h3 className="text-xl font-semibold mb-3 orange">Display</h3>
+                <div className="flex items-center justify-center mb-6">
+                  <FaBraille className="text-[#d4843e] text-4xl" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3 orange text-center">Display</h3>
                 <p className="text-gray-400">
                   A 3x2 solenoid array physically displays each braille character, controlled by precise MOSFET circuitry
                 </p>
@@ -216,7 +234,10 @@ const Home: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
               <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg hover:bg-stone-800 transition-all duration-300">
-                <h3 className="text-xl font-semibold mb-4 orange">Smart Hardware Integration</h3>
+                <div className="flex items-center justify-center mb-6">
+                  <FaCogs className="text-[#d4843e] text-4xl" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4 orange text-center">Smart Hardware Integration</h3>
                 <ul className="space-y-3 text-gray-400">
                   <li>• Raspberry Pi central controller for robust processing</li>
                   <li>• ESP32CAM for wireless image capture and transmission</li>
@@ -226,7 +247,10 @@ const Home: React.FC = () => {
               </div>
 
               <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg hover:bg-stone-800 transition-all duration-300">
-                <h3 className="text-xl font-semibold mb-4 orange">Advanced Software Stack</h3>
+                <div className="flex items-center justify-center mb-6">
+                  <FaMicrochip className="text-[#d4843e] text-4xl" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4 orange text-center">Advanced Software Stack</h3>
                 <ul className="space-y-3 text-gray-400">
                   <li>• GPT4o multimodal capabilities for enhanced OCR</li>
                   <li>• WebSocket-based wireless communication</li>
