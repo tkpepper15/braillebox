@@ -635,7 +635,7 @@ BrailleMap braille_dictionary[] = {
               </div>
             </section>
 
-            {/* Implications section */}
+            {/* Implications/Wrap Up section */}
             <section className="space-y-6">
               <h2 className="text-4xl font-bold orange">Wrap Up</h2>
               <p className="text-lg leading-relaxed">
@@ -658,6 +658,16 @@ BrailleMap braille_dictionary[] = {
                   There are many types of transistors, which can be a pain to sort through
                 </li>
               </ul>
+
+              {/* Add presentation image */}
+              <div className="mt-12 text-center">
+                <img 
+                  src="../../presentation.png"
+                  alt="Project presentation poster"
+                  width={800}
+                  className="rounded-lg shadow-lg mx-auto"
+                />
+              </div>
             </section>
 
             {/* Final Product section */}

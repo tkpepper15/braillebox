@@ -32,6 +32,11 @@ const Home: React.FC = () => {
     };
   }, []);
 
+  const scrollToVideo = () => {
+    const videoSection = document.getElementById('project-video');
+    videoSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="relative text-white min-h-screen">
       {/* Navbar */}
@@ -39,22 +44,34 @@ const Home: React.FC = () => {
 
       {/* Hero Section */}
       <main className={`flex flex-col justify-center ${isLoaded ? 'animate-loaded' : ''}`}>
-        <section className="pt-16 mt-12 md:pt-24 pb-20 md:pb-32 px-4">
+        <section className="pt-24 pb-8 px-4">
           <div className="max-w-6xl mx-auto text-center">
-            <h1 className="text-3xl lg:text-6xl font-bold staggered-element leading-tight mb-6">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold staggered-element leading-tight mb-8">
               <span className="orange">Brailliant</span>ly Empowering<br />Low-Vision Individuals
             </h1>
-            <p className="text-xl text-gray-400 mt-6 staggered-element max-w-2xl mx-auto">
+            <p className="text-xl text-gray-400 mt-8 staggered-element max-w-2xl mx-auto">
               We&apos;ve built an AI-powered, <span className="orange">affordable braille display</span> for the visually impaired.
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto mt-12 md:mt-16 px-4 staggered-element">
+          <div className="max-w-4xl mx-auto mt-16 px-4 staggered-element">
             <img
               src="/braillebox_topdown.png"
               alt="BrailleBox TopDown"
               className="w-full rounded-lg shadow-2xl"
             />
+          </div>
+
+          <div className="flex justify-center mt-16">
+            <button
+              onClick={scrollToVideo}
+              className="flex items-center space-x-3 px-8 py-4 bg-[#d4843e] text-white 
+              rounded-lg hover:bg-[#c27736] transition-all duration-300 shadow-lg 
+              transform hover:scale-105 hover:shadow-xl"
+            >
+              <span className="text-lg font-medium tracking-wide">Watch Demo</span>
+              <BouncingArrow className="h-5 w-5" />
+            </button>
           </div>
         </section>
 
@@ -187,7 +204,33 @@ const Home: React.FC = () => {
           </div>
         </section>
       </main>
-    <Footer></Footer>
+
+      <section id="project-video" className="py-20 bg-stone-950">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              See <span className="orange">Brailliant</span> in Action
+            </h2>
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+              Watch our complete project walkthrough and demonstration
+            </p>
+          </div>
+          
+          <div className="w-full max-w-[1200px] mx-auto">
+            <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-2xl">
+              <iframe
+                src="https://www.youtube.com/embed/St28xhM159o"
+                title="Brailliant Project Walkthrough"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute top-0 left-0 w-full h-full rounded-lg"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 };
