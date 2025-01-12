@@ -75,12 +75,12 @@ const Home: React.FC = () => {
           <div className="flex justify-center mt-16">
             <button
               onClick={scrollToVideo}
-              className="flex items-center space-x-3 px-8 py-4 bg-[#d4843e] text-white 
-              rounded-lg hover:bg-[#c27736] transition-all duration-300 shadow-lg 
-              transform hover:scale-105 hover:shadow-xl"
+              className="flex items-center space-x-3 px-8 py-4 bg-stone-900 text-[#d4843e] 
+              rounded-lg hover:bg-[#d4843e] hover:text-white transition-all duration-300 
+              shadow-lg border border-[#d4843e] group"
             >
               <span className="text-lg font-medium tracking-wide">Product Demo</span>
-              <BouncingArrow className="h-5 w-5" />
+              <BouncingArrow className="h-5 w-5 group-hover:text-white" />
             </button>
           </div>
         </section>
@@ -219,6 +219,14 @@ const Home: React.FC = () => {
                 </p>
               </div>
             </div>
+
+            <div className="mt-16 text-center">
+              <img
+                src="/tech_overview.png"
+                alt="Technical Overview"
+                className="w-full max-w-5xl mx-auto rounded-lg shadow-2xl"
+              />
+            </div>
           </div>
         </section>
 
@@ -261,12 +269,15 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-8 text-center">
-              <img
-                src="/tech_overview.png"
-                alt="Technical Overview"
-                className="w-full max-w-5xl mx-auto rounded-lg shadow-2xl"
-              />
+            <div className="flex justify-center mt-8">
+              <a 
+                href="/docs"
+                className="flex items-center space-x-3 px-8 py-4 bg-stone-900 text-[#d4843e] 
+                rounded-lg hover:bg-[#d4843e] hover:text-white transition-all duration-300 
+                shadow-lg border border-[#d4843e] group"
+              >
+                <span className="text-lg font-medium tracking-wide">Complete Walk-Through</span>
+              </a>
             </div>
           </div>
         </section>
