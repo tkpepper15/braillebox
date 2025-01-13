@@ -1,7 +1,7 @@
 'use client';
 
-import { FC } from 'react';
 import Image from 'next/image';
+import { FC } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Footer from 'app/footer';

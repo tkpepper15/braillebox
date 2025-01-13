@@ -87,7 +87,7 @@ const Home: React.FC = () => {
                 An affordable braille display that converts text into tactile braille in real-time
               </p>
               
-              <div className="mt-12 mb-12">
+              <div className="my-12">
                 <div className="relative w-full aspect-[16/9] max-w-xl mx-auto overflow-hidden rounded-xl shadow-xl">
                   <Image
                     src="/braillebox_topdown.png"
@@ -175,7 +175,7 @@ const Home: React.FC = () => {
                   <div className="space-y-4">
                     <h3 className="text-[#d4843e] text-6xl font-bold">130K</h3>
                     <p className="text-white text-2xl font-semibold">New Learners</p>
-                    <p className="text-gray-400 text-lg">Americans learning Braille annually</p>
+                    <p className="text-gray-400 text-lg">are learning Braille annually in America</p>
                   </div>
                   <div className="text-[#d4843e] opacity-20">
                     <FaGraduationCap className="size-24" />
@@ -267,7 +267,7 @@ const Home: React.FC = () => {
                 </div>
                 <h3 className="text-2xl font-semibold mb-4 orange text-center">Process</h3>
                 <p className="text-gray-400 text-lg">
-                  Text is wirelessly transmitted to the Raspberry Pi, which maps each character to its corresponding braille pattern
+                  Text is transmitted to the Raspberry Pi, which maps each character to its corresponding braille pattern
                 </p>
               </div>
 

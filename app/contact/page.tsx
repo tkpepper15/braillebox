@@ -1,7 +1,7 @@
 'use client';
 
-import { FC } from 'react';
 import Image from 'next/image';
+import { FC } from 'react';
 import { FaEnvelope } from 'react-icons/fa';
 import Footer from 'app/footer';
 import Navbar from 'app/navbar';
