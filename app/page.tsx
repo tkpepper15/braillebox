@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { keyframes } from '@emotion/react';
 import styled from "@emotion/styled";
 import { 
@@ -14,6 +14,7 @@ import {
   FaServer,
   FaUsers,
 } from "react-icons/fa";
+import logo from '../public/logo.svg';
 
 import Footer from './footer';
 import Navbar from './navbar';
@@ -40,7 +41,6 @@ const fadeIn = keyframes`
 const bounce = keyframes`
   0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
   40% { transform: translateY(-20px); }
-  60% { transform: translateY(-10px); }
 `;
 
 // Styled Components
@@ -61,57 +61,56 @@ const Section: React.FC<SectionProps> = ({ children, id }) => (
 
 // Main Component
 const Home: React.FC = () => {
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
-
   const scrollToVideo = () => {
     document.getElementById('project-video')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <div className="relative text-white min-h-screen bg-stone-950">
+      <head>
+        <link rel="icon" href={logo} type="image/svg+xml" />
+      </head>
       <Navbar />
 
-      <main className={`flex flex-col justify-center ${isLoaded ? 'animate-loaded' : ''}`}>
+      <main className="flex flex-col justify-center">
         {/* Hero Section */}
         <Section>
-          <HeroContent>
-            <div className="max-w-6xl mt-12 mx-auto text-center px-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Putting Braille in <span className="orange">Reach</span>
-              </h1>
-              <p className="text-xl text-gray-400 mt-6 max-w-2xl mx-auto">
-                An affordable braille display that converts text into tactile braille in real-time
-              </p>
-              
-              <div className="my-12">
-                <div className="relative w-full aspect-[16/9] max-w-xl mx-auto overflow-hidden rounded-xl shadow-xl">
-                  <Image
-                    src="/braillebox_topdown.png"
-                    alt="Brailliant Top Down View"
-                    fill
-                    className="object-scale-down"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                  />
-                </div>
-              </div>
-
-              <div className="flex justify-center mt-12">
-                <button
-                  onClick={scrollToVideo}
-                  className="flex items-center space-x-3 px-8 py-4 bg-stone-800/50 text-[#d4843e] 
-                  rounded-xl hover:bg-[#d4843e] hover:text-white transition-all duration-300 
-                  shadow-xl border border-[#d4843e]/20 backdrop-blur-sm group"
-                >
-                  <span className="text-lg font-medium tracking-wide">Product Demo</span>
-                  <BouncingArrow className="size-5 group-hover:text-white" />
-                </button>
-              </div>
+          <div className="max-w-6xl mt-12 mx-auto text-center px-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              Putting Braille in <span className="orange">Reach</span>
+            </h1>
+            <p className="text-xl text-gray-400 mt-6 max-w-2xl mx-auto">
+              An affordable braille display that converts text into tactile braille in real-time
+            </p>
+          </div>
+          
+          <div className="my-12">
+            <div className="relative w-full aspect-[16/9] max-w-xl mx-auto overflow-hidden rounded-xl shadow-xl">
+              <Image
+                src="/braillebox_topdown.png"
+                alt="Brailliant Top Down View"
+                fill
+                className="object-scale-down"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+              />
             </div>
-          </HeroContent>
+          </div>
+
+          <div className="flex justify-center space-x-4 mt-12">
+            <a
+              href="/preorder"
+              className="button-primary"
+            >
+              Preorder
+            </a>
+            <button
+              onClick={scrollToVideo}
+              className="button-secondary flex items-center"
+            >
+              Product Demo
+              <BouncingArrow className="ml-2 bouncing-arrow" />
+            </button>
+          </div>
         </Section>
 
         {/* Video Section */}
@@ -366,11 +365,9 @@ const Home: React.FC = () => {
             <div className="flex justify-center mt-6">
               <a 
                 href="/docs"
-                className="flex items-center space-x-3 px-8 py-4 bg-stone-900 text-[#d4843e] 
-                rounded-lg hover:bg-[#d4843e] hover:text-white transition-all duration-300 
-                shadow-lg border border-[#d4843e] group"
+                className="flex items-center space-x-3 px-8 py-4 button-primary"
               >
-                <span className="text-lg font-medium tracking-wide">Complete Walk-Through</span>
+                <span className="tracking-wide">Complete Walk-Through</span>
               </a>
             </div>
           </div>

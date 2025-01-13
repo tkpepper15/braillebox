@@ -35,6 +35,7 @@ const Navbar: React.FC = () => {
         <a href="/contact" className="nav-link">
           Contact
         </a>
+        <a href="/preorder" className="preorder-link">Preorder</a>
       </nav>
 
       {/* Mobile Navigation Toggle */}
@@ -80,6 +81,7 @@ const Navbar: React.FC = () => {
           <a href="/contact" className="nav-link">
             Contact
           </a>
+          <a href="/preorder" className="preorder-link">Preorder</a>
         </nav>
       </div>
     </header>

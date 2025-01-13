@@ -76,11 +76,12 @@ body {
 .nav-link {
   color: #e5e7eb;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.3s;
 }
 
 .nav-link:hover {
   color: #f97316;
+  transform: translateY(-3px);
 }
 
 /* Mobile Navigation */
@@ -224,4 +225,51 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+/* Preorder Link Styles */
+.preorder-link {
+  background-color: #d4843e; /* Distinct background color */
+  color: white; /* Text color */
+  padding: 0.5rem 1rem; /* Padding for the button */
+  border-radius: 0.375rem; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.preorder-link:hover {
+  background-color: #b76e2e; /* Darker shade on hover */
+}
+
+/* Button Styles */
+.button-primary {
+  background-color: #d4843e; /* Primary button color */
+  color: white;
+  padding: 0.5rem 1rem; /* Ensure consistent padding with secondary button */
+  border-radius: 0.375rem; /* Same border-radius as secondary button */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-primary:hover {
+  background-color: #b76e2e; /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.button-secondary {
+  background-color: #181414; /* Dark gray color */
+  color: white;
+  padding: 0.5rem 1rem; /* Ensure consistent padding with primary button */
+  border-radius: 0.375rem; /* Same border-radius as primary button */
+  border: 1px solid #292524; /* Match the navbar border color */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-secondary:hover {
+  background-color: #2c2c2c; /* Slightly darker shade on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Bouncing Arrow Style */
+.bouncing-arrow {
+  display: inline-block;
+  animation: bounce 2s infinite;
 }
