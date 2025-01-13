@@ -1,9 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import Navbar from './navbar'; // Ensure the path is correct
-import Footer from './footer'
-import './global.css'; // Ensure the path is correct
 import { keyframes } from '@emotion/react';
 import styled from "@emotion/styled";
 import { 
@@ -11,265 +8,350 @@ import {
   FaBraille,
   FaCamera,
   FaCogs,
-  FaGraduationCap,
   FaMicrochip,
-  FaMoneyBillWave,
   FaServer,
-  FaUsers
+  FaUsers,
+  FaGraduationCap,
 } from "react-icons/fa";
+import Image from 'next/image';
 
+import Navbar from './navbar';
+import Footer from './footer';
+import './global.css';
+
+// Types
+interface SectionProps {
+  children: React.ReactNode;
+  id?: string;
+}
+
+// Animations
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const bounce = keyframes`
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-20px); }
+  60% { transform: translateY(-10px); }
+`;
+
+// Styled Components
+const HeroContent = styled.div`
+  animation: ${fadeIn} 1s ease-out forwards;
+`;
+
+const BouncingArrow = styled(FaArrowDown)`
+  animation: ${bounce} 2s infinite;
+`;
+
+// Section Component
+const Section: React.FC<SectionProps> = ({ children, id }) => (
+  <section id={id} className="py-16 bg-stone-950">
+    {children}
+  </section>
+);
+
+// Main Component
 const Home: React.FC = () => {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    // Initial call to set initial state
-    handleResize();
-
-    // Event listener for window resize
-    window.addEventListener('resize', handleResize);
-
-    // Simulate loading
-    setTimeout(() => setIsLoaded(true), 500);
-
-    // Cleanup on unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+    setIsLoaded(true);
   }, []);
 
   const scrollToVideo = () => {
-    const videoSection = document.getElementById('project-video');
-    videoSection?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('project-video')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <div className="relative text-white min-h-screen">
-      {/* Navbar */}
+    <div className="relative text-white min-h-screen bg-stone-950">
       <Navbar />
 
-      {/* Hero Section */}
       <main className={`flex flex-col justify-center ${isLoaded ? 'animate-loaded' : ''}`}>
-        <section className="pt-24 pb-8 px-4 bg-stone-950">
-          <div className="max-w-6xl mx-auto text-center">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold staggered-element leading-tight mb-8">
-              <span className="orange">Brailliant</span>ly Empowering<br />Low-Vision Individuals
-            </h1>
-            <p className="text-xl text-gray-400 mt-8 staggered-element max-w-2xl mx-auto">
-              We&apos;ve built an AI-powered, <span className="orange">affordable braille display</span> for the visually impaired.
-            </p>
-          </div>
+        {/* Hero Section */}
+        <Section>
+          <HeroContent>
+            <div className="max-w-6xl mt-12 mx-auto text-center px-4">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                Putting Braille in <span className="orange">Reach</span>
+              </h1>
+              <p className="text-xl text-gray-400 mt-6 max-w-2xl mx-auto">
+                An affordable braille display that converts text into tactile braille in real-time
+              </p>
+              
+              <div className="mt-12 mb-12">
+                <div className="relative w-full aspect-[16/9] max-w-3xl mx-auto overflow-hidden rounded-xl shadow-xl">
+                  <Image
+                    src="/braillebox_topdown.png"
+                    alt="Brailliant Top Down View"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                  />
+                </div>
+              </div>
 
-          <div className="max-w-4xl mx-auto mt-16 px-4 staggered-element">
-            <img
-              src="/braillebox_topdown.png"
-              alt="BrailleBox TopDown"
-              className="w-full rounded-lg shadow-2xl"
-            />
-          </div>
+              <div className="flex justify-center mt-12">
+                <button
+                  onClick={scrollToVideo}
+                  className="flex items-center space-x-3 px-8 py-4 bg-stone-800/50 text-[#d4843e] 
+                  rounded-xl hover:bg-[#d4843e] hover:text-white transition-all duration-300 
+                  shadow-xl border border-[#d4843e]/20 backdrop-blur-sm group"
+                >
+                  <span className="text-lg font-medium tracking-wide">Product Demo</span>
+                  <BouncingArrow className="h-5 w-5 group-hover:text-white" />
+                </button>
+              </div>
+            </div>
+          </HeroContent>
+        </Section>
 
-          <div className="flex justify-center mt-16">
-            <button
-              onClick={scrollToVideo}
-              className="flex items-center space-x-3 px-8 py-4 bg-stone-900 text-[#d4843e] 
-              rounded-lg hover:bg-[#d4843e] hover:text-white transition-all duration-300 
-              shadow-lg border border-[#d4843e] group"
-            >
-              <span className="text-lg font-medium tracking-wide">Product Demo</span>
-              <BouncingArrow className="h-5 w-5 group-hover:text-white" />
-            </button>
-          </div>
-        </section>
-
-        <section id="project-video" className="py-16 bg-stone-950">
+        {/* Video Section */}
+        <Section id="project-video">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
                 See <span className="orange">Brailliant</span> in Action
               </h2>
-              <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-                Watch our complete project walkthrough and demonstration
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                Watch our complete project pitch and demonstration
               </p>
             </div>
             
-            <div className="w-full max-w-[1200px] mx-auto">
-              <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-2xl">
+            <div className="max-w-4xl mx-auto">
+              <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-xl shadow-xl">
                 <iframe
                   src="https://www.youtube.com/embed/St28xhM159o"
                   title="Brailliant Project Walkthrough"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  className="absolute top-0 left-0 w-full h-full rounded-lg"
-                ></iframe>
+                  className="absolute top-0 left-0 w-full h-full rounded-xl"
+                />
               </div>
             </div>
           </div>
-        </section>
+        </Section>
 
-        <section className="py-16 bg-stone-950">
-          <div className="max-w-6xl mx-auto px-4 staggered-element">
-            <div className="max-w-6xl mx-auto staggered-element">
-              {/* Header */}
-              <div className="text-center mb-16">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-                  Why Brailliant Matters
-                </h2>
-                <p className="text-lg text-gray-400">
-                  Bridging the accessibility gap in Braille technology
-                </p>
-              </div>
-
-              {/* Stats Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* Market Size Card */}
-                <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-stone-800">
-                  <div className="space-y-4">
-                    <h3 className="text-[#d4843e] text-5xl font-bold">7M+</h3>
-                    <p className="text-white text-xl font-semibold">Americans</p>
-                    <p className="text-gray-400">are living with low vision or blindness</p>
-                  </div>
-                </div>
-
-                {/* Growth Card */}
-                <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-stone-800">
-                  <div className="space-y-4">
-                    <h3 className="text-[#d4843e] text-5xl font-bold">130K</h3>
-                    <p className="text-white text-xl font-semibold">New Learners</p>
-                    <p className="text-gray-400">Americans learning Braille annually</p>
-                  </div>
-                </div>
-
-                {/* Market Gap Card */}
-                <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-stone-800">
-                  <div className="space-y-4">
-                    <h3 className="text-[#d4843e] text-5xl font-bold">$3.5-15K</h3>
-                    <p className="text-white text-xl font-semibold">Price Barrier</p>
-                    <p className="text-gray-400">Current Braille displays can cost up to $15,000</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Value Proposition */}
-              <div className="mt-16 text-center bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg hover:bg-stone-800 transition-all duration-300">
-                <div className="max-w-3xl mx-auto">
-                  <h3 className="text-2xl font-bold mb-4">Making Braille <span className="orange">Accessible</span></h3>
-                  <p className="text-gray-400 text-lg leading-relaxed mb-4">
-                    The American Foundation for the Blind found that existing Braille displays range from
-                    $3,500 to $15,000, making them inaccessible to many who need them. Brailliant is different.
-                  </p>
-                  <div className="flex justify-center gap-12 mt-8">
-                    <div className="text-center">
-                      <p className="text-[#d4843e] text-3xl font-bold">$77</p>
-                      <p className="text-sm text-gray-400 mt-1">Build Cost</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-[#d4843e] text-3xl font-bold">$300</p>
-                      <p className="text-sm text-gray-400 mt-1">Retail Price</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="mt-16 bg-stone-950">
+        {/* Why Brailliant Matters Section */}
+        <Section>
           <div className="max-w-6xl mx-auto px-4 staggered-element">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-                3 Step Process
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+                Why Brailliant Matters
               </h2>
-              <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-                A seamless process of converting text to tactile braille output
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-              <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg hover:bg-stone-800 transition-all duration-300">
-                <div className="flex items-center justify-center mb-6">
-                  <FaCamera className="text-[#d4843e] text-4xl" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3 orange text-center">Extract</h3>
-                <p className="text-gray-400">
-                  The ESP32CAM captures text images and uses advanced OCR technology to extract text content with high accuracy
-                </p>
-              </div>
-
-              <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg hover:bg-stone-800 transition-all duration-300">
-                <div className="flex items-center justify-center mb-6">
-                  <FaServer className="text-[#d4843e] text-4xl" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3 orange text-center">Process</h3>
-                <p className="text-gray-400">
-                  Text is wirelessly transmitted to the Raspberry Pi, which maps each character to its corresponding braille pattern
-                </p>
-              </div>
-
-              <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg hover:bg-stone-800 transition-all duration-300">
-                <div className="flex items-center justify-center mb-6">
-                  <FaBraille className="text-[#d4843e] text-4xl" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3 orange text-center">Display</h3>
-                <p className="text-gray-400">
-                  A 3x2 solenoid array physically displays each braille character, controlled by precise MOSFET circuitry
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-16 text-center">
-              <img
-                src="/tech_overview.png"
-                alt="Technical Overview"
-                className="w-full max-w-5xl mx-auto rounded-lg shadow-2xl"
-              />
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 bg-stone-950">
-          <div className="max-w-6xl mx-auto px-4 staggered-element">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-                Technical Specs
-              </h2>
-              <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-                Cutting-edge technology in a compact, efficient package
+              <p className="text-xl text-gray-400">
+                Bridging the accessibility gap in Braille technology
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-              <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg hover:bg-stone-800 transition-all duration-300">
-                <div className="flex items-center justify-center mb-6">
-                  <FaCogs className="text-[#d4843e] text-4xl" />
+              {/* Market Size Card */}
+              <div className="bg-stone-800/30 backdrop-blur-sm p-10 rounded-xl transition-all duration-300 
+                hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
+                <div className="flex items-center justify-between">
+                  <div className="space-y-4">
+                    <h3 className="text-[#d4843e] text-6xl font-bold">7M+</h3>
+                    <p className="text-white text-2xl font-semibold">Americans</p>
+                    <p className="text-gray-400 text-lg">are living with low vision or blindness</p>
+                  </div>
+                  <div className="text-[#d4843e] opacity-20">
+                    <FaUsers className="w-24 h-24" />
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-4 orange text-center">Smart Hardware Integration</h3>
-                <ul className="space-y-3 text-gray-400">
-                  <li>• Raspberry Pi central controller for robust processing</li>
-                  <li>• ESP32CAM for wireless image capture and transmission</li>
-                  <li>• Custom PCB with ATTiny1614 microcontroller</li>
-                  <li>• IRF520 MOSFET-driven solenoid array</li>
+              </div>
+
+              {/* Growth Card */}
+              <div className="bg-stone-800/30 backdrop-blur-sm p-10 rounded-xl transition-all duration-300 
+                hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
+                <div className="flex items-center justify-between">
+                  <div className="space-y-4">
+                    <h3 className="text-[#d4843e] text-6xl font-bold">130K</h3>
+                    <p className="text-white text-2xl font-semibold">New Learners</p>
+                    <p className="text-gray-400 text-lg">Americans learning Braille annually</p>
+                  </div>
+                  <div className="text-[#d4843e] opacity-20">
+                    <FaGraduationCap className="w-24 h-24" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Value Proposition */}
+            <div className="mt-16 text-center">
+              <div className="max-w-4xl mx-auto px-4">
+                
+                {/* Cost Comparison Card */}
+                <div className="bg-stone-800/30 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-stone-800/50">
+                  <p className="text-gray-300 text-lg leading-relaxed mb-12">
+                    The American Foundation for the Blind found that existing Braille displays range from
+                    $3,500 to $15,000, making them inaccessible to many who need them.
+                  </p>
+                  
+                  {/* Price Comparison */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="bg-stone-900/50 rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
+                      <div className="flex flex-col items-center">
+                        <span className="text-gray-400 text-sm uppercase tracking-wider mb-2">Current Market</span>
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-red-500 text-4xl font-bold">$3.5K</span>
+                          <span className="text-red-500 text-4xl font-bold">-</span>
+                          <span className="text-red-500 text-4xl font-bold">$15K</span>
+                        </div>
+                        <span className="text-gray-500 mt-2">Existing Solutions</span>
+                      </div>
+                    </div>
+
+                    <div className="bg-stone-900/50 rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
+                      <div className="flex flex-col items-center">
+                        <span className="text-gray-400 text-sm uppercase tracking-wider mb-2">Brailliant</span>
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-[#d4843e] text-4xl font-bold">$300</span>
+                        </div>
+                        <span className="text-gray-500 mt-2">Retail Price</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Build Cost Badge */}
+                  <div className="mt-8 inline-block">
+                    <div className="bg-[#d4843e]/10 border border-[#d4843e]/20 rounded-full px-6 py-2">
+                      <span className="text-[#d4843e] font-semibold">
+                        Build Cost: <span className="text-xl">$77</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        {/* Process Section */}
+        <Section>
+          <div className="max-w-6xl mx-auto px-4 staggered-element">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+                3 Step Process
+              </h2>
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                A seamless process of converting text to tactile braille output
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-stone-800/30 backdrop-blur-sm p-10 rounded-xl transition-all duration-300 
+                hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
+                <div className="flex items-center justify-center mb-8">
+                  <FaCamera className="text-[#d4843e] text-5xl" />
+                </div>
+                <h3 className="text-2xl font-semibold mb-4 orange text-center">Extract</h3>
+                <p className="text-gray-400 text-lg">
+                  The ESP32CAM captures text images and uses advanced OCR technology to extract text content with high accuracy
+                </p>
+              </div>
+
+              <div className="bg-stone-800/30 backdrop-blur-sm p-10 rounded-xl transition-all duration-300 
+                hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
+                <div className="flex items-center justify-center mb-8">
+                  <FaServer className="text-[#d4843e] text-5xl" />
+                </div>
+                <h3 className="text-2xl font-semibold mb-4 orange text-center">Process</h3>
+                <p className="text-gray-400 text-lg">
+                  Text is wirelessly transmitted to the Raspberry Pi, which maps each character to its corresponding braille pattern
+                </p>
+              </div>
+
+              <div className="bg-stone-800/30 backdrop-blur-sm p-10 rounded-xl transition-all duration-300 
+                hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
+                <div className="flex items-center justify-center mb-8">
+                  <FaBraille className="text-[#d4843e] text-5xl" />
+                </div>
+                <h3 className="text-2xl font-semibold mb-4 orange text-center">Display</h3>
+                <p className="text-gray-400 text-lg">
+                  A 3x2 solenoid array physically displays each braille character, controlled by precise MOSFET circuitry
+                </p>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        {/* Technical Specs Section */}
+        <Section>
+          <div className="max-w-6xl mx-auto px-4 staggered-element">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+                Technical Specs
+              </h2>
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                Cutting-edge technology in a compact, efficient package
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-stone-800/30 backdrop-blur-sm p-10 rounded-xl transition-all duration-300 
+                hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
+                <div className="flex items-center justify-center mb-8">
+                  <FaCogs className="text-[#d4843e] text-5xl" />
+                </div>
+                <h3 className="text-2xl font-semibold mb-6 orange text-center">Smart Hardware Integration</h3>
+                <ul className="space-y-4 text-gray-400 text-lg">
+                  <li className="flex items-center gap-2">
+                    <span className="text-[#d4843e]">•</span>
+                    Raspberry Pi central controller for robust processing
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-[#d4843e]">•</span>
+                    ESP32CAM for wireless image capture and transmission
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-[#d4843e]">•</span>
+                    Custom PCB with ATTiny1614 microcontroller
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-[#d4843e]">•</span>
+                    IRF520 MOSFET-driven solenoid array
+                  </li>
                 </ul>
               </div>
 
-              <div className="bg-stone-800/50 backdrop-blur-sm p-8 rounded-lg hover:bg-stone-800 transition-all duration-300">
-                <div className="flex items-center justify-center mb-6">
-                  <FaMicrochip className="text-[#d4843e] text-4xl" />
+              <div className="bg-stone-800/30 backdrop-blur-sm p-10 rounded-xl transition-all duration-300 
+                hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
+                <div className="flex items-center justify-center mb-8">
+                  <FaMicrochip className="text-[#d4843e] text-5xl" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4 orange text-center">Advanced Software Stack</h3>
-                <ul className="space-y-3 text-gray-400">
-                  <li>• GPT4o multimodal capabilities for enhanced OCR</li>
-                  <li>• WebSocket-based wireless communication</li>
-                  <li>• Real-time text to braille conversion</li>
-                  <li>• Optimized power management system</li>
+                <h3 className="text-2xl font-semibold mb-6 orange text-center">Advanced Software Stack</h3>
+                <ul className="space-y-4 text-gray-400 text-lg">
+                  <li className="flex items-center gap-2">
+                    <span className="text-[#d4843e]">•</span>
+                    GPT4o multimodal capabilities for enhanced OCR
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-[#d4843e]">•</span>
+                    WebSocket-based wireless communication
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-[#d4843e]">•</span>
+                    Real-time text to braille conversion
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-[#d4843e]">•</span>
+                    Optimized power management system
+                  </li>
                 </ul>
               </div>
             </div>
 
-            <div className="flex justify-center mt-8">
+            <div className="flex justify-center mt-6">
               <a 
                 href="/docs"
                 className="flex items-center space-x-3 px-8 py-4 bg-stone-900 text-[#d4843e] 
@@ -280,29 +362,12 @@ const Home: React.FC = () => {
               </a>
             </div>
           </div>
-        </section>
+        </Section>
       </main>
 
       <Footer />
     </div>
   );
 };
-
-// Animation for a bouncing arrow
-const bounce = keyframes`
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-20px);
-  }
-  60% {
-    transform: translateY(-10px);
-  }
-`;
-
-const BouncingArrow = styled(FaArrowDown)`
-  animation: ${bounce} 2s infinite;
-`;
 
 export default Home;

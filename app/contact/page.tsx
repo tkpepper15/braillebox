@@ -1,6 +1,8 @@
 'use client';
 
 import { FC } from 'react';
+import Image from 'next/image';
+import { FaEnvelope } from 'react-icons/fa';
 import Navbar from 'app/navbar';
 import Footer from 'app/footer';
 
@@ -14,62 +16,66 @@ const ContactPage: FC<ContactPageProps> = () => {
       <div className="container mt-12 mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
           {/* Header Section */}
-          <div className="text-center mb-20">
-            <h1 className="text-4xl font-bold text-white mb-4">Get in Touch</h1>
-            <p className="text-lg text-gray-400 mb-12">
+          <div className="text-center mb-16">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">Get in Touch</h1>
+            <p className="text-xl text-gray-400 mb-12">
               We&apos;re always interested in hearing about new ways to improve and integrate Brailliant.
             </p>
-            <div>
-              <img
+            <div className="relative w-full aspect-[2/1] max-w-3xl mx-auto overflow-hidden rounded-xl shadow-xl">
+              <Image
                 src="/group.png"
                 alt="Group"
-                className="h-auto max-w-2xl rounded-lg shadow-lg mx-auto"
-                width="60%"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
               />
             </div>
           </div>
 
           {/* Contact Cards */}
-          <div className="grid grid-cols-1 gap-6 max-w-xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {/* Richard Card */}
-            <div className="bg-stone-900 p-8 rounded-lg transition-all duration-300 hover:bg-stone-800">
-              <div className="text-center space-y-3">
-                <h3 className="text-xl font-semibold text-white">Richard</h3>
-                <p className="text-sm text-[#d4843e] font-medium">Creator & Development Lead</p>
-                <a 
-                  href="mailto:shan26r@ncssm.edu"
-                  className="block w-full px-8 py-3 bg-stone-800 hover:bg-[#d4843e] rounded-md transition-all duration-300 text-sm text-gray-400 hover:text-white"
-                >
-                  shan26r@ncssm.edu
-                </a>
+            <div className="bg-stone-800/30 backdrop-blur-sm p-8 rounded-xl transition-all duration-300 
+              hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
+              <div className="text-center space-y-4">
+                <h3 className="text-2xl font-semibold text-white">Richard</h3>
+                <p className="text-[#d4843e] font-medium">Creator & Development Lead</p>
+                <div className="flex justify-center">
+                  <a href="mailto:shan26r@ncssm.edu" 
+                    className="p-2 text-gray-400 hover:text-[#d4843e] transition-colors">
+                    <FaEnvelope className="w-6 h-6" />
+                  </a>
+                </div>
               </div>
             </div>
 
             {/* Sumedh Card */}
-            <div className="bg-stone-900 p-8 rounded-lg transition-all duration-300 hover:bg-stone-800">
-              <div className="text-center space-y-3">
-                <h3 className="text-xl font-semibold text-white">Sumedh</h3>
-                <p className="text-sm text-[#d4843e] font-medium">Market Research & Business Lead</p>
-                <a 
-                  href="mailto:kotrannavar25s@ncssm.edu"
-                  className="block w-full px-8 py-3 bg-stone-800 hover:bg-[#d4843e] rounded-md transition-all duration-300 text-sm text-gray-400 hover:text-white"
-                >
-                  kotrannavar25s@ncssm.edu
-                </a>
+            <div className="bg-stone-800/30 backdrop-blur-sm p-8 rounded-xl transition-all duration-300 
+              hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
+              <div className="text-center space-y-4">
+                <h3 className="text-2xl font-semibold text-white">Sumedh</h3>
+                <p className="text-[#d4843e] font-medium">Market Research & Business Lead</p>
+                <div className="flex justify-center">
+                  <a href="mailto:kotrannavar25s@ncssm.edu" 
+                    className="p-2 text-gray-400 hover:text-[#d4843e] transition-colors">
+                    <FaEnvelope className="w-6 h-6" />
+                  </a>
+                </div>
               </div>
             </div>
 
             {/* Tejjas Card */}
-            <div className="bg-stone-900 p-8 rounded-lg transition-all duration-300 hover:bg-stone-800">
-              <div className="text-center space-y-3">
-                <h3 className="text-xl font-semibold text-white">Tejjas</h3>
-                <p className="text-sm text-[#d4843e] font-medium">UI/UX & Design Lead</p>
-                <a 
-                  href="mailto:kaul25t@ncssm.edu"
-                  className="block w-full px-8 py-3 bg-stone-800 hover:bg-[#d4843e] rounded-md transition-all duration-300 text-sm text-gray-400 hover:text-white"
-                >
-                  kaul25t@ncssm.edu
-                </a>
+            <div className="bg-stone-800/30 backdrop-blur-sm p-8 rounded-xl transition-all duration-300 
+              hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
+              <div className="text-center space-y-4">
+                <h3 className="text-2xl font-semibold text-white">Tejjas</h3>
+                <p className="text-[#d4843e] font-medium">UI/UX & Design Lead</p>
+                <div className="flex justify-center">
+                  <a href="mailto:kaul25t@ncssm.edu" 
+                    className="p-2 text-gray-400 hover:text-[#d4843e] transition-colors">
+                    <FaEnvelope className="w-6 h-6" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>

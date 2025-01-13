@@ -6,6 +6,7 @@ import Footer from 'app/footer';
 import '/app/global.css';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import Image from 'next/image';
 
 interface DocsPageProps {}
 
@@ -25,32 +26,35 @@ const DocsPage: FC<DocsPageProps> = () => {
                 The Making of Brailliant
               </h1>
               <p className="text-lg leading-relaxed orange">
-                A Technical Walk-Through with Richard Shan
+                A Technical Walk-Through of Our Development Process
               </p>
             </div>
 
-            <div className="text-center my-8">
-                <img
-                  src="../../pics/docs_pic.png"
+            <div className="text-center my-12">
+              <div className="relative w-full aspect-[16/9] max-w-3xl mx-auto overflow-hidden rounded-2xl shadow-xl">
+                <Image
+                  src="/pics/docs_pic.png"
                   alt="Modified design"
-                  width={700}
-                  className="rounded-lg shadow-lg mx-auto"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
                 />
               </div>
+            </div>
 
             {/* Overview section */}
             <section className="space-y-6">
               <h2 className="text-4xl font-bold orange">Preface</h2>
               <p className="text-lg leading-relaxed">
-                The goal is to create a <span className={orangeUnderlineClass}>3x2 solenoid array</span> that can display braille characters by
-                pushing solenoids up and down to create dots. This solenoid array will be
-                connected to a <span className={orangeUnderlineClass}>Raspberry Pi</span>, which in turn will be connected to an <span className={orangeUnderlineClass}>ESP32CAM</span>.
-                The camera will take a picture of a page of text, then perform <span className={orangeUnderlineClass}>OCR</span> (optical
+                Our goal is to create a <span className={orangeUnderlineClass}>3x2 solenoid array</span> that can display braille characters by
+                pushing solenoids up and down to create dots. This solenoid array is
+                connected to a <span className={orangeUnderlineClass}>Raspberry Pi</span>, which in turn is connected to an <span className={orangeUnderlineClass}>ESP32CAM</span>.
+                The camera takes a picture of a page of text, then performs <span className={orangeUnderlineClass}>OCR</span> (optical
                 character recognition) to extract a string of text from the image. That
-                string of text will be converted to braille, which will be displayed on the
+                string of text is converted to braille, which is displayed on the
                 solenoid array by flashing each character for 1 second at a time. This
-                device will essentially allow for live-time conversion of any text into
-                braille, which I hope will increase accessibility to books and the like.
+                device essentially allows for live-time conversion of any text into
+                braille, which we hope will increase accessibility to books and the like.
               </p>
             </section>
 
@@ -59,34 +63,42 @@ const DocsPage: FC<DocsPageProps> = () => {
               <h2 className="text-4xl font-bold orange">Brainstorming Process</h2>
               <h3 className="text-2xl font-semibold white">Initial Thoughts</h3>
               <p className="text-lg leading-relaxed">
-                My idea was to design a text to braille converter, which a blind person
+                Our initial idea was to design a text to braille converter, which a blind person
                 could use by moving the device over a page of text to convert it into
                 braille. The braille translation of the English text would then be
                 represented via a series of up/down pins which the user could use to
-                interpret the information. The device was to be a rectangular box that would
+                interpret the information. The device was designed to be a rectangular box that would
                 use an internal camera to interpret and OCR text, which could then be
                 translated into braille and displayed via a series of servo motors pushing
-                up metal rods on the top of the box. The pins would be in groups of six,
-                each group representing a single braille character.
+                up metal rods on the top of the box.
               </p>
 
               <p className="text-lg leading-relaxed">
-                However, I talked to <strong>Stuart Christhilf</strong> who had thought of a
-                similar mechanism for his initial final project. He originally planned to
+                However, after consulting with <strong>Stuart Christhilf</strong>, who had thought of a
+                similar mechanism for his initial final project, we changed direction. He originally planned to
                 create a dynamic clock to display the time using blocks of wood that could
                 be pushed out or pulled back via servos. However, when building his project,
                 he realized that fitting so many servos into such a small space was
-                completely unfeasible and warned me from doing the same. My initial design
-                is shown in the following image:
+                completely unfeasible and warned us against doing the same.
+              </p>
+
+              <p className="text-lg leading-relaxed">
+                We then decided to use electromagnets for our pins, instead of servos.
+                The pins themselves would be a small magnetic rod sitting on top of an
+                electromagnet. The small electromagnet could be powered on and off via a
+                microcontroller...
               </p>
 
               <div className="text-center my-8">
-                <img
-                  src="../../pics/week1/initialDesign.jpg"
-                  alt="Initial design"
-                  width={450}
-                  className="rounded-lg shadow-lg mx-auto"
-                />
+                <div className="relative w-full aspect-[4/3] max-w-2xl mx-auto overflow-hidden rounded-2xl shadow-xl bg-stone-900">
+                  <Image
+                    src="/pics/week1/initialDesign.jpg"
+                    alt="Initial design"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                  />
+                </div>
               </div>
 
               <p className="text-lg leading-relaxed">
@@ -97,12 +109,15 @@ const DocsPage: FC<DocsPageProps> = () => {
               </p>
 
               <div className="text-center my-8">
-                <img
-                  src="../../pics/week1/modifiedDesign.jpg"
-                  alt="Modified design"
-                  width={700}
-                  className="rounded-lg shadow-lg mx-auto"
-                />
+                <div className="relative w-full aspect-[16/9] max-w-3xl mx-auto overflow-hidden rounded-2xl shadow-xl">
+                  <Image
+                    src="/pics/week1/modifiedDesign.jpg"
+                    alt="Modified design"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                  />
+                </div>
               </div>
             </section>
 
@@ -110,32 +125,32 @@ const DocsPage: FC<DocsPageProps> = () => {
             <section className="space-y-6">
               <h3 className="text-2xl font-semibold text-white">Significant Changes</h3>
               <p className="text-lg leading-relaxed">
-                Although a large part of my project remains the same, I&apos;ve changed some 
-                aspects of my project. Namely, I&apos;ve decided to use a Raspberry Pi as a 
+                Although a large part of our project remains the same, we've changed some 
+                aspects of the design. Namely, we've decided to use a Raspberry Pi as a 
                 central controller and connect it to 5 separate ATTiny412 chips, which will 
                 each be responsible for controlling 6 electromagnets to represent 1 braille 
-                character. Each ATTiny412 and 6 electromagnet setup will be on its own PCB, 
-                and receive data from the controlling Raspberry Pi.
+                character.
               </p>
               <p className="text-lg leading-relaxed">
-                Additionally, I decided to create an elevated case for the ESP32 camera so
+                Additionally, we decided to create an elevated case for the ESP32 camera so
                 that the image would have a better angle and thus an easier time being
                 processed for OCR, and so that more light could come into the camera lens from
-                the unobstructed sides. Lastly, I decided I wanted to wirelessly transmit data
-                from the ESP32 camera to the Raspberry Pi for processing. I worked with both
-                serial communication and WiFi connectivity previously so I hope to sum it all
-                together and wirelessly transmit data between these two controllers.
+                the unobstructed sides. We also implemented wireless data transmission
+                from the ESP32 camera to the Raspberry Pi for processing.
               </p>
               <p className="text-lg leading-relaxed">
-                Here is an updated system diagram which maps out all the parts of my project:
+                Here is an updated system diagram which maps out all the parts of our project:
               </p>
               <div className="text-center my-8">
-                <img 
-                  src="../../pics/final/midterm/systemDiagram.jpg" 
-                  width={700}
-                  alt="System diagram showing project components"
-                  className="rounded-lg shadow-lg mx-auto"
-                />
+                <div className="relative w-full aspect-[16/9] max-w-3xl mx-auto overflow-hidden rounded-2xl shadow-xl">
+                  <Image
+                    src="/pics/final/midterm/systemDiagram.jpg"
+                    alt="System diagram showing project components"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                  />
+                </div>
               </div>
             </section>
 
@@ -143,12 +158,12 @@ const DocsPage: FC<DocsPageProps> = () => {
             <section className="space-y-6">
               <h3 className="text-2xl font-semibold text-white">Feasibility</h3>
               <p className="text-lg leading-relaxed">
-                However, after doing research, I realized that having 30 solenoids would be
-                unfeasible. Instead, I decided to scale my project down to just having 6
+                After doing research, we realized that having 30 solenoids would be
+                unfeasible. Instead, we decided to scale our project down to just having 6
                 solenoids, as this would still accomplish the mission of displaying braille
-                for a reader. I would then flash each braille character for 1 second on the
-                6 solenoid array. This change allows me to worry less about power budget and
-                ensures that I have a ready final project on my presentation date.
+                for a reader. We now flash each braille character for 1 second on the
+                6 solenoid array. This change allows us to better manage power budget and
+                ensures a reliable final product.
               </p>
             </section>
 
@@ -197,23 +212,29 @@ const DocsPage: FC<DocsPageProps> = () => {
                 </p>
 
                 <div className="text-center my-8">
-                  <img
-                    src="../../pics/week2/rectangularPrism.jpg"
-                    alt="Rectangular Prism Creation"
-                    width={700}
-                    className="rounded-lg shadow-lg mx-auto"
-                  />
+                  <div className="relative w-full aspect-[4/3] max-w-2xl mx-auto overflow-hidden rounded-2xl shadow-xl bg-stone-900">
+                    <Image
+                      src="/pics/week2/rectangularPrism.jpg"
+                      alt="Rectangular Prism Creation"
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                    />
+                  </div>
                 </div>
 
                 <p className="text-lg leading-relaxed">Next, I filleted the box to round out the edges.</p>
 
                 <div className="text-center my-8">
-                  <img 
-                    src="../../pics/week2/fillet.jpg" 
-                    alt="Fillet Creation" 
-                    width={700}
-                    className="rounded-lg shadow-lg mx-auto"
-                  />
+                  <div className="relative w-full aspect-[4/3] max-w-2xl mx-auto overflow-hidden rounded-2xl shadow-xl bg-stone-900">
+                    <Image
+                      src="/pics/week2/fillet.jpg"
+                      alt="Fillet Creation"
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                    />
+                  </div>
                 </div>
 
                 {/* Add missing CAD process images */}
@@ -224,12 +245,15 @@ const DocsPage: FC<DocsPageProps> = () => {
                 </p>
 
                 <div className="text-center my-8">
-                  <img
-                    src="../../pics/week2/holeSketch.jpg"
-                    alt="Sketching the circles"
-                    width={700}
-                    className="rounded-lg shadow-lg mx-auto"
-                  />
+                  <div className="relative w-full aspect-[4/3] max-w-2xl mx-auto overflow-hidden rounded-2xl shadow-xl bg-stone-900">
+                    <Image
+                      src="/pics/week2/holeSketch.jpg"
+                      alt="Sketching the circles"
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                    />
+                  </div>
                 </div>
 
                 <p className="text-lg leading-relaxed">
@@ -238,12 +262,15 @@ const DocsPage: FC<DocsPageProps> = () => {
                 </p>
 
                 <div className="text-center my-8">
-                  <img
-                    src="../../pics/week2/holeExtrude.jpg"
-                    alt="Extruding the holes"
-                    width={500}
-                    className="rounded-lg shadow-lg mx-auto"
-                  />
+                  <div className="relative w-full aspect-[4/3] max-w-2xl mx-auto overflow-hidden rounded-2xl shadow-xl bg-stone-900">
+                    <Image
+                      src="/pics/week2/holeExtrude.jpg"
+                      alt="Extruding the holes"
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                    />
+                  </div>
                 </div>
 
                 {/* Add PyTesseract section */}
@@ -319,12 +346,15 @@ time.sleep(1)`
                 </p>
 
                 <div className="text-center my-8">
-                  <img 
-                    src="../../pics/final/rpibox/rpbshelledbox.jpg" 
-                    width={500}
-                    alt="Initial shelled Raspberry Pi box"
-                    className="rounded-lg shadow-lg mx-auto"
-                  />
+                  <div className="relative w-full aspect-[4/3] max-w-2xl mx-auto overflow-hidden rounded-2xl shadow-xl bg-stone-900">
+                    <Image
+                      src="/pics/final/rpibox/rpbshelledbox.jpg"
+                      alt="Initial shelled Raspberry Pi box"
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                    />
+                  </div>
                 </div>
               </section>
 
@@ -340,12 +370,15 @@ time.sleep(1)`
                 </p>
 
                 <div className="text-center my-8">
-                  <img 
-                    src="../../pics/final/pcb/mosfet.jpg"
-                    width={500}
-                    alt="MOSFET integration"
-                    className="rounded-lg shadow-lg mx-auto"
-                  />
+                  <div className="relative w-full aspect-[4/3] max-w-2xl mx-auto overflow-hidden rounded-2xl shadow-xl bg-stone-900">
+                    <Image
+                      src="/pics/final/pcb/mosfet.jpg"
+                      alt="MOSFET integration"
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                    />
+                  </div>
                 </div>
 
                 <p className="text-lg leading-relaxed">
@@ -356,12 +389,15 @@ time.sleep(1)`
                 </p>
 
                 <div className="text-center my-8">
-                  <img 
-                    src="../../pics/final/pcb/mosfetModule.jpg"
-                    width={500}
-                    alt="MOSFET Module"
-                    className="rounded-lg shadow-lg mx-auto"
-                  />
+                  <div className="relative w-full aspect-[4/3] max-w-2xl mx-auto overflow-hidden rounded-2xl shadow-xl bg-stone-900">
+                    <Image
+                      src="/pics/final/pcb/mosfetModule.jpg"
+                      alt="MOSFET Module"
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                    />
+                  </div>
                 </div>
 
                 <p className="text-lg leading-relaxed">
@@ -392,12 +428,15 @@ time.sleep(1)`
                 </ul>
 
                 <div className="text-center my-8">
-                  <img 
-                    src="../../pics/final/pcb/final.jpg"
-                    width={500}
-                    alt="Final PCB assembly"
-                    className="rounded-lg shadow-lg mx-auto"
-                  />
+                  <div className="relative w-full aspect-[4/3] max-w-2xl mx-auto overflow-hidden rounded-2xl shadow-xl bg-stone-900">
+                    <Image
+                      src="/pics/final/pcb/final.jpg"
+                      alt="Final PCB assembly"
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                    />
+                  </div>
                 </div>
               </section>
             </section>
@@ -430,7 +469,7 @@ time.sleep(1)`
                     width={550} 
                     height={300} 
                     controls
-                    className="rounded-lg shadow-lg mx-auto"
+                    className="rounded-2xl shadow-xl mx-auto bg-stone-900 w-full max-w-3xl"
                   >
                     <source src="../../pics/week15/pi.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
@@ -520,12 +559,15 @@ time.sleep(1)`
                 </div>
 
                 <div className="text-center my-8">
-                  <img 
-                    src="../../pics/week15/4oJson.jpg" 
-                    width={750} 
-                    alt="GPT4o JSON response output"
-                    className="rounded-lg shadow-lg mx-auto" 
-                  />
+                  <div className="relative w-full aspect-[4/3] max-w-2xl mx-auto overflow-hidden rounded-2xl shadow-xl bg-stone-900">
+                    <Image
+                      src="/pics/week15/4oJson.jpg"
+                      alt="GPT4o JSON response output"
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                    />
+                  </div>
                 </div>
               </section>
 
@@ -581,31 +623,25 @@ BrailleMap braille_dictionary[] = {
             <section className="space-y-6">
               <h2 className="text-4xl font-bold orange">Assembly</h2>
               <p className="text-lg leading-relaxed">
-                I first outlined the general setup of my final project. I secured each <span className={orangeUnderlineClass}>MOSFET</span> to a corresponding battery pack and solenoid, and color-coded each
-                MOSFET&apos;s trigger and GND wires. I organized them in such a way that toggling
+                I first outlined the general setup of our final project. We secured each <span className={orangeUnderlineClass}>MOSFET</span> to a corresponding battery pack and solenoid, and color-coded each
+                MOSFET&apos;s trigger and GND wires. We organized them in such a way that toggling
                 solenoid 1, 2, 3, 4, 5, then 6 would control each solenoid in a line.
               </p>
 
-              <div className="gap-6 my-8">
-                <div className="text-center">
-                  <video 
-                    controls
-                    width={700}
-                    preload="none"
-                    poster="../../pics/final/assembly/internal.jpg"
-                    className="rounded-lg shadow-lg mx-auto bg-cover"
-                    style={{
-                      objectFit: 'cover',
-                      backgroundColor: '#1a1a1a'
-                    }}
-                  >
-                    <source 
-                      src="../../pics/final/assembly/solenoidsWorking.mp4" 
-                      type="video/mp4"
-                    />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
+              <div className="text-center my-8">
+                <video 
+                  controls
+                  width={700}
+                  preload="none"
+                  poster="../../pics/final/assembly/internal.jpg"
+                  className="rounded-2xl shadow-xl mx-auto bg-stone-900 w-full max-w-3xl"
+                >
+                  <source 
+                    src="../../pics/final/assembly/solenoidsWorking.mp4" 
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
               </div>
 
               <p className="text-lg leading-relaxed">
@@ -617,20 +653,26 @@ BrailleMap braille_dictionary[] = {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
                 <div className="text-center">
-                  <img 
-                    src="../../pics/final/assembly/piCaseIntegrated.jpg" 
-                    width={400}
-                    alt="Raspberry Pi case assembly with screen and connections" 
-                    className="rounded-lg shadow-lg mx-auto"
-                  />
+                  <div className="relative w-full aspect-square rounded-2xl shadow-xl overflow-hidden bg-stone-900">
+                    <Image
+                      src="/pics/final/assembly/piCaseIntegrated.jpg"
+                      alt="Raspberry Pi case assembly with screen and connections"
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 600px"
+                    />
+                  </div>
                 </div>
                 <div className="text-center">
-                  <img 
-                    src="../../pics/final/assembly/piCase.jpg" 
-                    width={400}
-                    alt="Completed Raspberry Pi case" 
-                    className="rounded-lg shadow-lg mx-auto"
-                  />
+                  <div className="relative w-full aspect-square rounded-2xl shadow-xl overflow-hidden bg-stone-900">
+                    <Image
+                      src="/pics/final/assembly/piCase.jpg"
+                      alt="Completed Raspberry Pi case"
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 600px"
+                    />
+                  </div>
                 </div>
               </div>
             </section>
@@ -639,40 +681,43 @@ BrailleMap braille_dictionary[] = {
             <section className="space-y-6">
               <h2 className="text-4xl font-bold orange">Wrap Up</h2>
               <p className="text-lg leading-relaxed">
-                There is existing technologies on the market that can convert text to
-                braille in real time, but those are often expensive and not readily
-                available to the public. My hope with this project is to create a product
+                While there are existing technologies on the market that can convert text to
+                braille in real time, those are often expensive and not readily
+                available to the public. Our hope with this project is to create a product
                 that can be cheaply produced and reach a wide audience.
               </p>
               <ul className="list-disc space-y-2 pl-6 text-lg">
                 <li>
                   Some parts of a project will take longer while others will take shorter
-                  than expected.
+                  than expected
                 </li>
-                <li>Double the planned allocation of time due to errors and debugging</li>
+                <li>Always plan for double the development time due to debugging</li>
                 <li>
                   Working with lower-level hardware and software is more rewarding and often
                   produces a more solid product
                 </li>
                 <li>
-                  There are many types of transistors, which can be a pain to sort through
+                  Careful component selection is crucial for project success
                 </li>
               </ul>
 
               {/* Add presentation image */}
-              <div className="mt-12 text-center">
-                <img 
-                  src="../../presentation.png"
-                  alt="Project presentation poster"
-                  width={800}
-                  className="rounded-lg shadow-lg mx-auto"
-                />
+              <div className="text-center mt-6">
+                <div className="relative w-full aspect-[16/9] max-w-3xl mx-auto overflow-hidden rounded-2xl shadow-xl">
+                  <Image
+                    src="/presentation.png"
+                    alt="Project presentation poster"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                  />
+                </div>
               </div>
             </section>
 
             {/* Final Product section */}
             <section className="space-y-6">
-              <div className="bg-red-900/30 border border-red-500 rounded-lg p-6 my-8">
+              <div className="bg-red-900/30 border border-red-500 rounded-lg p-6 my-6">
                 <p className="font-bold">
                   WARNING: The project video and slide (poster) are out of date and provide
                   incorrect information about licensing. The current EULA is{" "}
