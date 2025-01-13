@@ -26,7 +26,7 @@ const DocsPage: FC<DocsPageProps> = () => {
                 The Making of Brailliant
               </h1>
               <p className="text-lg leading-relaxed orange">
-                A Technical Walk-Through of Our Development Process
+                Richard's Technical Walk-Through of Our Development Process
               </p>
             </div>
 
@@ -558,18 +558,6 @@ time.sleep(1)`
                     }
                   </SyntaxHighlighter>
                 </div>
-
-                <div className="text-center my-8">
-                  <div className="relative w-full aspect-[4/3] max-w-2xl mx-auto overflow-hidden rounded-2xl shadow-xl bg-stone-900">
-                    <Image
-                      src="/pics/week15/4oJson.jpg"
-                      alt="GPT4o JSON response output"
-                      fill
-                      className="object-cover hover:scale-105 transition-transform duration-300"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                    />
-                  </div>
-                </div>
               </section>
 
               {/* Text to Braille Mapping subsection */}
@@ -735,7 +723,7 @@ BrailleMap braille_dictionary[] = {
             <section className="space-y-6">
               <h2 className="text-4xl font-bold orange">File Downloads</h2>
               <p className="text-lg leading-relaxed">
-                My files can be downloaded{" "}
+                Files can be downloaded{" "}
                 <a href="../../files/final/final.zip" className="text-blue-400 hover:text-blue-300">
                   <strong>here</strong>
                 </a>.
