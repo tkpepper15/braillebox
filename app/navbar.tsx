@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);

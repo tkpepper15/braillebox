@@ -87,13 +87,13 @@ const Home: React.FC = () => {
                 An affordable braille display that converts text into tactile braille in real-time
               </p>
               
-              <div className="my-12">
-                <div className="relative w-full aspect-[16/9] max-w-3xl mx-auto overflow-hidden rounded-xl shadow-xl">
+              <div className="mt-12 mb-12">
+                <div className="relative w-full aspect-[16/9] max-w-xl mx-auto overflow-hidden rounded-xl shadow-xl">
                   <Image
                     src="/braillebox_topdown.png"
                     alt="Brailliant Top Down View"
                     fill
-                    className="object-cover"
+                    className="object-scale-down"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
                   />
                 </div>

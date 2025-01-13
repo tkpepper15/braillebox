@@ -4,8 +4,8 @@ import { FC } from 'react';
 import Image from 'next/image';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import Navbar from 'app/navbar';
 import Footer from 'app/footer';
+import Navbar from 'app/navbar';
 import '/app/global.css';
 
 interface DocsPageProps {}
