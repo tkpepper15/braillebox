@@ -74,8 +74,8 @@ const DocsPage: FC<DocsPageProps> = () => {
               </p>
 
               <p className="text-lg leading-relaxed">
-                However, after consulting with <strong>Stuart Christhilf</strong>, who had thought of a
-                similar mechanism for his initial final project, we changed direction. He originally planned to
+                However, after consulting with <strong>Stuart Christhilf</strong>, who&apos;d thought of a
+                similar mechanism for his initial final project, we changed direction. He&apos;d originally planned to
                 create a dynamic clock to display the time using blocks of wood that could
                 be pushed out or pulled back via servos. However, when building his project,
                 he realized that fitting so many servos into such a small space was

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { keyframes } from '@emotion/react';
 import styled from "@emotion/styled";
@@ -8,15 +9,14 @@ import {
   FaBraille,
   FaCamera,
   FaCogs,
+  FaGraduationCap,
   FaMicrochip,
   FaServer,
   FaUsers,
-  FaGraduationCap,
 } from "react-icons/fa";
-import Image from 'next/image';
 
-import Navbar from './navbar';
 import Footer from './footer';
+import Navbar from './navbar';
 import './global.css';
 
 // Types
@@ -333,7 +333,7 @@ const Home: React.FC = () => {
                 <ul className="space-y-4 text-gray-400 text-lg">
                   <li className="flex items-center gap-2">
                     <span className="text-[#d4843e]">•</span>
-                    GPT4o multimodal capabilities for enhanced OCR
+                    GPT4o&apos;s multimodal capabilities for enhanced OCR
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="text-[#d4843e]">•</span>

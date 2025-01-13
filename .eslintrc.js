@@ -25,44 +25,25 @@ module.exports = {
         varsIgnorePattern: "^_",
       },
     ],
-    "sort-imports": [
-      "error",
-      {
-        ignoreCase: true,
-        ignoreDeclarationSort: true,
-      },
-    ],
+    "sort-imports": ["error", {
+      "ignoreCase": true,
+      "ignoreDeclarationSort": true,
+      "ignoreMemberSort": false
+    }],
     "tailwindcss/classnames-order": "off",
-    "import/order": [
-      1,
-      {
-        groups: ["external", "builtin", "internal", "sibling", "parent", "index"],
-        pathGroups: [
-          ...getDirectoriesToSort().map((singleDir) => ({
-            pattern: `${singleDir}/**`,
-            group: "internal",
-          })),
-          {
-            pattern: "env",
-            group: "internal",
-          },
-          {
-            pattern: "theme",
-            group: "internal",
-          },
-          {
-            pattern: "public/**",
-            group: "internal",
-            position: "after",
-          },
-        ],
-        pathGroupsExcludedImportTypes: ["internal"],
-        alphabetize: {
-          order: "asc",
-          caseInsensitive: true,
-        },
-      },
-    ],
+    "import/order": ["error", {
+      "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+      "pathGroups": [
+        {
+          "pattern": "next/*",
+          "group": "external",
+          "position": "before"
+        }
+      ]
+    }],
+    "react/no-unescaped-entities": ["error", {
+      "forbid": [">", "}"]
+    }]
   },
 };
 
