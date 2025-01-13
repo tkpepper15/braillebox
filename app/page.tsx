@@ -145,10 +145,10 @@ const Home: React.FC = () => {
           <div className="max-w-6xl mx-auto px-4 staggered-element">
             <div className="text-center mb-12">
               <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-                Why Brailliant Matters
+                Envisioning Accessibility Brailliantly
               </h2>
               <p className="text-xl text-gray-400">
-                Bridging the accessibility gap in Braille technology
+                Bridging the market gap in Braille technology
               </p>
             </div>
 
@@ -199,13 +199,13 @@ const Home: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="bg-stone-900/50 rounded-xl p-6 hover:scale-105 transition-all duration-300">
                       <div className="flex flex-col items-center">
-                        <span className="text-gray-400 text-sm uppercase tracking-wider mb-2">Current Market</span>
+                        <span className="text-gray-400 text-sm uppercase tracking-wider mb-2">Current Solutions</span>
                         <div className="flex items-baseline gap-1">
                           <span className="text-red-500 text-4xl font-bold">$3.5K</span>
                           <span className="text-red-500 text-4xl font-bold">-</span>
                           <span className="text-red-500 text-4xl font-bold">$15K</span>
                         </div>
-                        <span className="text-gray-500 mt-2">Existing Solutions</span>
+                        <span className="text-gray-500 mt-2">Retail Range</span>
                       </div>
                     </div>
 
@@ -215,7 +215,7 @@ const Home: React.FC = () => {
                         <div className="flex items-baseline gap-1">
                           <span className="text-[#d4843e] text-4xl font-bold">$300</span>
                         </div>
-                        <span className="text-gray-500 mt-2">Retail Price</span>
+                        <span className="text-gray-500 mt-2"> Proposed Price</span>
                       </div>
                     </div>
                   </div>
@@ -224,7 +224,7 @@ const Home: React.FC = () => {
                   <div className="mt-8 inline-block">
                     <div className="bg-[#d4843e]/10 border border-[#d4843e]/20 rounded-full px-6 py-2">
                       <span className="text-[#d4843e] font-semibold">
-                        Build Cost: <span className="text-xl">$77</span>
+                        Our Build Cost: <span className="text-xl">$77</span>
                       </span>
                     </div>
                   </div>
@@ -241,18 +241,22 @@ const Home: React.FC = () => {
           <div className="max-w-6xl mx-auto px-4 staggered-element">
             <div className="text-center mb-12">
               <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-                3 Step Process
+                Anyone. Anywhere. Anytime.
               </h2>
               <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                A seamless process of converting text to tactile braille output
+                An intuitive process of converting text to tactile braille output
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Step 1 */}
               <div className="bg-stone-800/30 backdrop-blur-sm p-10 rounded-xl transition-all duration-300 
                 hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
-                <div className="flex items-center justify-center mb-8">
-                  <FaCamera className="text-[#d4843e] text-5xl" />
+                <div className="relative">
+                  <span className="absolute -top-6 -left-6 text-4xl font-bold text-[#d4843e]/20">1</span>
+                  <div className="flex items-center justify-center mb-8">
+                    <FaCamera className="text-[#d4843e] text-5xl" />
+                  </div>
                 </div>
                 <h3 className="text-2xl font-semibold mb-4 orange text-center">Extract</h3>
                 <p className="text-gray-400 text-lg">
@@ -260,10 +264,14 @@ const Home: React.FC = () => {
                 </p>
               </div>
 
+              {/* Step 2 */}
               <div className="bg-stone-800/30 backdrop-blur-sm p-10 rounded-xl transition-all duration-300 
                 hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
-                <div className="flex items-center justify-center mb-8">
-                  <FaServer className="text-[#d4843e] text-5xl" />
+                <div className="relative">
+                  <span className="absolute -top-6 -left-6 text-4xl font-bold text-[#d4843e]/20">2</span>
+                  <div className="flex items-center justify-center mb-8">
+                    <FaServer className="text-[#d4843e] text-5xl" />
+                  </div>
                 </div>
                 <h3 className="text-2xl font-semibold mb-4 orange text-center">Process</h3>
                 <p className="text-gray-400 text-lg">
@@ -271,10 +279,14 @@ const Home: React.FC = () => {
                 </p>
               </div>
 
+              {/* Step 3 */}
               <div className="bg-stone-800/30 backdrop-blur-sm p-10 rounded-xl transition-all duration-300 
                 hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
-                <div className="flex items-center justify-center mb-8">
-                  <FaBraille className="text-[#d4843e] text-5xl" />
+                <div className="relative">
+                  <span className="absolute -top-6 -left-6 text-4xl font-bold text-[#d4843e]/20">3</span>
+                  <div className="flex items-center justify-center mb-8">
+                    <FaBraille className="text-[#d4843e] text-5xl" />
+                  </div>
                 </div>
                 <h3 className="text-2xl font-semibold mb-4 orange text-center">Display</h3>
                 <p className="text-gray-400 text-lg">
@@ -290,7 +302,7 @@ const Home: React.FC = () => {
           <div className="max-w-6xl mx-auto px-4 staggered-element">
             <div className="text-center mb-12">
               <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-                Technical Specs
+                Under the Hood
               </h2>
               <p className="text-xl text-gray-400 max-w-3xl mx-auto">
                 Cutting-edge technology in a compact, efficient package
