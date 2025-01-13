@@ -1,12 +1,12 @@
 'use client';
 
 import { FC } from 'react';
+import Image from 'next/image';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Navbar from 'app/navbar';
 import Footer from 'app/footer';
 import '/app/global.css';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import Image from 'next/image';
 
 interface DocsPageProps {}
 
@@ -177,6 +177,7 @@ const DocsPage: FC<DocsPageProps> = () => {
                   height={300}
                   frameBorder={0}
                   scrolling="no"
+                  title="Bill of Materials Spreadsheet"
                 />
               </div>
             </section>
@@ -196,7 +197,7 @@ const DocsPage: FC<DocsPageProps> = () => {
                 <p className="text-lg leading-relaxed">
                   I decided to first model my design in Fusion360, as I had prior experience
                   working with Fusion and was pretty comfortable using it. When I started out
-                  with Autodesk Fusion, Kevin Kennedy&apos;s{" "}
+                  with Autodesk Fusion, Stuart Christhilf&apos;s{" "}
                   <a 
                     href="https://www.youtube.com/playlist?list=PLrZ2zKOtC_-C4rWfapgngoe9o2-ng8ZBr"
                     className="text-blue-400 hover:text-blue-300"

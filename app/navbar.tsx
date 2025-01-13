@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -17,7 +18,13 @@ const Navbar: React.FC = () => {
       {/* Logo and Brand */}
       <div className="navbar-logo">
         <a href="/" className="navbar-brand">
-          <img src="/logo.svg" alt="Logo" className="logo-image" />
+          <Image
+            src="/logo.svg"
+            alt="Logo"
+            width={24}
+            height={24}
+            className="logo-image"
+          />
           <span className="brand-name">Brailliant</span>
         </a>
       </div>

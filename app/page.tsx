@@ -87,7 +87,7 @@ const Home: React.FC = () => {
                 An affordable braille display that converts text into tactile braille in real-time
               </p>
               
-              <div className="mt-12 mb-12">
+              <div className="my-12">
                 <div className="relative w-full aspect-[16/9] max-w-3xl mx-auto overflow-hidden rounded-xl shadow-xl">
                   <Image
                     src="/braillebox_topdown.png"
@@ -107,7 +107,7 @@ const Home: React.FC = () => {
                   shadow-xl border border-[#d4843e]/20 backdrop-blur-sm group"
                 >
                   <span className="text-lg font-medium tracking-wide">Product Demo</span>
-                  <BouncingArrow className="h-5 w-5 group-hover:text-white" />
+                  <BouncingArrow className="size-5 group-hover:text-white" />
                 </button>
               </div>
             </div>
@@ -133,7 +133,7 @@ const Home: React.FC = () => {
                   title="Brailliant Project Walkthrough"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  className="absolute top-0 left-0 w-full h-full rounded-xl"
+                  className="absolute top-0 left-0 size-full rounded-xl"
                 />
               </div>
             </div>
@@ -163,7 +163,7 @@ const Home: React.FC = () => {
                     <p className="text-gray-400 text-lg">are living with low vision or blindness</p>
                   </div>
                   <div className="text-[#d4843e] opacity-20">
-                    <FaUsers className="w-24 h-24" />
+                    <FaUsers className="size-24" />
                   </div>
                 </div>
               </div>
@@ -178,7 +178,7 @@ const Home: React.FC = () => {
                     <p className="text-gray-400 text-lg">Americans learning Braille annually</p>
                   </div>
                   <div className="text-[#d4843e] opacity-20">
-                    <FaGraduationCap className="w-24 h-24" />
+                    <FaGraduationCap className="size-24" />
                   </div>
                 </div>
               </div>
@@ -197,7 +197,7 @@ const Home: React.FC = () => {
                   
                   {/* Price Comparison */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="bg-stone-900/50 rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
+                    <div className="bg-stone-900/50 rounded-xl p-6 hover:scale-105 transition-all duration-300">
                       <div className="flex flex-col items-center">
                         <span className="text-gray-400 text-sm uppercase tracking-wider mb-2">Current Market</span>
                         <div className="flex items-baseline gap-1">
@@ -209,7 +209,7 @@ const Home: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="bg-stone-900/50 rounded-xl p-6 transform hover:scale-105 transition-all duration-300">
+                    <div className="bg-stone-900/50 rounded-xl p-6 hover:scale-105 transition-all duration-300">
                       <div className="flex flex-col items-center">
                         <span className="text-gray-400 text-sm uppercase tracking-wider mb-2">Brailliant</span>
                         <div className="flex items-baseline gap-1">

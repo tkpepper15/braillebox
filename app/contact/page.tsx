@@ -3,8 +3,8 @@
 import { FC } from 'react';
 import Image from 'next/image';
 import { FaEnvelope } from 'react-icons/fa';
-import Navbar from 'app/navbar';
 import Footer from 'app/footer';
+import Navbar from 'app/navbar';
 
 interface ContactPageProps {}
 
@@ -43,7 +43,7 @@ const ContactPage: FC<ContactPageProps> = () => {
                 <div className="flex justify-center">
                   <a href="mailto:shan26r@ncssm.edu" 
                     className="p-2 text-gray-400 hover:text-[#d4843e] transition-colors">
-                    <FaEnvelope className="w-6 h-6" />
+                    <FaEnvelope className="size-6" />
                   </a>
                 </div>
               </div>
@@ -58,7 +58,7 @@ const ContactPage: FC<ContactPageProps> = () => {
                 <div className="flex justify-center">
                   <a href="mailto:kotrannavar25s@ncssm.edu" 
                     className="p-2 text-gray-400 hover:text-[#d4843e] transition-colors">
-                    <FaEnvelope className="w-6 h-6" />
+                    <FaEnvelope className="size-6" />
                   </a>
                 </div>
               </div>
@@ -73,7 +73,7 @@ const ContactPage: FC<ContactPageProps> = () => {
                 <div className="flex justify-center">
                   <a href="mailto:kaul25t@ncssm.edu" 
                     className="p-2 text-gray-400 hover:text-[#d4843e] transition-colors">
-                    <FaEnvelope className="w-6 h-6" />
+                    <FaEnvelope className="size-6" />
                   </a>
                 </div>
               </div>
