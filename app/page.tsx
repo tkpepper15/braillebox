@@ -311,7 +311,7 @@ const Home: React.FC = () => {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="text-[#d4843e]">•</span>
-                    ESP32CAM for wireless image capture and transmission
+                    ESP32CAM for wireless image capture &amp; transmission
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="text-[#d4843e]">•</span>
