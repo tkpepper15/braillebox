@@ -8,6 +8,7 @@ import Navbar from 'app/navbar';
 const PreorderPage: FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', additionalInfo: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,14 +16,26 @@ const PreorderPage: FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await fetch('/api/send-email', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-    setSubmitted(true);
+    setError(null);
+    
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || 'Failed to send email');
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong');
+    }
   };
 
   return (
@@ -35,9 +48,14 @@ const PreorderPage: FC = () => {
         </p>
 
         {submitted ? (
-          <p className="text-lg text-green-500">Thank you for your interest!</p>
+          <p className="text-lg text-green-500">Thank you for your interest! We'll be in touch soon.</p>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
+            {error && (
+              <div className="text-red-500 bg-red-100/10 p-3 rounded-md">
+                {error}
+              </div>
+            )}
             <input
               type="text"
               name="name"
