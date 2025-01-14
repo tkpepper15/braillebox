@@ -16,6 +16,11 @@ interface ApiResponse {
   message?: string;
 }
 
+const isValidEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
 const PreorderPage: FC = () => {
   const [formData, setFormData] = useState<FormData>({ 
     name: '', 
@@ -24,14 +29,48 @@ const PreorderPage: FC = () => {
   });
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<{
+    name?: string;
+    email?: string;
+  }>({});
+
+  const validateForm = (): boolean => {
+    const errors: { name?: string; email?: string } = {};
+    let isValid = true;
+
+    if (!formData.name.trim()) {
+      errors.name = 'Name is required';
+      isValid = false;
+    }
+
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required';
+      isValid = false;
+    } else if (!isValidEmail(formData.email)) {
+      errors.email = 'Please enter a valid email address';
+      isValid = false;
+    }
+
+    setFieldErrors(errors);
+    return isValid;
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    // Clear error when user starts typing
+    if (fieldErrors[name as keyof typeof fieldErrors]) {
+      setFieldErrors(prev => ({ ...prev, [name]: undefined }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    
+    if (!validateForm()) {
+      return;
+    }
     
     try {
       const response = await fetch('/api/send-email', {
@@ -85,7 +124,7 @@ const PreorderPage: FC = () => {
               <div className="space-y-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300">
-                    Name
+                    Name <span className="text-red-400">*</span>
                   </label>
                   <input
                     id="name"
@@ -95,15 +134,20 @@ const PreorderPage: FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-stone-900 border border-stone-800 rounded-lg 
+                    aria-required="true"
+                    className={`w-full px-4 py-3 bg-stone-900 border rounded-lg 
                              text-white placeholder-gray-500 focus:outline-none focus:ring-2 
-                             focus:ring-[#d4843e] focus:border-transparent transition duration-200"
+                             focus:ring-[#d4843e] transition duration-200
+                             ${fieldErrors.name ? 'border-red-500' : 'border-stone-800'}`}
                   />
+                  {fieldErrors.name && (
+                    <p className="text-sm text-red-400 mt-1">{fieldErrors.name}</p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
                   <label htmlFor="email" className="block text-sm font-medium text-gray-300">
-                    Email
+                    Email <span className="text-red-400">*</span>
                   </label>
                   <input
                     id="email"
@@ -113,15 +157,20 @@ const PreorderPage: FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-stone-900 border border-stone-800 rounded-lg 
+                    aria-required="true"
+                    className={`w-full px-4 py-3 bg-stone-900 border rounded-lg 
                              text-white placeholder-gray-500 focus:outline-none focus:ring-2 
-                             focus:ring-[#d4843e] focus:border-transparent transition duration-200"
+                             focus:ring-[#d4843e] transition duration-200
+                             ${fieldErrors.email ? 'border-red-500' : 'border-stone-800'}`}
                   />
+                  {fieldErrors.email && (
+                    <p className="text-sm text-red-400 mt-1">{fieldErrors.email}</p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
                   <label htmlFor="additionalInfo" className="block text-sm font-medium text-gray-300">
-                    Additional Information
+                    Additional Information <span className="text-gray-500">(optional)</span>
                   </label>
                   <textarea
                     id="additionalInfo"
