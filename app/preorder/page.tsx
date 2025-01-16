@@ -105,16 +105,6 @@ const PreorderPage: FC = () => {
             </p>
           </div>
 
-          <div className="aspect-video w-full rounded-lg overflow-hidden">
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/Ne1Vq62ntLo"
-              title="Brailliant Demo Video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-
           {submitted ? (
             <div className="mt-8 text-center">
               <div className="inline-block p-4 bg-green-500/10 rounded-lg">

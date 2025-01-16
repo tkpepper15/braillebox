@@ -54,7 +54,7 @@ const BouncingArrow = styled(FaArrowDown)`
 
 // Section Component
 const Section: React.FC<SectionProps> = ({ children, id }) => (
-  <section id={id} className="py-16 bg-stone-950">
+  <section id={id} className="pt-16 bg-stone-950">
     {children}
   </section>
 );
@@ -75,28 +75,62 @@ const Home: React.FC = () => {
       <main className="flex flex-col justify-center">
         {/* Hero Section */}
         <Section>
-          <div className="max-w-6xl mt-12 mx-auto text-center px-4">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Putting Braille in <span className="orange">Reach</span>
-            </h1>
-            <p className="text-xl text-gray-400 mt-6 max-w-2xl mx-auto">
-              An affordable braille display that converts text into tactile braille in real-time
-            </p>
-          </div>
-          <div className="flex justify-center space-x-4 mt-12">
-            <a
-              href="/preorder"
-              className="button-primary"
-            >
-              Preorder
-            </a>
-            <button
-              onClick={scrollToVideo}
-              className="button-secondary flex items-center"
-            >
-              Product Demo
-              <BouncingArrow className="ml-2 bouncing-arrow" />
-            </button>
+          <div className="relative">
+            {/* Animated Braille Display */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-stone-950/50 to-stone-950" />
+              {/* Frosted overlay */}
+              <div className="absolute inset-0 backdrop-blur-[2px] bg-stone-950/10" />
+              <div className="max-w-3xl mx-auto px-4 py-8 grid grid-cols-6 gap-4 justify-items-center">
+                {[...Array(48)].map((_, i) => {
+                  const row = Math.floor(i / 6);
+                  const randomDelay = Math.random() * 2000; // Random delay up to 2s
+                  const baseOpacity = Math.max(0.15, 1 - row * 0.15);
+                  
+                  return (
+                    <div
+                      key={i}
+                      className={`size-6 rounded-full bg-[#d4843e]/20 border border-[#d4843e]/30
+                        transition-all duration-700 hover:bg-[#d4843e] hover:scale-110
+                        animate-pulse`}
+                      style={{
+                        animationDelay: `${randomDelay}ms`,
+                        animationDuration: '2s',
+                        opacity: baseOpacity * (0.8 + Math.random() * 0.4) // Random variation in opacity
+                      }}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Hero Content overlaying the animation */}
+            <div className="absolute inset-0">
+              <div className="max-w-6xl mt-12 mx-auto text-center px-4">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                  Putting Braille in <span className="orange">Reach</span>
+                </h1>
+                <p className="text-xl text-gray-400 mt-6 max-w-2xl mx-auto">
+                  An affordable braille display that converts text into tactile braille in real-time
+                </p>
+              </div>
+
+              <div className="flex justify-center space-x-4 mt-12">
+                <a
+                  href="/preorder"
+                  className="button-primary"
+                >
+                  Preorder
+                </a>
+                <button
+                  onClick={scrollToVideo}
+                  className="button-secondary flex items-center"
+                >
+                  Product Demo
+                  <BouncingArrow className="ml-2 bouncing-arrow" />
+                </button>
+              </div>
+            </div>
           </div>
         </Section>
 
