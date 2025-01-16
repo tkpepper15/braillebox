@@ -68,7 +68,7 @@ const Home: React.FC = () => {
   return (
     <div className="relative text-white min-h-screen bg-stone-950">
       <head>
-        <link rel="icon" href={logo} type="image/svg+xml" />
+        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
       </head>
       <Navbar />
 
@@ -83,19 +83,6 @@ const Home: React.FC = () => {
               An affordable braille display that converts text into tactile braille in real-time
             </p>
           </div>
-          
-          <div className="my-12">
-            <div className="relative w-full aspect-[16/9] max-w-xl mx-auto overflow-hidden rounded-xl shadow-xl">
-              <Image
-                src="/braillebox_topdown.png"
-                alt="Brailliant Top Down View"
-                fill
-                className="object-scale-down"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-              />
-            </div>
-          </div>
-
           <div className="flex justify-center space-x-4 mt-12">
             <a
               href="/preorder"
@@ -128,7 +115,7 @@ const Home: React.FC = () => {
             <div className="max-w-4xl mx-auto">
               <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-xl shadow-xl">
                 <iframe
-                  src="https://www.youtube.com/embed/St28xhM159o"
+                  src="https://www.youtube.com/embed/Ne1Vq62ntLo"
                   title="Brailliant Project Walkthrough"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
