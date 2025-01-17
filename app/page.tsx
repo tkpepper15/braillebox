@@ -84,19 +84,19 @@ const Home: React.FC = () => {
               <div className="max-w-3xl mx-auto px-4 py-8 grid grid-cols-6 gap-4 justify-items-center">
                 {[...Array(48)].map((_, i) => {
                   const row = Math.floor(i / 6);
-                  const randomDelay = Math.random() * 2000; // Random delay up to 2s
-                  const baseOpacity = Math.max(0.15, 1 - row * 0.15);
+                  const randomDelay = Math.random() * 2000;
+                  const baseOpacity = Math.max(0.3, 1 - row * 0.12);
                   
                   return (
                     <div
                       key={i}
-                      className={`size-6 rounded-full bg-[#d4843e]/20 border border-[#d4843e]/30
+                      className={`size-6 rounded-full bg-[#d4843e]/30 border border-[#d4843e]/40
                         transition-all duration-700 hover:bg-[#d4843e] hover:scale-110
                         animate-pulse`}
                       style={{
                         animationDelay: `${randomDelay}ms`,
                         animationDuration: '2s',
-                        opacity: baseOpacity * (0.8 + Math.random() * 0.4) // Random variation in opacity
+                        opacity: baseOpacity * (0.9 + Math.random() * 0.3)
                       }}
                     />
                   );
@@ -165,10 +165,10 @@ const Home: React.FC = () => {
           <div className="max-w-6xl mx-auto px-4 staggered-element">
             <div className="text-center mb-12">
               <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-                Envisioning Accessibility Brailliantly
+                Making Braille Technology <span className="orange">Affordable</span>
               </h2>
               <p className="text-xl text-gray-400">
-                Bridging the market gap in Braille technology
+                Transforming the market with accessible pricing
               </p>
             </div>
 
