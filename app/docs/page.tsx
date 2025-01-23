@@ -102,7 +102,7 @@ const DocsPage: FC<DocsPageProps> = () => {
               </div>
 
               <p className="text-lg leading-relaxed">
-                I then decided to use electromagnets for my pins, instead of a servo.
+                We then decided to use electromagnets as braille pins, instead of a servo.
                 The pins themselves would be a small magnetic rod sitting on top of an
                 electromagnet. The small electromagnet could be powered on and off via a
                 microcontroller...
@@ -189,27 +189,9 @@ const DocsPage: FC<DocsPageProps> = () => {
               {/* Brailliant CAD subsection */}
               <section className="space-y-6">
                 <h3 className="text-2xl font-semibold text-white">Initial Design</h3>
-                {/* Continue with content... */}
-              </section>
-
-              {/* Initial Design subsection */}
-              <section className="space-y-6">
                 <p className="text-lg leading-relaxed">
-                  I decided to first model my design in Fusion360, as I had prior experience
-                  working with Fusion and was pretty comfortable using it. When I started out
-                  with Autodesk Fusion, Stuart Christhilf&apos;s{" "}
-                  <a 
-                    href="https://www.youtube.com/playlist?list=PLrZ2zKOtC_-C4rWfapgngoe9o2-ng8ZBr"
-                    className="text-blue-400 hover:text-blue-300"
-                  >
-                    <strong>Fusion tutorials</strong>
-                  </a>{" "}
-                  were a massive help.
-                </p>
-
-                <p className="text-lg leading-relaxed">
-                  I first started off with a rectangular prism to act as the main body of the
-                  design.
+                  The design process began with a rectangular prism to serve as the main body of the
+                  structure.
                 </p>
 
                 <div className="text-center my-8">
@@ -224,7 +206,7 @@ const DocsPage: FC<DocsPageProps> = () => {
                   </div>
                 </div>
 
-                <p className="text-lg leading-relaxed">Next, I filleted the box to round out the edges.</p>
+                <p className="text-lg leading-relaxed">Next, the edges were filleted to create a rounded appearance.</p>
 
                 <div className="text-center my-8">
                   <div className="relative w-full aspect-[4/3] max-w-2xl mx-auto overflow-hidden rounded-2xl shadow-xl bg-stone-900">
@@ -240,8 +222,8 @@ const DocsPage: FC<DocsPageProps> = () => {
 
                 {/* Add missing CAD process images */}
                 <p className="text-lg leading-relaxed">
-                  I then created a sketch on the top of the box, where I created six circles.
-                  These 6 circles represent the holes where I will put metal pins into that
+                  A sketch was created on the top of the box with six circles.
+                  These 6 circles represent the holes for the metal pins that
                   can pop up and down depending on what needs to be represented.
                 </p>
 
@@ -258,7 +240,7 @@ const DocsPage: FC<DocsPageProps> = () => {
                 </div>
 
                 <p className="text-lg leading-relaxed">
-                  I extruded the circles downward as holes. This creates the actual space
+                  The circles were extruded downward as holes, creating the actual space
                   where the pins will be placed.
                 </p>
 
@@ -278,7 +260,7 @@ const DocsPage: FC<DocsPageProps> = () => {
                 <section className="space-y-6">
                   <h3 className="text-2xl font-semibold text-white">PyTesseract</h3>
                   <p className="text-lg leading-relaxed">
-                    After activating the virtual environment, I can install all of my library
+                    After activating the virtual environment, we can install all of the library
                     dependencies.
                   </p>
 
@@ -305,7 +287,7 @@ sudo pip install opencv-python`
                   </div>
 
                   <p className="text-lg leading-relaxed">
-                    I then created the actual program that the Raspberry Pi would run.
+                    The following program was developed for the Raspberry Pi to run.
                   </p>
 
                   <div className="my-8 rounded-lg overflow-hidden bg-gray-900">
@@ -343,7 +325,7 @@ time.sleep(1)`
               <section className="space-y-6">
                 <h3 className="text-2xl font-semibold text-white">Raspberry Pi Box CAD</h3>
                 <p className="text-lg leading-relaxed">
-                  I first started off with a shelled box.
+                  The design began with a shelled box structure.
                 </p>
 
                 <div className="text-center my-8">
@@ -363,11 +345,10 @@ time.sleep(1)`
               <section className="space-y-6">
                 <h3 className="text-2xl font-semibold text-white">Electronics</h3>
                 <p className="text-lg leading-relaxed">
-                  Electronics were by far the worst part of this project, at least for me. The
-                  main issue was that I didn&apos;t understand transistors very well, and I ran
-                  into a bunch of problems with them. The two main problems I ran into were
-                  transistors not being able to handle the power and transistors having
-                  inconsistent pinouts and being backwards or jumbled around.
+                  The electronics proved to be one of the most challenging aspects of the project. 
+                  The main challenges revolved around understanding transistors, particularly 
+                  dealing with power handling capabilities and inconsistent pinouts that were 
+                  sometimes backwards or jumbled.
                 </p>
 
                 <div className="text-center my-8">
@@ -383,10 +364,10 @@ time.sleep(1)`
                 </div>
 
                 <p className="text-lg leading-relaxed">
-                  I first tried using a <span className={orangeUnderlineClass}>TIP120 transistor</span>, but it couldn&apos;t handle the power
-                  requirements of the solenoid. I then switched to an <span className={orangeUnderlineClass}>IRF520 MOSFET</span>, which worked
-                  much better. However, I still had issues with the pinouts being different than
-                  what I expected.
+                  We first tried using a <span className={orangeUnderlineClass}>TIP120 transistor</span>, but it couldn&apos;t handle the power
+                  requirements of the solenoid. we then switched to an <span className={orangeUnderlineClass}>IRF520 MOSFET</span>, which worked
+                  much better. However, we still had issues with the pinouts being different than
+                  what we expected.
                 </p>
 
                 <div className="text-center my-8">
@@ -416,7 +397,7 @@ time.sleep(1)`
                 </ul>
 
                 <p className="text-lg leading-relaxed">
-                  Once I confirmed the circuit worked, I designed a PCB that would hold six of
+                  Once we confirmed the circuit worked, we designed a PCB that would hold six of
                   these circuits - one for each solenoid in the braille array. The PCB also
                   includes:
                 </p>
@@ -450,9 +431,9 @@ time.sleep(1)`
               <section className="space-y-6">
                 <h3 className="text-2xl font-semibold text-white">Camera Feed OCR</h3>
                 <p className="text-lg leading-relaxed">
-                  I had previously setup infrastructure to wirelessly transmit a command to
+                  We had previously setup infrastructure to wirelessly transmit a command to
                   capture an image from a Raspberry Pi to the ESP32CAM, along with sending the
-                  image data back over the network and saving it. I had created a WebSocket
+                  image data back over the network and saving it. The team created a WebSocket
                   server to accept commands and then send the image data over HTTP back to the
                   Raspberry Pi.
                 </p>
@@ -506,13 +487,12 @@ time.sleep(1)`
               <section className="space-y-6">
                 <h3 className="text-2xl font-semibold text-white">GPT4o and Base64 Processing</h3>
                 <p className="text-lg leading-relaxed">
-                  At this point, I wanted to try to use as little computational power as
-                  possible, and thus decided to switch to processing my image in <span className={orangeUnderlineClass}>base64</span>.
-                  Although switching to base64 ultimately failed to scale down the computing
-                  enough to run on a microcontroller, it still led me in an interesting
-                  direction: that I could use <span className={orangeUnderlineClass}>GPT4o&apos;s multimodal capabilities</span> as an OCR
-                  engine to extract text from the base64 image. GPT4o in general is much more
-                  accurate in OCR than pytesseract, hence the switch.
+                  To optimize computational power usage, we explored processing the image in <span className={orangeUnderlineClass}>base64</span>.
+                  Although this approach didn&apos;t ultimately scale down the computing
+                  enough to run on a microcontroller, it led us to an interesting
+                  solution: using <span className={orangeUnderlineClass}>GPT4o&apos;s multimodal capabilities</span> as an OCR
+                  engine to extract text from the base64 image. GPT4o proved to be much more
+                  accurate in OCR than pytesseract, making it the better choice.
                 </p>
 
                 <div className="my-8 rounded-lg overflow-hidden bg-gray-900/50">
@@ -612,9 +592,9 @@ BrailleMap braille_dictionary[] = {
             <section className="space-y-6">
               <h2 className="text-4xl font-bold orange">Assembly</h2>
               <p className="text-lg leading-relaxed">
-                I first outlined the general setup of our final project. We secured each <span className={orangeUnderlineClass}>MOSFET</span> to a corresponding battery pack and solenoid, and color-coded each
-                MOSFET&apos;s trigger and GND wires. We organized them in such a way that toggling
-                solenoid 1, 2, 3, 4, 5, then 6 would control each solenoid in a line.
+                The assembly of the Raspberry Pi case follows a straightforward process. The 3D print
+                includes pre-built holes for USB wires and the screen, allowing for simple mounting
+                of the Pi to the bottom and the screen to the top, followed by wire connections.
               </p>
 
               <div className="text-center my-8">
@@ -632,13 +612,6 @@ BrailleMap braille_dictionary[] = {
                   Your browser does not support the video tag.
                 </video>
               </div>
-
-              <p className="text-lg leading-relaxed">
-                The assembly of the Raspberry Pi case is relatively simple. As the 3D print
-                already has holes built in for USB wires, and a hole built in for the
-                screen, all I really need to do is secure the Pi to the bottom and the
-                screen to the top, then connect the wires.
-              </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
                 <div className="text-center">
