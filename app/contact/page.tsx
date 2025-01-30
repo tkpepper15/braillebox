@@ -39,7 +39,7 @@ const ContactPage: FC<ContactPageProps> = () => {
               hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
               <div className="text-center space-y-4">
                 <h3 className="text-2xl font-semibold text-white">Richard</h3>
-                <p className="text-[#d4843e] font-medium">Creator &amp; Development Lead</p>
+                <p className="text-[#d4843e] font-medium">Founder &amp; Development Lead</p>
                 <div className="flex justify-center">
                   <a href="mailto:shan26r@ncssm.edu" 
                     className="p-2 text-gray-400 hover:text-[#d4843e] transition-colors">
