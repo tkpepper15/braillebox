@@ -26,7 +26,7 @@ const DocsPage: FC<DocsPageProps> = () => {
                 The Making of Brailliant
               </h1>
               <p className="text-lg leading-relaxed orange">
-                Richard's Technical Walk-Through of Our Development Process
+                Technical Walk-Through of Our Development Process
               </p>
             </div>
 
