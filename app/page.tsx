@@ -26,6 +26,11 @@ interface SectionProps {
   id?: string;
 }
 
+interface RandomValue {
+  delay: number;
+  opacity: number;
+}
+
 // Animations
 const fadeIn = keyframes`
   from {
@@ -59,17 +64,29 @@ const Section: React.FC<SectionProps> = ({ children, id }) => (
   </section>
 );
 
+// Add this at the top of the file, outside the component
+const generateRandomValues = (count: number): RandomValue[] => {
+  const values = [];
+  for (let i = 0; i < count; i++) {
+    values.push({
+      delay: Math.floor(Math.random() * 2000),
+      opacity: Math.max(0.15, 1 - Math.floor(i / 6) * 0.15) * (0.8 + Math.random() * 0.4)
+    });
+  }
+  return values;
+};
+
 // Main Component
 const Home: React.FC = () => {
   const scrollToVideo = () => {
     document.getElementById('project-video')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Use React.useMemo to maintain stable values between renders
+  const randomValues = React.useMemo(() => generateRandomValues(48), []);
+
   return (
     <div className="relative text-white min-h-screen bg-stone-950">
-      <head>
-        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
-      </head>
       <Navbar />
 
       <main className="flex flex-col justify-center">
@@ -82,25 +99,19 @@ const Home: React.FC = () => {
               {/* Frosted overlay */}
               <div className="absolute inset-0 backdrop-blur-[2px] bg-stone-950/10" />
               <div className="max-w-3xl mx-auto px-4 py-8 grid grid-cols-6 gap-4 justify-items-center">
-                {[...Array(48)].map((_, i) => {
-                  const row = Math.floor(i / 6);
-                  const randomDelay = Math.random() * 2000;
-                  const baseOpacity = Math.max(0.3, 1 - row * 0.12);
-                  
-                  return (
-                    <div
-                      key={i}
-                      className={`size-6 rounded-full bg-[#d4843e]/30 border border-[#d4843e]/40
-                        transition-all duration-700 hover:bg-[#d4843e] hover:scale-110
-                        animate-pulse`}
-                      style={{
-                        animationDelay: `${randomDelay}ms`,
-                        animationDuration: '2s',
-                        opacity: baseOpacity * (0.9 + Math.random() * 0.3)
-                      }}
-                    />
-                  );
-                })}
+                {[...Array(48)].map((_, i) => (
+                  <div
+                    key={i}
+                    className={`size-6 rounded-full bg-[#d4843e]/30 border border-[#d4843e]/40
+                      transition-all duration-700 hover:bg-[#d4843e] hover:scale-110
+                      animate-pulse`}
+                    style={{
+                      animationDelay: `${randomValues[i]?.delay ?? 0}ms`,
+                      animationDuration: '2s',
+                      opacity: randomValues[i]?.opacity ?? 0.3
+                    }}
+                  />
+                ))}
               </div>
             </div>
 

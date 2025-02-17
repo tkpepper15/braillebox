@@ -346,7 +346,7 @@ time.sleep(1)`
                 <h3 className="text-2xl font-semibold text-white">Electronics</h3>
                 <p className="text-lg leading-relaxed">
                   The electronics proved to be one of the most challenging aspects of the project. 
-                  The main challenges revolved around understanding transistors, particularly 
+                  Our main challenges revolved around understanding transistors, particularly 
                   dealing with power handling capabilities and inconsistent pinouts that were 
                   sometimes backwards or jumbled.
                 </p>
@@ -365,8 +365,8 @@ time.sleep(1)`
 
                 <p className="text-lg leading-relaxed">
                   We first tried using a <span className={orangeUnderlineClass}>TIP120 transistor</span>, but it couldn&apos;t handle the power
-                  requirements of the solenoid. we then switched to an <span className={orangeUnderlineClass}>IRF520 MOSFET</span>, which worked
-                  much better. However, we still had issues with the pinouts being different than
+                  requirements of the solenoid. After testing, we switched to an <span className={orangeUnderlineClass}>IRF520 MOSFET</span>, which worked
+                  much better. However, there were still issues with the pinouts being different than
                   what we expected.
                 </p>
 
@@ -383,8 +383,8 @@ time.sleep(1)`
                 </div>
 
                 <p className="text-lg leading-relaxed">
-                  After fixing the pinout issues, I created a simple test circuit with an <span className={orangeUnderlineClass}>Arduino
-                  Uno</span> to verify that the <span className={orangeUnderlineClass}>MOSFET</span> could properly control the solenoid. The circuit
+                  After fixing the pinout issues, we created a simple test circuit with an <span className={orangeUnderlineClass}>Arduino
+                  Uno</span> to verify that the <span className={orangeUnderlineClass}>MOSFET</span> could properly control the solenoid. The test circuit
                   consisted of:
                 </p>
 
@@ -397,9 +397,8 @@ time.sleep(1)`
                 </ul>
 
                 <p className="text-lg leading-relaxed">
-                  Once we confirmed the circuit worked, we designed a PCB that would hold six of
-                  these circuits - one for each solenoid in the braille array. The PCB also
-                  includes:
+                  Once we confirmed the circuit worked, our team designed a PCB that would hold six of
+                  these circuits - one for each solenoid in the braille array. The PCB design includes:
                 </p>
 
                 <ul className="list-disc space-y-2 pl-6 text-lg">
@@ -592,9 +591,10 @@ BrailleMap braille_dictionary[] = {
             <section className="space-y-6">
               <h2 className="text-4xl font-bold orange">Assembly</h2>
               <p className="text-lg leading-relaxed">
-                The assembly of the Raspberry Pi case follows a straightforward process. The 3D print
-                includes pre-built holes for USB wires and the screen, allowing for simple mounting
-                of the Pi to the bottom and the screen to the top, followed by wire connections.
+                The assembly process began with outlining the general setup of the final project. 
+                Each <span className={orangeUnderlineClass}>MOSFET</span> was secured to a corresponding battery pack and solenoid, 
+                with color-coded trigger and GND wires. The organization ensures that toggling
+                solenoids 1 through 6 controls each solenoid in sequence.
               </p>
 
               <div className="text-center my-8">
@@ -645,18 +645,18 @@ BrailleMap braille_dictionary[] = {
               <p className="text-lg leading-relaxed">
                 While there are existing technologies on the market that can convert text to
                 braille in real time, those are often expensive and not readily
-                available to the public. Our hope with this project is to create a product
-                that can be cheaply produced and reach a wide audience.
+                available to the public. Our goal with this project is to create a product
+                that can be cheaply produced and reach a wide audience. Through this development process, 
+                we&apos;ve learned several key lessons:
               </p>
               <ul className="list-disc space-y-2 pl-6 text-lg">
                 <li>
-                  Some parts of a project will take longer while others will take shorter
-                  than expected
+                  Project timelines often vary significantly from initial estimates
                 </li>
-                <li>Always plan for double the development time due to debugging</li>
+                <li>Development time should account for thorough debugging phases</li>
                 <li>
-                  Working with lower-level hardware and software is more rewarding and often
-                  produces a more solid product
+                  Working with lower-level hardware and software provides better control and often
+                  results in a more robust product
                 </li>
                 <li>
                   Careful component selection is crucial for project success
