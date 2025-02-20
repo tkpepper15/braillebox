@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React from 'react';
 import { keyframes } from '@emotion/react';
 import styled from "@emotion/styled";
+
 import { 
   FaArrowDown,
   FaBraille,
@@ -18,19 +19,12 @@ import {
 import Footer from './footer';
 import Navbar from './navbar';
 import './global.css';
-import ParticlesComponent from './components/Particles';
+
 
 // Types
 interface SectionProps {
   children: React.ReactNode;
   id?: string;
-}
-
-interface RandomValue {
-  delay: number;
-  opacity: number;
-  height: string;
-  x: string;
 }
 
 // Animations
@@ -50,50 +44,16 @@ const Section: React.FC<SectionProps> = ({ children, id }) => (
   </section>
 );
 
-// Update the generateRandomValues function for wider distribution
-const generateRandomValues = (count: number): RandomValue[] => {
-  const values: RandomValue[] = [];
-  
-  for (let i = 0; i < count; i++) {
-    values.push({
-      delay: Math.floor(Math.random() * 8000),
-      opacity: Math.max(0.1, Math.random() * 0.4),
-      height: `${Math.random() * 180 - 40}%`,
-      x: `${Math.random() * 180 - 40}%`
-    });
-  }
-  
-  // Filter out dots that are too close to each other
-  return values.filter((value, index) => {
-    for (let j = 0; j < index; j++) {
-      const dx = parseFloat(value.x) - parseFloat(values[j]!.x);
-      const dy = parseFloat(value.height) - parseFloat(values[j]!.height);
-      const distance = Math.sqrt(dx * dx + dy * dy);
-      if (distance < 60) return false; // Increased minimum distance between dots
-    }
-    return true;
-  });
-};
-
 // Main Component
 const Home: React.FC = () => {
   const scrollToVideo = () => {
     document.getElementById('project-video')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Use React.useMemo to maintain stable values between renders
-  const randomValues = React.useMemo(() => generateRandomValues(32), []);
-
   return (
     <div className="relative text-white min-h-screen bg-stone-950">
       <div className="fixed top-0 inset-x-0 z-[1000]">
         <Navbar />
-      </div>
-
-      {/* Particles with gradient overlay */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-stone-950/50 to-stone-950" />
-        <ParticlesComponent />
       </div>
 
       <main className="relative flex flex-col justify-center pt-16">
@@ -102,18 +62,18 @@ const Home: React.FC = () => {
           <div className="relative min-h-[20vh]">
             {/* Hero Content overlaying everything */}
             <div className="relative z-20">
-              <div className="max-w-6xl mx-auto text-center px-4 pt-12">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-2">
+              <div className="max-w-6xl mx-auto text-center px-4 pt-6">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-none">
                   Putting Braille in <span className="orange">Reach</span>
                 </h1>
-                <p className="text-xl text-gray-400 mt-2 max-w-2xl mx-auto mb-2">
-                  An affordable braille display that converts text into tactile braille in real-time
+                <p className="text-xl text-gray-400 my-1 max-w-2xl mx-auto">
+                  Making it affordable to convert text to tactile braille in real-time
                 </p>
               </div>
             </div>
 
             {/* Image container with overlaid buttons */}
-            <div className="relative z-10 max-w-3xl mx-auto px-4 -mt-6">
+            <div className="relative z-10 max-w-3xl mx-auto px-4 -mt-8">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/mainpic.png"
