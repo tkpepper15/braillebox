@@ -221,19 +221,6 @@ const Home: React.FC = () => {
                 
                 {/* Cost Comparison Card */}
                 <div className="bg-stone-800/30 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-stone-800/50">
-                  <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
-                    <div className="flex-1">
-                      <div className="bg-[#d4843e]/10 rounded-xl p-6 border border-[#d4843e]/20">
-                        <h3 className="text-[#d4843e] text-xl font-semibold mb-4">American Foundation for the Blind</h3>
-                        <p className="text-gray-300 text-lg leading-relaxed">
-                          Research shows that existing Braille displays range from
-                          <span className="text-[#d4843e] font-semibold"> $3,500 to $15,000</span>,
-                          making them inaccessible to many who need them.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  
                   {/* Price Comparison */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="bg-stone-900/50 rounded-xl p-6 hover:scale-105 transition-all duration-300">
@@ -244,7 +231,12 @@ const Home: React.FC = () => {
                           <span className="text-red-500 text-4xl font-bold">-</span>
                           <span className="text-red-500 text-4xl font-bold">$15K</span>
                         </div>
-                        <span className="text-gray-500 mt-2">Retail Range</span>
+                        <span className="text-gray-500 mt-2">Market Range</span>
+                        <div className="mt-4 bg-stone-800/50 border border-stone-700/50 rounded-full px-4 py-1.5">
+                          <span className="text-gray-400 text-sm font-medium">
+                            Source: <span className="font-semibold">American Foundation for the Blind</span>
+                          </span>
+                        </div>
                       </div>
                     </div>
 
@@ -255,16 +247,12 @@ const Home: React.FC = () => {
                           <span className="text-[#d4843e] text-4xl font-bold">$300</span>
                         </div>
                         <span className="text-gray-500 mt-2">Proposed Price</span>
+                        <div className="mt-4 bg-[#d4843e]/10 border border-[#d4843e]/20 rounded-full px-4 py-1.5">
+                          <span className="text-[#d4843e] text-sm font-medium">
+                            Build Cost: <span className="font-semibold">$77</span>
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-
-                  {/* Build Cost Badge */}
-                  <div className="mt-8 inline-block">
-                    <div className="bg-[#d4843e]/10 border border-[#d4843e]/20 rounded-full px-6 py-2">
-                      <span className="text-[#d4843e] font-semibold">
-                        Our Build Cost: <span className="text-xl">$77</span>
-                      </span>
                     </div>
                   </div>
                 </div>
