@@ -1,23 +1,11 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './global.css';
+import { metadata } from './metadata'
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: 'Brailliant',
-  description: 'An affordable text to braille display',
-  icons: {
-    icon: '/logo.svg',
-    shortcut: '/logo.svg',
-    apple: '/logo.svg',
-    other: {
-      rel: 'icon',
-      url: '/logo.svg',
-      type: 'image/svg+xml'
-    }
-  }
-};
+export { metadata }
 
 export default function RootLayout({
   children,
@@ -26,9 +14,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
-      </head>
       <body>
         {children}
       </body>

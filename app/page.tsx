@@ -20,7 +20,6 @@ import Footer from './footer';
 import Navbar from './navbar';
 import './global.css';
 
-
 // Types
 interface SectionProps {
   children: React.ReactNode;
@@ -73,7 +72,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* Image container with overlaid buttons */}
-            <div className="relative z-10 max-w-3xl mx-auto px-4 -mt-12 md:-mt-20">
+            <div className="relative z-10 max-w-3xl mx-auto px-4 -mt-4 md:-mt-20">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/mainpic.png"
@@ -84,7 +83,7 @@ const Home: React.FC = () => {
                   priority
                 />
                 {/* Buttons overlaid on image */}
-                <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center space-x-4 w-full px-4">
+                <div className="absolute top-[20%] md:top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center space-x-4 w-full px-4">
                   <a
                     href="/preorder"
                     className="button-primary"
