@@ -77,7 +77,7 @@ const Section: React.FC<SectionProps> = ({ children, id }) => (
 
 // Update the generateRandomValues function for sparser distribution
 const generateRandomValues = (count: number): RandomValue[] => {
-  const values = [];
+  const values: RandomValue[] = [];
   
   for (let i = 0; i < count; i++) {
     // Create more sparse positioning
@@ -95,10 +95,10 @@ const generateRandomValues = (count: number): RandomValue[] => {
   // Filter out dots that are too close to each other
   return values.filter((value, index) => {
     for (let j = 0; j < index; j++) {
-      const dx = parseFloat(value.x) - parseFloat(values[j].x);
-      const dy = parseFloat(value.height) - parseFloat(values[j].height);
+      const dx = parseFloat(value.x) - parseFloat(values[j]!.x);
+      const dy = parseFloat(value.height) - parseFloat(values[j]!.height);
       const distance = Math.sqrt(dx * dx + dy * dy);
-      if (distance < 30) return false; // Skip if too close to another dot
+      if (distance < 30) return false;
     }
     return true;
   });
