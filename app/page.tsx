@@ -18,6 +18,7 @@ import {
 import Footer from './footer';
 import Navbar from './navbar';
 import './global.css';
+import ParticlesComponent from './components/Particles';
 
 // Types
 interface SectionProps {
@@ -33,35 +34,9 @@ interface RandomValue {
 }
 
 // Animations
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-
 const bounce = keyframes`
   0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
   40% { transform: translateY(-20px); }
-`;
-
-const float = keyframes`
-  0%, 100% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(15px, -15px);
-  }
-  50% {
-    transform: translate(-15px, 15px);
-  }
-  75% {
-    transform: translate(-15px, -15px);
-  }
 `;
 
 const BouncingArrow = styled(FaArrowDown)`
@@ -75,20 +50,16 @@ const Section: React.FC<SectionProps> = ({ children, id }) => (
   </section>
 );
 
-// Update the generateRandomValues function for sparser distribution
+// Update the generateRandomValues function for wider distribution
 const generateRandomValues = (count: number): RandomValue[] => {
   const values: RandomValue[] = [];
   
   for (let i = 0; i < count; i++) {
-    // Create more sparse positioning
-    const angle = Math.random() * Math.PI * 2;
-    const radius = 30 + Math.random() * 120; // Increased radius range for more spread
-    
     values.push({
       delay: Math.floor(Math.random() * 8000),
-      opacity: Math.max(0.1, Math.random() * 0.4), // Slightly lower opacity
-      height: `${Math.random() * 140 - 20}%`, // From -20% to 120% for better vertical distribution
-      x: `${Math.random() * 140 - 20}%` // From -20% to 120% for better horizontal distribution
+      opacity: Math.max(0.1, Math.random() * 0.4),
+      height: `${Math.random() * 180 - 40}%`,
+      x: `${Math.random() * 180 - 40}%`
     });
   }
   
@@ -98,7 +69,7 @@ const generateRandomValues = (count: number): RandomValue[] => {
       const dx = parseFloat(value.x) - parseFloat(values[j]!.x);
       const dy = parseFloat(value.height) - parseFloat(values[j]!.height);
       const distance = Math.sqrt(dx * dx + dy * dy);
-      if (distance < 30) return false;
+      if (distance < 60) return false; // Increased minimum distance between dots
     }
     return true;
   });
@@ -115,42 +86,34 @@ const Home: React.FC = () => {
 
   return (
     <div className="relative text-white min-h-screen bg-stone-950">
-      <Navbar />
+      <div className="fixed top-0 inset-x-0 z-[1000]">
+        <Navbar />
+      </div>
 
-      <main className="flex flex-col justify-center">
+      {/* Particles with gradient overlay */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-stone-950/50 to-stone-950" />
+        <ParticlesComponent />
+      </div>
+
+      <main className="relative flex flex-col justify-center pt-16">
         {/* Hero Section */}
         <Section>
-          <div className="relative">
-            {/* Animated Braille Display */}
-            <div className="relative min-h-[20vh] pointer-events-none overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-stone-950/50 to-stone-950" />
-              <div className="absolute inset-0 backdrop-blur-[2px] bg-stone-950/10" />
-              <div className="relative h-full max-w-7xl mx-auto px-8 pt-16">
-                {[...Array(32)].map((_, i) => (
-                  <div
-                    key={i}
-                    className={`absolute size-10 rounded-full bg-[#d4843e]/20 border border-[#d4843e]/30
-                      transition-all duration-1000 hover:bg-[#d4843e] hover:scale-110
-                      animate-pulse shadow-[0_0_20px_rgba(212,132,62,0.2)]`}
-                    style={{
-                      animationDelay: `${randomValues[i]?.delay ?? 0}ms`,
-                      animationDuration: '12s',
-                      opacity: randomValues[i]?.opacity ?? 0.3,
-                      transform: `translate(${randomValues[i]?.x}, ${randomValues[i]?.height})`,
-                      animation: `${float} 8s ease-in-out infinite`,
-                      transition: 'all 12s ease-in-out',
-                      left: `clamp(0%, ${randomValues[i]?.x}, 100%)`,
-                      top: `clamp(0%, ${randomValues[i]?.height}, 100%)`,
-                      filter: 'blur(1px)',
-                      willChange: 'transform'
-                    }}
-                  />
-                ))}
+          <div className="relative min-h-[20vh]">
+            {/* Hero Content overlaying everything */}
+            <div className="relative z-20">
+              <div className="max-w-6xl mx-auto text-center px-4 pt-12">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-2">
+                  Putting Braille in <span className="orange">Reach</span>
+                </h1>
+                <p className="text-xl text-gray-400 mt-2 max-w-2xl mx-auto mb-2">
+                  An affordable braille display that converts text into tactile braille in real-time
+                </p>
               </div>
             </div>
 
-            {/* Image container - moved up, lower z-index */}
-            <div className="relative z-10 max-w-3xl mx-auto px-4 mt-4">
+            {/* Image container with overlaid buttons */}
+            <div className="relative z-10 max-w-3xl mx-auto px-4 -mt-6">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/mainpic.png"
@@ -160,19 +123,8 @@ const Home: React.FC = () => {
                   className="w-full object-cover object-[center_75%]"
                   priority
                 />
-              </div>
-            </div>
-
-            {/* Hero Content overlaying everything */}
-            <div className="absolute inset-x-0 top-0 z-[100] pointer-events-none">
-              <div className="max-w-6xl mt-24 mx-auto text-center px-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-2">
-                  Putting Braille in <span className="orange">Reach</span>
-                </h1>
-                <p className="text-xl text-gray-400 mt-2 max-w-2xl mx-auto mb-8">
-                  An affordable braille display that converts text into tactile braille in real-time
-                </p>
-                <div className="pointer-events-auto flex justify-center space-x-4">
+                {/* Buttons overlaid on image */}
+                <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center space-x-4 w-full px-4">
                   <a
                     href="/preorder"
                     className="button-primary"
@@ -432,7 +384,6 @@ const Home: React.FC = () => {
             </div>
           </div>
         </Section>
-
 
       </main>
 
