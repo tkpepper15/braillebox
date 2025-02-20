@@ -21,15 +21,16 @@ const ContactPage: FC<ContactPageProps> = () => {
             <p className="text-xl text-gray-400 mb-12">
               We&apos;re always interested in hearing about new ways to improve and integrate Brailliant.
             </p>
-            <div className="relative w-full aspect-[2/1] max-w-3xl mx-auto overflow-hidden rounded-xl shadow-xl">
-              <Image
-                src="/group.png"
-                alt="Group"
-                fill
-                className="object-contain"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-              />
-            </div>
+            {/* Image */}
+            <Image
+              src="/group.png"
+              alt="Group"
+              width={1200}
+              height={600}
+              priority
+              className="rounded-xl shadow-xl mx-auto"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+            />
           </div>
 
           {/* Contact Cards */}
