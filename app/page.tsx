@@ -101,7 +101,7 @@ const Home: React.FC = () => {
   };
 
   // Use React.useMemo to maintain stable values between renders
-  const randomValues = React.useMemo(() => generateRandomValues(18), []);
+  const randomValues = React.useMemo(() => generateRandomValues(32), []);
 
   return (
     <div className="relative text-white min-h-screen bg-stone-950">
@@ -112,11 +112,11 @@ const Home: React.FC = () => {
         <Section>
           <div className="relative">
             {/* Animated Braille Display */}
-            <div className="relative min-h-[20vh]">
+            <div className="relative min-h-[20vh] pointer-events-none">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-stone-950/50 to-stone-950" />
               <div className="absolute inset-0 backdrop-blur-[2px] bg-stone-950/10" />
               <div className="relative h-full max-w-7xl mx-auto px-8 pt-16">
-                {[...Array(18)].map((_, i) => (
+                {[...Array(32)].map((_, i) => (
                   <div
                     key={i}
                     className={`absolute size-10 rounded-full bg-[#d4843e]/20 border border-[#d4843e]/30
@@ -139,35 +139,7 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Hero Content overlaying the animation */}
-            <div className="absolute inset-x-0 top-0 z-10">
-              <div className="max-w-6xl mt-24 mx-auto text-center px-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-2">
-                  Putting Braille in <span className="orange">Reach</span>
-                </h1>
-                <p className="text-xl text-gray-400 mt-2 max-w-2xl mx-auto">
-                  An affordable braille display that converts text into tactile braille in real-time
-                </p>
-              </div>
-
-              <div className="flex justify-center space-x-4 mt-3">
-                <a
-                  href="/preorder"
-                  className="button-primary"
-                >
-                  Preorder
-                </a>
-                <button
-                  onClick={scrollToVideo}
-                  className="button-secondary flex items-center"
-                >
-                  Product Demo
-                  <BouncingArrow className="ml-2 bouncing-arrow" />
-                </button>
-              </div>
-            </div>
-
-            {/* Image container - adjusted positioning */}
+            {/* Image container - moved up, lower z-index */}
             <div className="relative z-10 max-w-3xl mx-auto px-4 mt-4">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
@@ -180,7 +152,33 @@ const Home: React.FC = () => {
                 />
               </div>
             </div>
-            
+
+            {/* Hero Content overlaying everything */}
+            <div className="absolute inset-x-0 top-0 z-[100] pointer-events-none">
+              <div className="max-w-6xl mt-24 mx-auto text-center px-4">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-2">
+                  Putting Braille in <span className="orange">Reach</span>
+                </h1>
+                <p className="text-xl text-gray-400 mt-2 max-w-2xl mx-auto mb-8">
+                  An affordable braille display that converts text into tactile braille in real-time
+                </p>
+                <div className="pointer-events-auto flex justify-center space-x-4">
+                  <a
+                    href="/preorder"
+                    className="button-primary"
+                  >
+                    Preorder
+                  </a>
+                  <button
+                    onClick={scrollToVideo}
+                    className="button-secondary flex items-center"
+                  >
+                    Product Demo
+                    <BouncingArrow className="ml-2 bouncing-arrow" />
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </Section>
 
