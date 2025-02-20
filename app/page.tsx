@@ -14,7 +14,6 @@ import {
   FaServer,
   FaUsers,
 } from "react-icons/fa";
-import logo from '../public/logo.svg';
 
 import Footer from './footer';
 import Navbar from './navbar';
@@ -29,6 +28,8 @@ interface SectionProps {
 interface RandomValue {
   delay: number;
   opacity: number;
+  height: string;
+  x: string;
 }
 
 // Animations
@@ -48,29 +49,19 @@ const bounce = keyframes`
   40% { transform: translateY(-20px); }
 `;
 
-const pulseAnimation = keyframes`
+const float = keyframes`
   0%, 100% {
-    transform: scale(1);
-    opacity: 0.6;
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(15px, -15px);
   }
   50% {
-    transform: scale(1.2);
-    opacity: 1;
+    transform: translate(-15px, 15px);
   }
-`;
-
-const glowAnimation = keyframes`
-  0%, 100% {
-    filter: drop-shadow(0 0 2px #d4843e);
+  75% {
+    transform: translate(-15px, -15px);
   }
-  50% {
-    filter: drop-shadow(0 0 8px #d4843e);
-  }
-`;
-
-// Styled Components
-const HeroContent = styled.div`
-  animation: ${fadeIn} 1s ease-out forwards;
 `;
 
 const BouncingArrow = styled(FaArrowDown)`
@@ -79,18 +70,25 @@ const BouncingArrow = styled(FaArrowDown)`
 
 // Section Component
 const Section: React.FC<SectionProps> = ({ children, id }) => (
-  <section id={id} className="py-20 first:pt-16 last:pb-32 bg-stone-950">
+  <section id={id} className="py-8 first:pt-4 last:pb-12 bg-stone-950">
     {children}
   </section>
 );
 
-// Add this at the top of the file, outside the component
+// Update the generateRandomValues function for more random distribution
 const generateRandomValues = (count: number): RandomValue[] => {
   const values = [];
+  
   for (let i = 0; i < count; i++) {
+    // Create more random positioning
+    const angle = Math.random() * Math.PI * 2; // Completely random angle
+    const radius = Math.random() * 100; // Wider radius range (0-100)
+    
     values.push({
-      delay: Math.floor(Math.random() * 2000),
-      opacity: Math.max(0.15, 1 - Math.floor(i / 6) * 0.15) * (0.8 + Math.random() * 0.4)
+      delay: Math.floor(Math.random() * 8000), // Shorter delay for more active animation
+      opacity: Math.max(0.1, Math.random() * 0.5), // Lower opacity range
+      height: `${Math.random() * 200 - 50}%`, // From -50% to 150% for more vertical spread
+      x: `${Math.random() * 200 - 50}%` // From -50% to 150% for more horizontal spread
     });
   }
   return values;
@@ -103,7 +101,7 @@ const Home: React.FC = () => {
   };
 
   // Use React.useMemo to maintain stable values between renders
-  const randomValues = React.useMemo(() => generateRandomValues(48), []);
+  const randomValues = React.useMemo(() => generateRandomValues(18), []);
 
   return (
     <div className="relative text-white min-h-screen bg-stone-950">
@@ -114,21 +112,27 @@ const Home: React.FC = () => {
         <Section>
           <div className="relative">
             {/* Animated Braille Display */}
-            <div className="relative">
+            <div className="relative min-h-[20vh]">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-stone-950/50 to-stone-950" />
-              {/* Frosted overlay */}
               <div className="absolute inset-0 backdrop-blur-[2px] bg-stone-950/10" />
-              <div className="max-w-3xl mx-auto px-4 py-8 grid grid-cols-6 gap-4 justify-items-center">
-                {[...Array(48)].map((_, i) => (
+              <div className="relative h-full max-w-7xl mx-auto px-8 pt-16">
+                {[...Array(18)].map((_, i) => (
                   <div
                     key={i}
-                    className={`size-6 rounded-full bg-[#d4843e]/30 border border-[#d4843e]/40
-                      transition-all duration-700 hover:bg-[#d4843e] hover:scale-110
-                      animate-pulse`}
+                    className={`absolute size-10 rounded-full bg-[#d4843e]/20 border border-[#d4843e]/30
+                      transition-all duration-1000 hover:bg-[#d4843e] hover:scale-110
+                      animate-pulse shadow-[0_0_20px_rgba(212,132,62,0.2)]`}
                     style={{
                       animationDelay: `${randomValues[i]?.delay ?? 0}ms`,
-                      animationDuration: '2s',
-                      opacity: randomValues[i]?.opacity ?? 0.3
+                      animationDuration: '12s',
+                      opacity: randomValues[i]?.opacity ?? 0.3,
+                      transform: `translate(${randomValues[i]?.x}, ${randomValues[i]?.height})`,
+                      animation: `${float} 8s ease-in-out infinite`,
+                      transition: 'all 12s ease-in-out',
+                      left: randomValues[i]?.x,
+                      top: randomValues[i]?.height,
+                      filter: 'blur(1px)',
+                      willChange: 'transform'
                     }}
                   />
                 ))}
@@ -136,17 +140,17 @@ const Home: React.FC = () => {
             </div>
 
             {/* Hero Content overlaying the animation */}
-            <div className="absolute inset-0">
-              <div className="max-w-6xl mt-12 mx-auto text-center px-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <div className="absolute inset-x-0 top-0 z-10">
+              <div className="max-w-6xl mt-24 mx-auto text-center px-4">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-2">
                   Putting Braille in <span className="orange">Reach</span>
                 </h1>
-                <p className="text-xl text-gray-400 mt-6 max-w-2xl mx-auto">
+                <p className="text-xl text-gray-400 mt-2 max-w-2xl mx-auto">
                   An affordable braille display that converts text into tactile braille in real-time
                 </p>
               </div>
 
-              <div className="flex justify-center space-x-4 mt-12">
+              <div className="flex justify-center space-x-4 mt-3">
                 <a
                   href="/preorder"
                   className="button-primary"
@@ -162,14 +166,29 @@ const Home: React.FC = () => {
                 </button>
               </div>
             </div>
+
+            {/* Image container - adjusted positioning */}
+            <div className="relative z-10 max-w-3xl mx-auto px-4 mt-4">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/mainpic.png"
+                  alt="Brailliant Device"
+                  width={1200}
+                  height={675}
+                  className="w-full object-cover object-[center_75%]"
+                  priority
+                />
+              </div>
+            </div>
+            
           </div>
         </Section>
 
         {/* Video Section */}
         <Section id="project-video">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-6xl font-bold mb-6">
+            <div className="text-center mb-6">
+              <h2 className="text-4xl lg:text-6xl font-bold mb-2">
                 See <span className="orange">Brailliant</span> in Action
               </h2>
               <p className="text-xl text-gray-400/80 max-w-2xl mx-auto">
@@ -194,8 +213,8 @@ const Home: React.FC = () => {
         {/* Why Brailliant Matters Section */}
         <Section>
           <div className="max-w-6xl mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-6xl font-bold mb-6">
+            <div className="text-center mb-6">
+              <h2 className="text-4xl lg:text-6xl font-bold mb-2">
                 Making Braille Technology <span className="orange">Affordable</span>
               </h2>
               <p className="text-xl text-gray-400/80 max-w-2xl mx-auto">
@@ -207,7 +226,7 @@ const Home: React.FC = () => {
               <div className="max-w-5xl mx-auto px-4">
                 <div className="bg-stone-800/30 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-stone-800/50">
                   {/* Stats Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
                     {/* Market Size Stat */}
                     <div className="bg-stone-900/50 rounded-xl p-6 hover:scale-105 transition-all duration-300">
                       <div className="flex flex-col items-center">
@@ -280,8 +299,8 @@ const Home: React.FC = () => {
         {/* Process Section */}
         <Section>
           <div className="max-w-6xl mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-6xl font-bold mb-6">
+            <div className="text-center mb-6">
+              <h2 className="text-4xl lg:text-6xl font-bold mb-2">
                 Anyone. Anywhere. Anytime.
               </h2>
               <p className="text-xl text-gray-400/80 max-w-2xl mx-auto">
@@ -289,9 +308,9 @@ const Home: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Step 1 */}
-              <div className="bg-stone-800/30 backdrop-blur-sm p-10 rounded-xl transition-all duration-300 
+              <div className="bg-stone-800/30 backdrop-blur-sm p-8 rounded-xl transition-all duration-300 
                 hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
                 <div className="relative">
                   <span className="absolute -top-6 -left-6 text-4xl font-bold text-[#d4843e]/20">1</span>
@@ -306,7 +325,7 @@ const Home: React.FC = () => {
               </div>
 
               {/* Step 2 */}
-              <div className="bg-stone-800/30 backdrop-blur-sm p-10 rounded-xl transition-all duration-300 
+              <div className="bg-stone-800/30 backdrop-blur-sm p-8 rounded-xl transition-all duration-300 
                 hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
                 <div className="relative">
                   <span className="absolute -top-6 -left-6 text-4xl font-bold text-[#d4843e]/20">2</span>
@@ -321,7 +340,7 @@ const Home: React.FC = () => {
               </div>
 
               {/* Step 3 */}
-              <div className="bg-stone-800/30 backdrop-blur-sm p-10 rounded-xl transition-all duration-300 
+              <div className="bg-stone-800/30 backdrop-blur-sm p-8 rounded-xl transition-all duration-300 
                 hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
                 <div className="relative">
                   <span className="absolute -top-6 -left-6 text-4xl font-bold text-[#d4843e]/20">3</span>
@@ -341,8 +360,8 @@ const Home: React.FC = () => {
         {/* Technical Specs Section */}
         <Section>
           <div className="max-w-6xl mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-6xl font-bold mb-6">
+            <div className="text-center mb-6">
+              <h2 className="text-4xl lg:text-6xl font-bold mb-2">
                 Under the Hood
               </h2>
               <p className="text-xl text-gray-400/80 max-w-2xl mx-auto">
@@ -350,8 +369,8 @@ const Home: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-stone-800/30 backdrop-blur-sm p-10 rounded-xl transition-all duration-300 
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-stone-800/30 backdrop-blur-sm p-8 rounded-xl transition-all duration-300 
                 hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
                 <div className="flex items-center justify-center mb-8">
                   <FaCogs className="text-[#d4843e] text-5xl" />
@@ -377,7 +396,7 @@ const Home: React.FC = () => {
                 </ul>
               </div>
 
-              <div className="bg-stone-800/30 backdrop-blur-sm p-10 rounded-xl transition-all duration-300 
+              <div className="bg-stone-800/30 backdrop-blur-sm p-8 rounded-xl transition-all duration-300 
                 hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
                 <div className="flex items-center justify-center mb-8">
                   <FaMicrochip className="text-[#d4843e] text-5xl" />
