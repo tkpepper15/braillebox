@@ -75,23 +75,33 @@ const Section: React.FC<SectionProps> = ({ children, id }) => (
   </section>
 );
 
-// Update the generateRandomValues function for more random distribution
+// Update the generateRandomValues function for sparser distribution
 const generateRandomValues = (count: number): RandomValue[] => {
   const values = [];
   
   for (let i = 0; i < count; i++) {
-    // Create more random positioning
-    const angle = Math.random() * Math.PI * 2; // Completely random angle
-    const radius = Math.random() * 100; // Wider radius range (0-100)
+    // Create more sparse positioning
+    const angle = Math.random() * Math.PI * 2;
+    const radius = 30 + Math.random() * 120; // Increased radius range for more spread
     
     values.push({
-      delay: Math.floor(Math.random() * 8000), // Shorter delay for more active animation
-      opacity: Math.max(0.1, Math.random() * 0.5), // Lower opacity range
-      height: `${Math.random() * 200 - 50}%`, // From -50% to 150% for more vertical spread
-      x: `${Math.random() * 200 - 50}%` // From -50% to 150% for more horizontal spread
+      delay: Math.floor(Math.random() * 8000),
+      opacity: Math.max(0.1, Math.random() * 0.4), // Slightly lower opacity
+      height: `${Math.random() * 140 - 20}%`, // From -20% to 120% for better vertical distribution
+      x: `${Math.random() * 140 - 20}%` // From -20% to 120% for better horizontal distribution
     });
   }
-  return values;
+  
+  // Filter out dots that are too close to each other
+  return values.filter((value, index) => {
+    for (let j = 0; j < index; j++) {
+      const dx = parseFloat(value.x) - parseFloat(values[j].x);
+      const dy = parseFloat(value.height) - parseFloat(values[j].height);
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      if (distance < 30) return false; // Skip if too close to another dot
+    }
+    return true;
+  });
 };
 
 // Main Component
@@ -112,7 +122,7 @@ const Home: React.FC = () => {
         <Section>
           <div className="relative">
             {/* Animated Braille Display */}
-            <div className="relative min-h-[20vh] pointer-events-none">
+            <div className="relative min-h-[20vh] pointer-events-none overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-stone-950/50 to-stone-950" />
               <div className="absolute inset-0 backdrop-blur-[2px] bg-stone-950/10" />
               <div className="relative h-full max-w-7xl mx-auto px-8 pt-16">
@@ -129,8 +139,8 @@ const Home: React.FC = () => {
                       transform: `translate(${randomValues[i]?.x}, ${randomValues[i]?.height})`,
                       animation: `${float} 8s ease-in-out infinite`,
                       transition: 'all 12s ease-in-out',
-                      left: randomValues[i]?.x,
-                      top: randomValues[i]?.height,
+                      left: `clamp(0%, ${randomValues[i]?.x}, 100%)`,
+                      top: `clamp(0%, ${randomValues[i]?.height}, 100%)`,
                       filter: 'blur(1px)',
                       willChange: 'transform'
                     }}
