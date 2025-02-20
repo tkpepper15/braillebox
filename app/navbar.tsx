@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import React, { useState } from "react";
+import { FaBook, FaEnvelope } from 'react-icons/fa';
 
 
 const Navbar: React.FC = () => {
@@ -29,12 +30,22 @@ const Navbar: React.FC = () => {
 
       {/* Desktop Navigation */}
       <nav className="desktop-nav">
-        <a href="/docs" className="nav-link">
-          Docs
-        </a>
-        <a href="/contact" className="nav-link">
-          Contact
-        </a>
+        <div className="hidden md:flex space-x-8">
+          <a 
+            href="/docs" 
+            className="text-gray-400 hover:text-[#d4843e] transition-colors flex items-center gap-2"
+          >
+            <FaBook className="size-4" />
+            Docs
+          </a>
+          <a 
+            href="/contact" 
+            className="text-gray-400 hover:text-[#d4843e] transition-colors flex items-center gap-2"
+          >
+            <FaEnvelope className="size-4" />
+            Contact
+          </a>
+        </div>
         <a href="/preorder" className="preorder-link">Preorder</a>
       </nav>
 

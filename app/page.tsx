@@ -221,10 +221,18 @@ const Home: React.FC = () => {
                 
                 {/* Cost Comparison Card */}
                 <div className="bg-stone-800/30 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-stone-800/50">
-                  <p className="text-gray-300 text-lg leading-relaxed mb-12">
-                    The American Foundation for the Blind found that existing Braille displays range from
-                    $3,500 to $15,000, making them inaccessible to many who need them.
-                  </p>
+                  <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
+                    <div className="flex-1">
+                      <div className="bg-[#d4843e]/10 rounded-xl p-6 border border-[#d4843e]/20">
+                        <h3 className="text-[#d4843e] text-xl font-semibold mb-4">American Foundation for the Blind</h3>
+                        <p className="text-gray-300 text-lg leading-relaxed">
+                          Research shows that existing Braille displays range from
+                          <span className="text-[#d4843e] font-semibold"> $3,500 to $15,000</span>,
+                          making them inaccessible to many who need them.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                   
                   {/* Price Comparison */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -246,7 +254,7 @@ const Home: React.FC = () => {
                         <div className="flex items-baseline gap-1">
                           <span className="text-[#d4843e] text-4xl font-bold">$300</span>
                         </div>
-                        <span className="text-gray-500 mt-2"> Proposed Price</span>
+                        <span className="text-gray-500 mt-2">Proposed Price</span>
                       </div>
                     </div>
                   </div>
@@ -392,15 +400,6 @@ const Home: React.FC = () => {
                   </li>
                 </ul>
               </div>
-            </div>
-
-            <div className="flex justify-center mt-6">
-              <a 
-                href="/docs"
-                className="flex items-center space-x-3 px-8 py-4 button-primary"
-              >
-                <span className="tracking-wide">Complete Walk-Through</span>
-              </a>
             </div>
           </div>
         </Section>
