@@ -79,7 +79,7 @@ const BouncingArrow = styled(FaArrowDown)`
 
 // Section Component
 const Section: React.FC<SectionProps> = ({ children, id }) => (
-  <section id={id} className="py-24 bg-stone-950">
+  <section id={id} className="py-20 first:pt-16 last:pb-32 bg-stone-950">
     {children}
   </section>
 );
@@ -169,10 +169,10 @@ const Home: React.FC = () => {
         <Section id="project-video">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <h2 className="text-4xl lg:text-6xl font-bold mb-6">
                 See <span className="orange">Brailliant</span> in Action
               </h2>
-              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-400/80 max-w-2xl mx-auto">
                 Watch our complete project pitch and demonstration
               </p>
             </div>
@@ -193,12 +193,12 @@ const Home: React.FC = () => {
 
         {/* Why Brailliant Matters Section */}
         <Section>
-          <div className="max-w-6xl mx-auto px-4 staggered-element">
+          <div className="max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <h2 className="text-4xl lg:text-6xl font-bold mb-6">
                 Making Braille Technology <span className="orange">Affordable</span>
               </h2>
-              <p className="text-xl text-gray-400">
+              <p className="text-xl text-gray-400/80 max-w-2xl mx-auto">
                 Transforming the market with accessible pricing
               </p>
             </div>
@@ -239,8 +239,15 @@ const Home: React.FC = () => {
                           <span className="text-gray-400 text-sm mt-1">Current Market Range</span>
                         </div>
 
-                        {/* Divider */}
-                        <div className="h-px w-24 bg-stone-800 mb-6" />
+                        {/* Squiggly Divider */}
+                        <svg className="w-24 h-6 mb-6" viewBox="0 0 100 24">
+                          <path
+                            d="M 0,12 Q 12.5,24 25,12 T 50,12 T 75,12 T 100,12"
+                            className="stroke-white/30"
+                            fill="none"
+                            strokeWidth="2"
+                          />
+                        </svg>
 
                         {/* Bottom Grid */}
                         <div className="grid grid-cols-2 gap-4 w-full">
@@ -272,12 +279,12 @@ const Home: React.FC = () => {
 
         {/* Process Section */}
         <Section>
-          <div className="max-w-6xl mx-auto px-4 staggered-element">
+          <div className="max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <h2 className="text-4xl lg:text-6xl font-bold mb-6">
                 Anyone. Anywhere. Anytime.
               </h2>
-              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-400/80 max-w-2xl mx-auto">
                 An intuitive process of converting text to tactile braille output
               </p>
             </div>
@@ -333,12 +340,12 @@ const Home: React.FC = () => {
 
         {/* Technical Specs Section */}
         <Section>
-          <div className="max-w-6xl mx-auto px-4 staggered-element">
+          <div className="max-w-6xl mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <h2 className="text-4xl lg:text-6xl font-bold mb-6">
                 Under the Hood
               </h2>
-              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-400/80 max-w-2xl mx-auto">
                 Cutting-edge technology in a compact, efficient package
               </p>
             </div>

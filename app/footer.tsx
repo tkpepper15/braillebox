@@ -32,7 +32,7 @@ const Footer = () => {
               backdrop-blur-sm border border-stone-800/50 rounded-full transition-all duration-300
               text-gray-400 hover:text-[#d4843e] mb-12"
           >
-            <span className="text-sm">Read about us @NCSSM News</span>
+            <span className="text-sm">Read about us in NCSSM News</span>
             <div className="size-2 rounded-full bg-[#d4843e] animate-pulse" />
           </a>
         </div>
