@@ -165,7 +165,7 @@ const Home: React.FC = () => {
                           <FaGraduationCap className="size-20" />
                         </div>
                         <h3 className="text-[#d4843e] text-5xl font-bold mb-1">130K</h3>
-                        <p className="text-gray-400">New Braille learners per year in America</p>
+                        <p className="text-gray-400">Americans are learning braille each year</p>
                       </div>
                     </div>
 
