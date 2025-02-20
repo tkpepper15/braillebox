@@ -79,7 +79,7 @@ const BouncingArrow = styled(FaArrowDown)`
 
 // Section Component
 const Section: React.FC<SectionProps> = ({ children, id }) => (
-  <section id={id} className="pt-16 bg-stone-950">
+  <section id={id} className="py-24 bg-stone-950">
     {children}
   </section>
 );
@@ -168,7 +168,7 @@ const Home: React.FC = () => {
         {/* Video Section */}
         <Section id="project-video">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-bold mb-6">
                 See <span className="orange">Brailliant</span> in Action
               </h2>
@@ -194,7 +194,7 @@ const Home: React.FC = () => {
         {/* Why Brailliant Matters Section */}
         <Section>
           <div className="max-w-6xl mx-auto px-4 staggered-element">
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-bold mb-6">
                 Making Braille Technology <span className="orange">Affordable</span>
               </h2>
@@ -203,7 +203,7 @@ const Home: React.FC = () => {
               </p>
             </div>
 
-            <div className="mb-16 text-center">
+            <div className="text-center">
               <div className="max-w-5xl mx-auto px-4">
                 <div className="bg-stone-800/30 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-stone-800/50">
                   {/* Stats Grid */}
@@ -273,7 +273,7 @@ const Home: React.FC = () => {
         {/* Process Section */}
         <Section>
           <div className="max-w-6xl mx-auto px-4 staggered-element">
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-bold mb-6">
                 Anyone. Anywhere. Anytime.
               </h2>
@@ -334,7 +334,7 @@ const Home: React.FC = () => {
         {/* Technical Specs Section */}
         <Section>
           <div className="max-w-6xl mx-auto px-4 staggered-element">
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-bold mb-6">
                 Under the Hood
               </h2>
