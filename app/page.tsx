@@ -48,6 +48,26 @@ const bounce = keyframes`
   40% { transform: translateY(-20px); }
 `;
 
+const pulseAnimation = keyframes`
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+`;
+
+const glowAnimation = keyframes`
+  0%, 100% {
+    filter: drop-shadow(0 0 2px #d4843e);
+  }
+  50% {
+    filter: drop-shadow(0 0 8px #d4843e);
+  }
+`;
+
 // Styled Components
 const HeroContent = styled.div`
   animation: ${fadeIn} 1s ease-out forwards;
@@ -183,81 +203,68 @@ const Home: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-              {/* Market Size Card */}
-              <div className="bg-stone-800/30 backdrop-blur-sm p-10 rounded-xl transition-all duration-300 
-                hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
-                <div className="flex items-center justify-between">
-                  <div className="space-y-4">
-                    <h3 className="text-[#d4843e] text-6xl font-bold">7M+</h3>
-                    <p className="text-white text-2xl font-semibold">Americans</p>
-                    <p className="text-gray-400 text-lg">are living with low vision or blindness</p>
-                  </div>
-                  <div className="text-[#d4843e] opacity-20">
-                    <FaUsers className="size-24" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Growth Card */}
-              <div className="bg-stone-800/30 backdrop-blur-sm p-10 rounded-xl transition-all duration-300 
-                hover:scale-105 hover:bg-stone-800/50 shadow-xl border border-stone-800/50">
-                <div className="flex items-center justify-between">
-                  <div className="space-y-4">
-                    <h3 className="text-[#d4843e] text-6xl font-bold">130K</h3>
-                    <p className="text-white text-2xl font-semibold">New Learners</p>
-                    <p className="text-gray-400 text-lg">are learning Braille annually in America</p>
-                  </div>
-                  <div className="text-[#d4843e] opacity-20">
-                    <FaGraduationCap className="size-24" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Value Proposition */}
-            <div className="mt-16 text-center">
-              <div className="max-w-4xl mx-auto px-4">
-                
-                {/* Cost Comparison Card */}
+            <div className="mb-16 text-center">
+              <div className="max-w-5xl mx-auto px-4">
                 <div className="bg-stone-800/30 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-stone-800/50">
-                  {/* Price Comparison */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Stats Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
+                    {/* Market Size Stat */}
                     <div className="bg-stone-900/50 rounded-xl p-6 hover:scale-105 transition-all duration-300">
                       <div className="flex flex-col items-center">
-                        <span className="text-gray-400 text-sm uppercase tracking-wider mb-2">Current Solutions</span>
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-red-500 text-4xl font-bold">$3.5K</span>
-                          <span className="text-red-500 text-4xl font-bold">-</span>
-                          <span className="text-red-500 text-4xl font-bold">$15K</span>
+                        <div className="text-[#d4843e] opacity-20 mb-3">
+                          <FaUsers className="size-20" />
                         </div>
-                        <span className="text-gray-500 mt-2">Market Range</span>
-                        <div className="mt-4 bg-stone-800/50 border border-stone-700/50 rounded-full px-4 py-1.5">
-                          <span className="text-gray-400 text-sm font-medium">
-                            Source: <span className="font-semibold">American Foundation for the Blind</span>
-                          </span>
-                        </div>
+                        <h3 className="text-[#d4843e] text-5xl font-bold mb-1">7M+</h3>
+                        <p className="text-gray-400">Americans with vision impairment</p>
                       </div>
                     </div>
 
+                    {/* New Learners Stat */}
                     <div className="bg-stone-900/50 rounded-xl p-6 hover:scale-105 transition-all duration-300">
                       <div className="flex flex-col items-center">
-                        <span className="text-gray-400 text-sm uppercase tracking-wider mb-2">Brailliant</span>
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-[#d4843e] text-4xl font-bold">$300</span>
+                        <div className="text-[#d4843e] opacity-20 mb-3">
+                          <FaGraduationCap className="size-20" />
                         </div>
-                        <span className="text-gray-500 mt-2">Proposed Price</span>
-                        <div className="mt-4 bg-[#d4843e]/10 border border-[#d4843e]/20 rounded-full px-4 py-1.5">
-                          <span className="text-[#d4843e] text-sm font-medium">
-                            Build Cost: <span className="font-semibold">$77</span>
-                          </span>
+                        <h3 className="text-[#d4843e] text-5xl font-bold mb-1">130K</h3>
+                        <p className="text-gray-400">New Braille learners per year in America</p>
+                      </div>
+                    </div>
+
+                    {/* Price Comparison */}
+                    <div className="bg-stone-900/50 rounded-xl p-6 hover:scale-105 transition-all duration-300">
+                      <div className="flex flex-col items-center h-full">
+                        {/* Current Market Range */}
+                        <div className="flex flex-col items-center mb-6">
+                          <span className="text-red-500 text-4xl font-bold">$3.5K - $15K</span>
+                          <span className="text-gray-400 text-sm mt-1">Current Market Range</span>
+                        </div>
+
+                        {/* Divider */}
+                        <div className="h-px w-24 bg-stone-800 mb-6" />
+
+                        {/* Bottom Grid */}
+                        <div className="grid grid-cols-2 gap-4 w-full">
+                          {/* Proposed Cost */}
+                          <div className="flex flex-col items-center">
+                            <span className="text-[#d4843e] text-3xl font-bold">$300</span>
+                            <span className="text-gray-400 text-sm mt-1">Proposed Cost</span>
+                          </div>
+
+                          {/* Build Cost */}
+                          <div className="flex flex-col items-center">
+                            <span className="text-[#d4843e]/40 text-3xl font-bold">$77</span>
+                            <span className="text-gray-400 text-sm mt-1">Build Cost</span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                
+                  {/* Source Citation */}
+                  <div className="text-center text-gray-400 text-sm">
+                    Source: American Foundation for the Blind, 2023
+                  </div>
+                </div>
               </div>
             </div>
           </div>
