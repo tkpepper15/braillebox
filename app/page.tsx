@@ -62,7 +62,7 @@ const Home: React.FC = () => {
           <div className="relative min-h-[20vh]">
             {/* Hero Content overlaying everything */}
             <div className="relative z-20">
-              <div className="max-w-6xl mx-auto text-center px-4 pt-6">
+              <div className="max-w-6xl mx-auto text-center px-4 pt-2 md:pt-4">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-none">
                   Putting Braille in <span className="orange">Reach</span>
                 </h1>
@@ -73,7 +73,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* Image container with overlaid buttons */}
-            <div className="relative z-10 max-w-3xl mx-auto px-4 -mt-8">
+            <div className="relative z-10 max-w-3xl mx-auto px-4 -mt-12 md:-mt-20">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/mainpic.png"
@@ -119,7 +119,7 @@ const Home: React.FC = () => {
             <div className="max-w-4xl mx-auto">
               <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-xl shadow-xl">
                 <iframe
-                  src="https://www.youtube.com/embed/St28xhM159o"
+                  src="https://www.youtube.com/embed/fjKnIf-zx3Y"
                   title="Brailliant Project Walkthrough"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
