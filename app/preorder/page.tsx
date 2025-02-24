@@ -96,10 +96,10 @@ const PreorderPage: FC = () => {
   return (
     <div className="min-h-screen bg-stone-950 text-gray-200">
       <Navbar />
-      <div className="container mx-auto mt-12 px-4 py-16 max-w-2xl">
-        <div className="space-y-8">
-          <div className="text-center space-y-4">
-            <h1 className="text-5xl font-bold text-white">Preorder Brailliant</h1>
+      <div className="container mx-auto px-4 py-24 max-w-2xl">
+        <div className="space-y-12">
+          <div className="text-center space-y-6">
+            <h1 className="text-5xl font-bold text-white mb-4">Preorder Brailliant</h1>
             <p className="text-xl text-gray-400">
               A text to braille display built with affordability in mind.
             </p>

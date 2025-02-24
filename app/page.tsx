@@ -58,21 +58,21 @@ const Home: React.FC = () => {
       <main className="relative flex flex-col justify-center pt-16">
         {/* Hero Section */}
         <Section>
-          <div className="relative min-h-[20vh]">
+          <div className="relative min-h-[30vh]">
             {/* Hero Content overlaying everything */}
             <div className="relative z-20">
-              <div className="max-w-6xl mx-auto text-center px-4 pt-2 md:pt-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-none">
+              <div className="max-w-6xl mx-auto text-center px-4 pt-4 md:pt-8">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-3">
                   Putting Braille in <span className="orange">Reach</span>
                 </h1>
-                <p className="text-xl text-gray-400 my-1 max-w-2xl mx-auto">
+                <p className="text-xl text-gray-400 mb-4 max-w-2xl mx-auto">
                   Making it affordable to convert text to tactile braille in real-time
                 </p>
               </div>
             </div>
 
             {/* Image container with overlaid buttons */}
-            <div className="relative z-10 max-w-3xl mx-auto px-4 -mt-4 md:-mt-20">
+            <div className="relative z-10 max-w-3xl mx-auto px-4 -mt-2 md:-mt-8">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/mainpic.png"
@@ -83,7 +83,7 @@ const Home: React.FC = () => {
                   priority
                 />
                 {/* Buttons overlaid on image */}
-                <div className="absolute top-[20%] md:top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center space-x-4 w-full px-4">
+                <div className="absolute top-[10%] md:top-[15%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center space-x-4 w-full px-4">
                   <a
                     href="/preorder"
                     className="button-primary"
