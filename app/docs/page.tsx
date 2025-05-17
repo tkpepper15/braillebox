@@ -74,16 +74,7 @@ const DocsPage: FC<DocsPageProps> = () => {
               </p>
 
               <p className="text-lg leading-relaxed">
-                However, after consulting with <strong>Stuart Christhilf</strong>, who&apos;d thought of a
-                similar mechanism for his initial final project, we changed direction. He&apos;d originally planned to
-                create a dynamic clock to display the time using blocks of wood that could
-                be pushed out or pulled back via servos. However, when building his project,
-                he realized that fitting so many servos into such a small space was
-                completely unfeasible and warned us against doing the same.
-              </p>
-
-              <p className="text-lg leading-relaxed">
-                We then decided to use electromagnets for our pins, instead of servos.
+                After some initial difficulty with experimentation, we decided to use electromagnets for our pins, instead of servos.
                 The pins themselves would be a small magnetic rod sitting on top of an
                 electromagnet. The small electromagnet could be powered on and off via a
                 microcontroller...
