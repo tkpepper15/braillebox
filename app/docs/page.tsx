@@ -667,32 +667,6 @@ BrailleMap braille_dictionary[] = {
                 </div>
               </div>
             </section>
-
-            {/* Final Product section */}
-            <section className="space-y-6">
-              <div className="bg-red-900/30 border border-red-500 rounded-lg p-6 my-6">
-                <p className="font-bold">
-                  WARNING: The project video and slide (poster) are out of date and provide
-                  incorrect information about licensing. The current EULA is{" "}
-                  <a href="../license.txt" className="text-blue-400 hover:text-blue-300">
-                    here
-                  </a>. By installing, accessing, or using the Product, you acknowledge 
-                  that you have read this Agreement, understand it, and agree to be bound 
-                  by its terms and conditions.
-                </p>
-              </div>
-            </section>
-
-            {/* File Downloads section */}
-            <section className="space-y-6">
-              <h2 className="text-4xl font-bold orange">File Downloads</h2>
-              <p className="text-lg leading-relaxed">
-                Files can be downloaded{" "}
-                <a href="../../files/final/final.zip" className="text-blue-400 hover:text-blue-300">
-                  <strong>here</strong>
-                </a>.
-              </p>
-            </section>
           </div>
         </div>
       </div>
